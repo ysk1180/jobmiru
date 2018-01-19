@@ -1,0 +1,119 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Industry:</strong>
+  <%= @post.industry %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @post.company_name %>
+</p>
+
+<p>
+  <strong>Division name:</strong>
+  <%= @post.division_name %>
+</p>
+
+<p>
+  <strong>Experience year:</strong>
+  <%= @post.experience_year %>
+</p>
+
+<p>
+  <strong>Job title:</strong>
+  <%= @post.job_title %>
+</p>
+
+<p>
+  <strong>Job category:</strong>
+  <%= @post.job_category %>
+</p>
+
+<p>
+  <strong>Income:</strong>
+  <%= @post.income %>
+</p>
+
+<p>
+  <strong>Job content:</strong>
+  <%= @post.job_content %>
+</p>
+
+<p>
+  <strong>Obtained skill:</strong>
+  <%= @post.obtained_skill %>
+</p>
+
+<p>
+  <strong>Reward:</strong>
+  <%= @post.reward %>
+</p>
+
+<p>
+  <strong>Challenge:</strong>
+  <%= @post.challenge %>
+</p>
+
+<p>
+  <strong>Join reason:</strong>
+  <%= @post.join_reason %>
+</p>
+
+<p>
+  <strong>Leave reason:</strong>
+  <%= @post.leave_reason %>
+</p>
+
+<!-- いいね追加・削除 -->
+<% unless @post.user_id == current_user.id %>
+  <% if @like_to_post.present? %>
+    <%= link_to 'いいね解除', like_to_post_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'いいね！', like_to_posts_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<!-- いいね数表示 -->
+<p>
+  <strong>いいね数:</strong>
+  <%= @like_to_posts_count %>
+</p>
+
+<!-- 働きたい追加・削除 -->
+<% unless @post.user_id == current_user.id %>
+  <% if @want_to_work.present? %>
+    <%= link_to '働いてみたい解除', want_to_work_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to '働いてみたい！', want_to_works_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<!-- 働きたい数表示 -->
+<p>
+  <strong>働いてみたい数:</strong>
+  <%= @want_to_works_count %>
+</p>
+
+<!-- コメントの表示 -->
+<div>
+  <% @comment_to_posts.each do |comment| %>
+    <div>
+      <strong><%= comment.user.name %></strong>
+      <br />
+      <p><%= comment.comment_to_post_content %></p>
+      <% if user_signed_in? && comment.user == current_user %>
+        <p><%= link_to 'Delete', comment_to_post_path(comment), method: :delete %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= render 'comment_to_posts/form' %>
+  <% end %>
+</div>
+
+<% if @post.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_post_path(@post) %>
+   |
+<% end %>
+<%= link_to 'Back', posts_path %>

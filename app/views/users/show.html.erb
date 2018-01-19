@@ -1,0 +1,6 @@
+<h1>マイページ（<%= @user.name %>さん）</h1>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.user_image_url if @user.user_image.present? %>
+</p>

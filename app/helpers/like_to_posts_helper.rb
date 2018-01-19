@@ -1,0 +1,2 @@
+module LikeToPostsHelper
+end

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comment To Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment to post content</th>
+      <th>Post</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comment_to_posts.each do |comment_to_post| %>
+      <tr>
+        <td><%= comment_to_post.comment_to_post_content %></td>
+        <td><%= comment_to_post.post_id %></td>
+        <td><%= comment_to_post.user_id %></td>
+        <td><%= link_to 'Show', comment_to_post %></td>
+        <td><%= link_to 'Edit', edit_comment_to_post_path(comment_to_post) %></td>
+        <td><%= link_to 'Destroy', comment_to_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comment To Post', new_comment_to_post_path %>
