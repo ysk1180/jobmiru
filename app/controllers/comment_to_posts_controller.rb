@@ -25,18 +25,20 @@ class CommentToPostsController < ApplicationController
   # POST /comment_to_posts.json
   def create
     @comment_to_post = CommentToPost.new(comment_to_post_params)
-
-    respond_to do |format|
-      if @comment_to_post.save
+    if @comment_to_post.save
         # コメント後のリダイレクト設定
-        # redirect_to("/posts/#{params[:post_id]}")
-        format.html { redirect_to("/posts/#{params[:post_id]}")}
+        # ↓のURLを直接指定するリダイレクトでも、idを指定できているため、リダイレクト可能であるが、
+        # パスが変わってしまった時（例えばもう一層できた時）修正する必要が出てしまう。
+        # redirect_to("/posts/#{params.require(:comment_to_post).permit(:post_id)[:post_id]}")
+
+        # 上記より、redirect_to (prefixを記載)(インスタンス)でも同じ効果があり、こちらの方が良い場合が多い
+        post = Post.find(params.require(:comment_to_post).permit(:post_id)[:post_id])
+        redirect_to post_path(post)
         # format.json { render :show, status: :created, location: @comment_to_post }
       else
-        format.html { render :new }
-        format.json { render json: @comment_to_post.errors, status: :unprocessable_entity }
+
       end
-    end
+
   end
 
   # PATCH/PUT /comment_to_posts/1
@@ -57,10 +59,10 @@ class CommentToPostsController < ApplicationController
   # DELETE /comment_to_posts/1.json
   def destroy
     @comment_to_post.destroy
-    respond_to do |format|
-      format.html { redirect_to("/posts/#{params[:post_id]}") }
-      format.json { head :no_content }
-    end
+    # createのところを参照/インスタンス作成の方法だとうまく取れなかったから直接指定
+    redirect_to("/posts/#{@comment_to_post.user_id}")
+    #   format.json { head :no_content }
+    # end
   end
 
   private

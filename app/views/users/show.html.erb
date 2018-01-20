@@ -4,3 +4,5 @@
   <strong>Image:</strong>
   <%= image_tag @user.user_image_url if @user.user_image.present? %>
 </p>
+
+<%= link_to 'Edit', edit_user_registration_path(@user) %>

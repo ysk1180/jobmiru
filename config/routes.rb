@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'introduction/index'
+
   resources :contacts
   resources :comment_to_posts
   get 'users/show'

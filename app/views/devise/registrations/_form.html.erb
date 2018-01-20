@@ -1,0 +1,55 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.select :sex,[["男性","男性"],["女性","女性"]] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :past_career %><br />
+    <%= f.text_field :past_career %>
+  </div>
+
+  <div class="field">
+    <%= f.label :career_plan %><br />
+    <%= f.text_field :career_plan %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_image %><br />
+    <%= f.file_field :user_image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
