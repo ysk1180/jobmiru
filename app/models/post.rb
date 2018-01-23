@@ -10,4 +10,8 @@ class Post < ApplicationRecord
   # 投稿へのコメント機能のためのアソシエーション
   belongs_to :user
   has_many :comment_to_posts
+
+  # 投稿のバリデーション設定
+  validates :job_content, presence: true
+  validates :obtained_skill, presence: true
 end

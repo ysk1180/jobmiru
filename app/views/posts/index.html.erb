@@ -1,40 +1,87 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Industry</th>
-      <th>Company name</th>
-      <th>Division name</th>
-      <th>Experience year</th>
-      <th>Job title</th>
-      <th>Job category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.industry %></td>
-        <td><%= post.company_name %></td>
-        <td><%= post.division_name %></td>
-        <td><%= post.experience_year %></td>
-        <td><%= post.job_title %></td>
-        <td><%= post.job_category %></td>
-        <td><%= link_to 'Show', post %></td>
-        <% unless current_user == nil %>
-          <% if current_user.id == post.user_id %>
-            <td><%= link_to 'Edit', edit_post_path(post) %></td>
-            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
-      </tr>
+<!-- 検索機能 -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">検索</div>
+  </div>
+  <div class="panel-body">
+    <%= search_form_for(@q, method: :get) do |f| %>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :company_name_eq, '会社名' %>
+            <%= f.text_field :company_name_cont, class: "form-control", placeholder: "部分一致" %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :industry_eq, '業種' %>
+            <%= f.select :industry_eq, [["メーカー・建設","メーカー・建設"],["商社","商社"],["流通・小売","流通・小売"],["金融","金融"],["サービス・インフラ・コンサル","サービス・インフラ・コンサル"],["IT","IT"],["広告・出版","広告・出版"],["官公庁","官公庁"]], :include_blank => true %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= f.label :job_category_eq, '職種' %>
+            <%= f.select :job_category_eq, [["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], :include_blank => true %>
+          </div>
+        </div>
+      </div>
+      <%= f.submit '検索', class: "btn btn-primary" %>
+      <%= link_to 'クリア', url_for, class: "btn btn-default" %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+<!-- 検索機能ここまで -->
+
+<!-- ページング機能 -->
+<div class="row">
+  <div class="col-sm-12">
+    <%= paginate @posts %>
+  </div>
+</div>
+<!-- ページング機能ここまで -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">投稿一覧</div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Industry</th>
+          <th>Company name</th>
+          <th>Division name</th>
+          <th>Experience year</th>
+          <th>Job title</th>
+          <th>Job category</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.industry %></td>
+            <td><%= post.company_name %></td>
+            <td><%= post.division_name %></td>
+            <td><%= post.experience_year %></td>
+            <td><%= post.job_title %></td>
+            <td><%= post.job_category %></td>
+            <td><%= link_to 'Show', post %></td>
+            <% unless current_user == nil %>
+              <% if current_user.id == post.user_id %>
+                <td><%= link_to 'Edit', edit_post_path(post) %></td>
+                <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 

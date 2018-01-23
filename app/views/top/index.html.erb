@@ -1,2 +1,80 @@
-<h1>「何ができるようになるか」で会社を選べる世界に</h1>
-<p>Hello Ruby!</p>
+
+<!-- Header -->
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Welcome To Jobmiru!</div>
+      <div class="intro-heading text-uppercase">「何ができるようになるか」で会社を選べる世界に</div>
+      <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Jobmiruとは</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- Jobmiruとは -->
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Jobmiruとは</h2>
+        <h3 class="section-subheading text-muted">「何のスキルが身につくのか」「具体的に何をするのか」に特化した、実際に働いた社員の声の共有サイトです。</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">設立経緯</h4>
+        <p class="text-muted">自らの新卒就職活動時・転職活動時に会社の事業内容は分かるけれども、「自分がそこで何をやるのか・何が出来るようになるのか」について分からなかった。また、日本の伝統的な総合職採用モデルへの疑問。</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">ミッション</h4>
+        <p class="text-muted">「できるようになること」「具体的に何をするのか」にフォーカスした就業・採用を根付かせ、すべきことに集中することで生産性を向上させ、日本経済の底上げ、働き方改革の後押しをすること</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">出来ること</h4>
+        <p class="text-muted">「できるようになること」「具体的に何をするのか」について、実際に働いたことのある方に投稿いただき、内容について共有・ディスカッション出来る場です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 投稿を見る：cssの恩恵を受けるために、portfolio idを当てている -->
+<section class="bg-light" id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">投稿を見る</h2>
+        <h3 class="section-subheading text-muted">投稿を見るのは会員登録不要です。いいね！・コメントを行うためには会員登録（無料・1分程度）が必要です。</h3>
+        <a class="btn btn-primary btn-xl" href="/posts">投稿一覧へ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 投稿する：cssの恩恵を受けるために、about idを当てている -->
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">投稿する</h2>
+        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアし、また、自分のスキルを客観視してみましょう。</h3>
+        <h3 class="section-subheading text-muted">投稿するためには会員登録（無料・1分程度）が必要です。</h3>
+        <% unless user_signed_in? %>
+        <a class="btn btn-primary btn-xl" href="/users/sign_up">会員登録</a>
+        <% end %>
+        <a class="btn btn-primary btn-xl" href="/posts/new">投稿する</a>
+      </div>
+    </div>
+  </div>
+</section>

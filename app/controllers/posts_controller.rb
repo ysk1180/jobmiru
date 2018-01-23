@@ -2,12 +2,19 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # ログインしていないユーザはログイン画面に強制リダイレクトする
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    # @posts = Post.all.order('created_at desc')
+
+    # ransack gemを用いた検索機能追加
+    @q = Post.ransack(params[:q])
+    # @posts = @q.result.order('created_at desc')
+
+    # ページング機能追加：末尾の数字が1ページの表示数
+    @posts = @q.result.order('created_at desc').page(params[:page]).per(2)
   end
 
   # GET /posts/1
@@ -22,7 +29,7 @@ class PostsController < ApplicationController
     # 働きたい機能のために@like_to_postに値を入れる
     @want_to_work = current_user.want_to_works.find_by(post_id: @post.id) if user_signed_in?
     # 働きたい数表示
-    @post = Post.find_by(id: params[:id])
+    # @post = Post.find_by(id: params[:id])
     @want_to_works_count = WantToWork.where(post_id: @post.id).count
 
     # 投稿へのコメント機能
@@ -89,6 +96,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.permit(:id, :industry, :company_name, :division_name, :experience_year, :job_title, :job_category, :income, :job_content, :obtained_skill, :reward, :challenge, :join_reason, :leave_reason, :user_id)
+      params.require(:post).permit(:id, :industry, :company_name, :division_name, :experience_year, :job_title, :job_category, :income, :job_content, :obtained_skill, :reward, :challenge, :join_reason, :leave_reason, :user_id)
     end
 end
