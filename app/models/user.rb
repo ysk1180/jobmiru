@@ -14,8 +14,8 @@ class User < ApplicationRecord
   has_many :want_to_works, dependent: :destroy
 
   # 投稿へのコメント機能のためのアソシエーション
-  has_many :posts
-  has_many :comment_to_posts
+  has_many :posts, dependent: :destroy
+  has_many :comment_to_posts, dependent: :destroy
 
   # 画像アップロード設定
   mount_uploader :user_image, UserImageUploader

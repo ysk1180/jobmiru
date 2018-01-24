@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   # 投稿へのコメント機能のためのアソシエーション
   belongs_to :user
-  has_many :comment_to_posts
+  has_many :comment_to_posts, dependent: :destroy
 
   # 投稿のバリデーション設定
   validates :job_content, presence: true
