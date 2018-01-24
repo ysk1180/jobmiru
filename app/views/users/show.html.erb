@@ -1,8 +1,78 @@
-<h1>マイページ（<%= @user.name %>さん）</h1>
+<h1><%= @user.name %>さんのページ</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <table class="table table-striped table-bordered">
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @user.user_image_url if @user.user_image.present? %>
-</p>
+      <tr>
+        <td>名前</td>
+        <td><%= @user.name %></td>
+      </tr>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %>
+      <tr>
+        <td>年齢</td>
+        <td><%= @user.age %></td>
+      </tr>
+
+      <tr>
+        <td>性別</td>
+        <td><%= @user.sex %></td>
+      </tr>
+
+      <tr>
+        <td>現在までのキャリア</td>
+        <td><%= @user.past_career %></td>
+      </tr>
+
+      <tr>
+        <td>今後のキャリアプラン</td>
+        <td><%= @user.career_plan %></td>
+      </tr>
+
+      </table>
+
+      <% unless current_user == nil %>
+        <% if @user.id == current_user.id %>
+         <%= link_to 'Edit', edit_user_registration_path(@user), class: 'btn btn-default' %>
+       <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 col-md-4">
+      <p>ユーザー画像：<%= image_tag @user.user_image_url if @user.user_image.present? %></p>
+    </div>
+  </div>
+
+  <!-- 投稿一覧 -->
+  <div>
+    <h5><%= @user.name %>さんの投稿一覧</h5>
+    <% @posts.each do |post| %>
+      <% if post.user_id == @user.id %>
+        <div class ="card border-light">
+          <div class ="card-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>会社名</th>
+                  <th>業種</th>
+                  <th>職種</th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= post.company_name %></td>
+                  <td><%= post.industry %></td>
+                  <td><%= post.job_category %></td>
+                  <td><%= link_to 'Show', post, class: "btn btn-primary" %></td>
+                </tr>
+              </tbody>
+            </table>
+            <small>いいね！：<%= post.like_to_posts.count %>件　働いてみたい！：<%= post.want_to_works.count %>件</small>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  </div>

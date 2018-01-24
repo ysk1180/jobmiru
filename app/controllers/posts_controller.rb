@@ -14,7 +14,13 @@ class PostsController < ApplicationController
     # @posts = @q.result.order('created_at desc')
 
     # ページング機能追加：末尾の数字が1ページの表示数
-    @posts = @q.result.order('created_at desc').page(params[:page]).per(2)
+    @posts = @q.result.order('created_at desc').page(params[:page]).per(5)
+
+    # いいねのランキング機能
+    @like_ranking = Post.find(LikeToPost.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+
+    # 働いてみたいのランキング機能
+    @want_ranking = Post.find(WantToWork.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
   # GET /posts/1
@@ -55,7 +61,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @post, notice: '投稿しました。投稿ありがとうございます。' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -69,7 +75,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: '投稿を更新しました.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -83,7 +89,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: '投稿を削除しました。' }
       format.json { head :no_content }
     end
   end

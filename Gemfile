@@ -87,3 +87,6 @@ gem "ransack"
 
 # ページング機能追加
 gem 'kaminari'
+
+# ページング機能のブートストラップ
+gem 'kaminari-bootstrap'

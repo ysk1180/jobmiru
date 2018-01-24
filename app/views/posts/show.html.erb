@@ -1,119 +1,147 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
+<h1>投稿詳細</h1>
+<div class="container-fluid">
+  <table class="table table-striped table-bordered">
+  <tr>
+    <td>投稿者名</td>
+    <td><%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %></td>
+  </tr>
 
-<p>
-  <strong>Industry:</strong>
-  <%= @post.industry %>
-</p>
+  <tr>
+    <td>会社名</td>
+    <td><%= @post.company_name %></td>
+  </tr>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @post.company_name %>
-</p>
+  <tr>
+    <td>業種</td>
+    <td><%= @post.industry %></td>
+  </tr>
 
-<p>
-  <strong>Division name:</strong>
-  <%= @post.division_name %>
-</p>
+  <tr>
+    <td>職種</td>
+    <td><%= @post.job_category %></td>
+  </tr>
 
-<p>
-  <strong>Experience year:</strong>
-  <%= @post.experience_year %>
-</p>
+  <tr>
+    <td>部署名</td>
+    <td><%= @post.division_name %></td>
+  </tr>
 
-<p>
-  <strong>Job title:</strong>
-  <%= @post.job_title %>
-</p>
+  <tr>
+    <td>在籍年数</td>
+    <td><%= @post.experience_year %></td>
+  </tr>
 
-<p>
-  <strong>Job category:</strong>
-  <%= @post.job_category %>
-</p>
+  <tr>
+    <td>役職</td>
+    <td><%= @post.job_title %></td>
+  </tr>
 
-<p>
-  <strong>Income:</strong>
-  <%= @post.income %>
-</p>
+  <tr>
+    <td>年収</td>
+    <td><%= @post.income %></td>
+  </tr>
 
-<p>
-  <strong>Job content:</strong>
-  <%= @post.job_content %>
-</p>
+  <tr>
+    <td>具体的な仕事内容</td>
+    <td><%= @post.job_content %></td>
+  </tr>
 
-<p>
-  <strong>Obtained skill:</strong>
-  <%= @post.obtained_skill %>
-</p>
+  <tr>
+    <td>身についたスキル</td>
+    <td><%= @post.obtained_skill %></td>
+  </tr>
 
-<p>
-  <strong>Reward:</strong>
-  <%= @post.reward %>
-</p>
+  <tr>
+    <td>やりがい</td>
+    <td><%= @post.reward %></td>
+  </tr>
 
-<p>
-  <strong>Challenge:</strong>
-  <%= @post.challenge %>
-</p>
+  <tr>
+    <td>チャレンジングなこと</td>
+    <td><%= @post.challenge %></td>
+  </tr>
 
-<p>
-  <strong>Join reason:</strong>
-  <%= @post.join_reason %>
-</p>
+  <tr>
+    <td>入社理由</td>
+    <td><%= @post.join_reason %></td>
+  </tr>
 
-<p>
-  <strong>Leave reason:</strong>
-  <%= @post.leave_reason %>
-</p>
+  <tr>
+    <td>退社理由</td>
+    <td><%= @post.leave_reason %></td>
+  </tr>
 
-<!-- いいね追加・削除 -->
-<% unless @post.user_id == current_user.id %>
-  <% if @like_to_post.present? %>
-    <%= link_to 'いいね解除', like_to_post_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'いいね！', like_to_posts_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+  </table>
+
+  <% unless current_user == nil %>
+    <% if @post.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
+      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    <% end %>
   <% end %>
-<% end %>
 
-<!-- いいね数表示 -->
-<p>
-  <strong>いいね数:</strong>
-  <%= @like_to_posts_count %>
-</p>
-
-<!-- 働きたい追加・削除 -->
-<% unless @post.user_id == current_user.id %>
-  <% if @want_to_work.present? %>
-    <%= link_to '働いてみたい解除', want_to_work_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to '働いてみたい！', want_to_works_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-
-<!-- 働きたい数表示 -->
-<p>
-  <strong>働いてみたい数:</strong>
-  <%= @want_to_works_count %>
-</p>
-
-<!-- コメントの表示 -->
-<div>
-  <% @comment_to_posts.each do |comment| %>
-    <div>
-      <strong><%= comment.user.name %></strong>
-      <br />
-      <p><%= comment.comment_to_post_content %></p>
-      <% if user_signed_in? && comment.user == current_user %>
-        <p><%= link_to 'Delete', comment_to_post_path(comment), method: :delete %></p>
+  <div>
+    <!-- いいね追加・削除 -->
+    <% unless current_user == nil %>
+      <% unless @post.user_id == current_user.id %>
+        <% if @like_to_post.present? %>
+          <%= link_to 'いいね！を解除する', like_to_post_path(post_id: @post.id), method: :delete, class: 'btn btn-light' %>
+        <% else %>
+          <%= link_to 'いいね！', like_to_posts_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
+    <% end %>
+
+    <!-- 働きたい追加・削除 -->
+    <% unless current_user == nil %>
+      <% unless @post.user_id == current_user.id %>
+        <% if @want_to_work.present? %>
+          <%= link_to '働いてみたい！を解除する', want_to_work_path(post_id: @post.id), method: :delete, class: 'btn btn-light' %>
+        <% else %>
+          <%= link_to '働いてみたい！', want_to_works_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- いいね・働いてみたい数表示 -->
+  <div>
+    <p>いいね！：<%= @like_to_posts_count %>件　働いてみたい！：<%= @want_to_works_count %>件</p>
+  </div>
+
+
+  <div>
+  <h4>コメント</h4>
+  <!-- コメントの表示 -->
+  <div class="card">
+    <% @comment_to_posts.each do |comment| %>
+    <div class="card-body">
+        <p><%= link_to "#{comment.user.name}さん", user_path(@post.user.id) %></p>
+        <p>コメント：<%= comment.comment_to_post_content %></p>
+        <% if user_signed_in? && comment.user == current_user %>
+          <p><%= link_to 'コメントを削除する', comment_to_post_path(comment), method: :delete, class: 'btn btn-default btn-sm' %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+    <% if user_signed_in? %>
+      <%= render 'comment_to_posts/form' %>
+    <% end %>
+  </div>
+
+  <br>
+
+  <% unless user_signed_in? %>
+    <div>
+        <p>いいね！・働いてみたい！・コメントをするには、新規登録またはログインが必要です。</p>
+      <a class="btn btn-primary btn-sm" href="/users/sign_up">新規登録</a>
+      <a class="btn btn-primary btn-sm" href="/users/sign_in">ログイン</a>
     </div>
   <% end %>
-  <% if user_signed_in? %>
-    <%= render 'comment_to_posts/form' %>
-  <% end %>
-</div>
 
-<% if @post.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-   |
-<% end %>
-<%= link_to 'Back', posts_path %>
+  <br>
+
+  <%= link_to '投稿一覧へ', posts_path, class: 'btn btn-default' %>
+
+</div>

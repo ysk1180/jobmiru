@@ -6,6 +6,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <!-- レスポンシブ対応 -->
+    <meta name="viewport" content="width=device-width">
+
     <!-- 以下、headの中はテンプレートのコピー -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,17 +16,17 @@
     <meta name="author" content="">
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <!-- <link href="css/agency.min.css" rel="stylesheet"> -->
   </head>
 
   <body>
@@ -66,15 +69,15 @@
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ml-auto">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Jobmiruとは</a>
+              <a class="nav-link js-scroll-trigger" href="/#services">Jobmiruとは</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/posts">投稿を見る</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/posts/new">投稿</a>
+              <a class="nav-link js-scroll-trigger" href="/posts/new">投稿する</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/contacts/new">お問い合わせ</a>
@@ -91,19 +94,44 @@
       </div>
     </nav>
 
-    <% flash.each do |key, value| %>
+    <!-- <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %> -->
+
+    <!-- <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <a class="close" data-dismiss="alert">×</a>
+        <%= msg %>
+      </div>
+    <% end %> -->
+
+    <!-- flashメッセージ表示 -->
+    <% if notice %>
+      <p class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">close</span>
+        </button>
+        <%= notice %>
+      </p>
     <% end %>
+    <% if alert %>
+      <p class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">close</span>
+        </button>
+        <%= alert %>
+      </p>
+    <% end %>
+
     <%= yield %>
 
     <!-- Footer -->
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Yusuke Miyazaki 2018</span>
-          </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
                 <a href="#">
@@ -121,16 +149,19 @@
                 </a>
               </li>
             </ul>
-          </div>
-          <div class="col-md-4">
+          </div> -->
+          <div class="col-md-6">
             <ul class="list-inline quicklinks">
               <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
+                <a href="#">利用規約</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
+                <a href="#">個人情報取扱規約</a>
               </li>
             </ul>
+          </div>
+          <div class="col-md-6">
+            <span class="copyright">Copyright &copy; Yusuke Miyazaki 2018</span>
           </div>
         </div>
       </div>

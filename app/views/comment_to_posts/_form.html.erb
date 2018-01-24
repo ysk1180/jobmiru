@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :comment_to_post_content %>
-    <%= form.text_area :comment_to_post_content, id: :comment_to_post_comment_to_post_content %>
+  <div class="form-group">
+    <!-- ラベルは全角スペースにしている -->
+    <%= form.label :　 %>
+    <%= form.text_area :comment_to_post_content, id: :comment_to_post_comment_to_post_content, :placeholder => 'コメントをしてみましょう！', class:'form-control' %>
   </div>
 
   <%= form.hidden_field :user_id %>
   <%= form.hidden_field :post_id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "コメントをする", class:"btn btn-primary" %>
   </div>
 <% end %>

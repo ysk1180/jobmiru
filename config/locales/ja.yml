@@ -1,25 +1,46 @@
 ---
 ja:
   activerecord:
-    # 以下追記
     models:
-      mutter: "つぶやき"
       user: "ユーザー"
+      post: "投稿"
+      comment_to_post: "コメント"
+      like_to_post: "いいね"
+      want_to_work: "働いてみたい"
+      contact: "お問い合わせ"
     attributes:
-      mutter:
-        title: "タイトル"
-        content: "内容"
-        image: "画像"
       user:
-        title: "タイトル"
         name: "名前"
         email: "メールアドレス"
         current_password: "現在のパスワード"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-        image: "ユーザー画像"
-        # 以上追記
+        user_image: "ユーザー画像"
+        age: "年齢"
+        sex: "性別"
+        past_career: "現在までのキャリア"
+        career_plan: "今後のキャリアプラン"
+      post:
+        industry: "業種"
+        company_name: "会社名"
+        division_name: "部署名"
+        experience_year: "在籍年数"
+        job_title: "役職"
+        job_category: "職種"
+        income: "年収"
+        job_content: "具体的な仕事内容"
+        obtained_skill: "身についたスキル"
+        reward: "やりがい"
+        challenge: "チャレンジングなこと"
+        join_reason: "入社理由"
+        leave_reason: "退社理由"
+      comment_to_post:
+        comment_to_post_content: "コメント内容"
+      contact:
+        contact_name: "名前"
+        contact_email: "メールアドレス"
+        contact_content: "お問い合わせ内容"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

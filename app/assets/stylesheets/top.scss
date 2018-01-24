@@ -700,3 +700,8 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+// navbar上部固定に伴い、上部に隙間作るため
+body {
+  padding-top:3.5rem;
+}
