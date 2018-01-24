@@ -60,7 +60,7 @@ class CommentToPostsController < ApplicationController
   def destroy
     @comment_to_post.destroy
     # createのところを参照/インスタンス作成の方法だとうまく取れなかったから直接指定
-    redirect_to("/posts/#{@comment_to_post.user_id}")
+    redirect_to("/posts/#{@comment_to_post.post_id}")
     #   format.json { head :no_content }
     # end
   end
