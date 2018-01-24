@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   protected
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:age])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:sex])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:past_career])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:career_plan])
       # 画像投稿するために、user_imageカラムを許可
       devise_parameter_sanitizer.permit(:sign_up, keys: [:user_image])
     end
