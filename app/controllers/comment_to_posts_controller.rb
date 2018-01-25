@@ -25,12 +25,17 @@ class CommentToPostsController < ApplicationController
   # POST /comment_to_posts.json
   def create
     @comment_to_post = CommentToPost.new(comment_to_post_params)
+
+    # if parent_id.present?
+    #   @comment_to_post.parent_id = parent_id
+    # end
+
     if @comment_to_post.save
         # コメント後のリダイレクト設定
         # ↓のURLを直接指定するリダイレクトでも、idを指定できているため、リダイレクト可能であるが、
         # パスが変わってしまった時（例えばもう一層できた時）修正する必要が出てしまう。
         # redirect_to("/posts/#{params.require(:comment_to_post).permit(:post_id)[:post_id]}")
-
+# binding.pry
         # 上記より、redirect_to (prefixを記載)(インスタンス)でも同じ効果があり、こちらの方が良い場合が多い
         post = Post.find(params.require(:comment_to_post).permit(:post_id)[:post_id])
         redirect_to post_path(post)
@@ -65,6 +70,19 @@ class CommentToPostsController < ApplicationController
     # end
   end
 
+  # コメントへの返信機能追加
+  # 基本的にcreateと同じで、parent_idのセッティングを追加する
+  # def reply
+  #   @comment_to_post = CommentToPost.new(comment_to_post_params)
+  #   # parent_idのセッティング
+  #   @comment_to_post.parent_id =
+  #
+  #   if @comment_to_post.save
+  #     post = Post.find(params.require(:comment_to_post).permit(:post_id)[:post_id])
+  #     redirect_to post_path(post)
+  #
+  # end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment_to_post
@@ -73,6 +91,6 @@ class CommentToPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_to_post_params
-      params.require(:comment_to_post).permit(:comment_to_post_content, :post_id, :user_id)
+      params.require(:comment_to_post).permit(:comment_to_post_content, :post_id, :user_id, :parent_id)
     end
 end

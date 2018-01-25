@@ -41,6 +41,10 @@ class PostsController < ApplicationController
     # 投稿へのコメント機能
     @comment_to_posts = @post.comment_to_posts.includes(:user).all
     @comment_to_post = @post.comment_to_posts.build(user_id: current_user.id) if current_user
+
+    # 投稿コメントへの返信機能
+    @reply_to_comments = @post.reply_to_comments.includes(:user).all
+    @reply_to_comment = @post.reply_to_comments.build(user_id: current_user.id) if current_user
   end
 
   # GET /posts/new

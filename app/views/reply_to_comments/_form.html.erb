@@ -1,0 +1,28 @@
+<%= form_with(model: @reply_to_comment, local: true) do |form| %>
+  <% if @reply_to_comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reply_to_comment.errors.count, "error") %> prohibited this reply_to_comment from being saved:</h2>
+
+      <ul>
+      <% reply_to_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <!-- ラベルは不要なので全角スペースにしている -->
+    <%= form.label :　 %>
+    <%= form.text_area :reply_to_comment_content, id: :reply_to_comment_reply_to_comment_content, :placeholder => '返信をしてみましょう！', class:'form-control' %>
+  </div>
+
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :post_id %>
+  <!-- 「comment」でpost/showのrenderから引数を受け取っている -->
+  <%= form.hidden_field :comment_to_post_id, value: comment.id %>
+
+  <div class="actions">
+    <%= form.submit "返信をする", class:"btn btn-primary btn-sm" %>
+  </div>
+<% end %>

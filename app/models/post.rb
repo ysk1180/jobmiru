@@ -14,4 +14,7 @@ class Post < ApplicationRecord
   # 投稿のバリデーション設定
   validates :job_content, presence: true
   validates :obtained_skill, presence: true
+
+  # 投稿のコメントへの返信機能のためのアソシエーション
+  has_many :reply_to_comments, dependent: :destroy
 end

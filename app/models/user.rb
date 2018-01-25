@@ -19,4 +19,7 @@ class User < ApplicationRecord
 
   # 画像アップロード設定
   mount_uploader :user_image, UserImageUploader
+
+  # 投稿のコメントへの返信機能のためのアソシエーション
+  has_many :reply_to_comments, dependent: :destroy
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119013259) do
+ActiveRecord::Schema.define(version: 20180125092603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20180119013259) do
     t.text "join_reason"
     t.text "leave_reason"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reply_to_comments", force: :cascade do |t|
+    t.text "reply_to_comment_content"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.integer "comment_to_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

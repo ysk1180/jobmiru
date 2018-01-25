@@ -38,18 +38,18 @@
   </tr>
 
   <tr>
-    <td>年収</td>
+    <td>年収（万円）</td>
     <td><%= @post.income %></td>
-  </tr>
-
-  <tr>
-    <td>具体的な仕事内容</td>
-    <td><%= @post.job_content %></td>
   </tr>
 
   <tr>
     <td>身についたスキル</td>
     <td><%= @post.obtained_skill %></td>
+  </tr>
+
+  <tr>
+    <td>具体的な仕事内容</td>
+    <td><%= @post.job_content %></td>
   </tr>
 
   <tr>
@@ -110,21 +110,42 @@
     <p>いいね！：<%= @like_to_posts_count %>件　働いてみたい！：<%= @want_to_works_count %>件</p>
   </div>
 
-
-  <div>
-  <h4>コメント</h4>
   <!-- コメントの表示 -->
-  <div class="card">
-    <% @comment_to_posts.each do |comment| %>
-    <div class="card-body">
-        <p><%= link_to "#{comment.user.name}さん", user_path(@post.user.id) %></p>
-        <p>コメント：<%= comment.comment_to_post_content %></p>
-        <% if user_signed_in? && comment.user == current_user %>
-          <p><%= link_to 'コメントを削除する', comment_to_post_path(comment), method: :delete, class: 'btn btn-default btn-sm' %></p>
-        <% end %>
+  <div>
+    <h4>コメント</h4>
+    <div class="card">
+      <% @comment_to_posts.each do |comment| %>
+      <div class="card-body">
+        <div class="card">
+          <div class="card-body">
+            <p><%= link_to "#{comment.user.name}さん", user_path(@post.user.id) %></p>
+            <p>コメント：<%= comment.comment_to_post_content %></p>
+            <% if user_signed_in? && comment.user == current_user %>
+              <p><%= link_to 'コメントを削除する', comment_to_post_path(comment), method: :delete, class: 'btn btn-light btn-sm' %></p>
+            <% end %>
+
+            <!-- コメントへの返信 -->
+            <!-- indentクラスをインデント（scss） -->
+            <div class="indent">
+              <% @reply_to_comments.each do |reply| %>
+                <% if reply.comment_to_post_id == comment.id %>
+                  <p><%= link_to "#{reply.user.name}さん", user_path(@post.user.id) %></p>
+                  <p>返信内容：<%= reply.reply_to_comment_content %></p>
+                  <% if user_signed_in? && comment.user == current_user %>
+                    <p><%= link_to '返信を削除する', reply_to_comment_path(reply), method: :delete, class: 'btn btn-light btn-sm' %></p>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if user_signed_in? %>
+                <!-- commentとして引数「comment」を渡している -->
+                <%= render 'reply_to_comments/form', comment:comment %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
     <% if user_signed_in? %>
       <%= render 'comment_to_posts/form' %>
     <% end %>
@@ -132,9 +153,10 @@
 
   <br>
 
+  <!-- 非会員用メッセージ -->
   <% unless user_signed_in? %>
     <div>
-        <p>いいね！・働いてみたい！・コメントをするには、新規登録またはログインが必要です。</p>
+        <p>いいね！・働いてみたい！・コメント・返信をするには、新規登録またはログインが必要です。</p>
       <a class="btn btn-primary btn-sm" href="/users/sign_up">新規登録</a>
       <a class="btn btn-primary btn-sm" href="/users/sign_in">ログイン</a>
     </div>

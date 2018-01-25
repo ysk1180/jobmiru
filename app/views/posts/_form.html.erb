@@ -53,13 +53,14 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :job_content %>
-    <%= form.text_area :job_content, id: :post_job_content, :placeholder => '必須です', class:'form-control', rows:"3" %>
+    <%= form.label :obtained_skill %>
+    <%= form.text_area :obtained_skill, id: :post_obtained_skill, :placeholder => '必須　身についたスキルをシェアしましょう！', class:'form-control', rows:"3" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :obtained_skill %>
-    <%= form.text_area :obtained_skill, id: :post_obtained_skill, :placeholder => '必須です', class:'form-control', rows:"3" %>
+    <%= form.label :job_content %>
+    <%= form.text_area :job_content, id: :post_job_content, :placeholder => '必須　具体的なエピソード等があればイメージしやすいです！', class:'form-control', rows:"3" %>
+    <!-- <small class="text-muted">具体的なエピソード等があればイメージしやすいです！</small> -->
   </div>
 
   <div class="form-group">

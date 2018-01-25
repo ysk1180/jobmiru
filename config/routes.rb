@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  resources :reply_to_comments
   get 'introduction/index'
 
   resources :contacts
   resources :comment_to_posts
+  # do
+  #   member do
+  #     post 'reply'
+  #   end
+  # end
+
+
   get 'users/show'
 
   devise_for :users
