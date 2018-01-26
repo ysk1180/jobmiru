@@ -46,4 +46,30 @@ class UserImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+
+
+  #画像サイズ縮小
+  include CarrierWave::MiniMagick
+  #  storage :file
+  # ↓サイズ制限
+  process :resize_to_limit => [200,200]
+  #  def store_dir
+  #    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  #  end
+
+  #ファイル形式 jpg,jpeg,gif,pngしか受け付けない
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
+  #正方形にトリミング
+  #  def create_square_image(magick, size)
+  #    narrow = magick[:width] > magick[:height] ? magick[:height] : magick[:width]
+  #    magick.combine_options do |c|
+  #      c.gravity "center"
+  #      c.crop "#{narrow}x#{narrow}+0+0"
+  #    end
+  #    magick.resize "#{size}x#{size}"
+  #  end
+
 end

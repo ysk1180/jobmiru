@@ -22,5 +22,16 @@ class ApplicationController < ActionController::Base
 
       # 画像投稿するために、user_imageカラムを許可
       devise_parameter_sanitizer.permit(:sign_up, keys: [:user_image])
+
+      # 編集時のストロングパラメータ設定
+      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:age])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:sex])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:past_career])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:career_plan])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:email])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:password])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:password_confirmation])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:user_image])
     end
 end

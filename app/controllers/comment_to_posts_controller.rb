@@ -42,6 +42,7 @@ class CommentToPostsController < ApplicationController
         # format.json { render :show, status: :created, location: @comment_to_post }
       else
 
+
       end
 
   end

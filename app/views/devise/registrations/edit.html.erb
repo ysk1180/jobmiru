@@ -1,9 +1,76 @@
-<h2>編集 <%= resource_name.to_s.humanize %></h2>
+<h2>編集</h2>
 
-<%= render 'form', user: @user %>
+<!--  render 'form', user: @user  -->
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :placeholder => '必須', class:'form-control' %>
+    <small class="text-muted">実名・ニックネーム問いません</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => '必須', class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password, autocomplete: "off", :placeholder => '必須　現在のパスワードを入力してください。', class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "新しいパスワード" %>
+    <!-- <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br /> -->
+    <%= f.password_field :password, autocomplete: "off", :placeholder => 'パスワードの変更が無い場合は入力不要です。パスワード変更の場合のみ入力ください。', class:'form-control' %>
+    <small class="text-muted">パスワード変更の場合のみ入力　6文字以上</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "新しいパスワードの確認用" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'パスワードの変更が無い場合は入力不要です。パスワード変更の場合のみ入力ください。', class:'form-control' %>
+  </div>
+
+  <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
+
+  <div class="form-group">
+    <%= f.label :age %>
+    <%= f.text_field :age, class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sex %>
+    <%= f.select :sex,[["男性","男性"],["女性","女性"]], class:'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :past_career %>
+    <%= f.text_area :past_career, class:'form-control', rows:"3" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :career_plan %>
+    <%= f.text_area :career_plan, class:'form-control', rows:"3" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_image %>
+    <%= f.file_field :user_image, class:'form-control-file' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録", class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<br>
 
 <h3>アカウントの消去</h3>
 
-<p><%= button_to "アカウントを消去します", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= button_to "アカウントを消去します", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-light btn-sm" %></p>
 
 <%= link_to "Back", :back %>

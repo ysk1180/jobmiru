@@ -131,7 +131,7 @@
                 <% if reply.comment_to_post_id == comment.id %>
                   <p><%= link_to "#{reply.user.name}さん", user_path(@post.user.id) %></p>
                   <p>返信内容：<%= reply.reply_to_comment_content %></p>
-                  <% if user_signed_in? && comment.user == current_user %>
+                  <% if user_signed_in? && reply.user == current_user %>
                     <p><%= link_to '返信を削除する', reply_to_comment_path(reply), method: :delete, class: 'btn btn-light btn-sm' %></p>
                   <% end %>
                 <% end %>
