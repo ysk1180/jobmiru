@@ -118,7 +118,7 @@
       <div class="card-body">
         <div class="card">
           <div class="card-body">
-            <p><%= link_to "#{comment.user.name}さん", user_path(@post.user.id) %></p>
+            <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
             <p>コメント：<%= comment.comment_to_post_content %></p>
             <% if user_signed_in? && comment.user == current_user %>
               <p><%= link_to 'コメントを削除する', comment_to_post_path(comment), method: :delete, class: 'btn btn-light btn-sm' %></p>
@@ -129,7 +129,7 @@
             <div class="indent">
               <% @reply_to_comments.each do |reply| %>
                 <% if reply.comment_to_post_id == comment.id %>
-                  <p><%= link_to "#{reply.user.name}さん", user_path(@post.user.id) %></p>
+                  <p><%= link_to "#{reply.user.name}さん", user_path(reply.user.id) %></p>
                   <p>返信内容：<%= reply.reply_to_comment_content %></p>
                   <% if user_signed_in? && reply.user == current_user %>
                     <p><%= link_to '返信を削除する', reply_to_comment_path(reply), method: :delete, class: 'btn btn-light btn-sm' %></p>
