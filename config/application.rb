@@ -8,6 +8,14 @@ Bundler.require(*Rails.groups)
 
 module Jobmiru
   class Application < Rails::Application
+
+    # rails g実行時にhelper、test、js、scssを作らない設定（芝田さんアドバイスに基づき記載）
+    config.generators do |g|
+      g.test_framework false
+      g.helper false
+      g.assets false
+    end
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
