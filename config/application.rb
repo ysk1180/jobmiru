@@ -25,5 +25,9 @@ module Jobmiru
 
     # 日本語化
     config.i18n.default_locale = :ja
+
+    # タイムゾーン設定：日本
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
   end
 end
