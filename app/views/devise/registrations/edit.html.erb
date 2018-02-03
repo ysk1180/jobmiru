@@ -11,7 +11,8 @@
     <small class="text-muted">実名・ニックネーム問いません</small>
   </div>
 
-  <div class="form-group">
+  <!-- 編集不要のため、コメントアウト -->
+  <!-- <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => '必須', class:'form-control' %>
   </div>
@@ -23,9 +24,6 @@
 
   <div class="form-group">
     <%= f.label "新しいパスワード" %>
-    <!-- <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br /> -->
     <%= f.password_field :password, autocomplete: "off", :placeholder => 'パスワードの変更が無い場合は入力不要です。パスワード変更の場合のみ入力ください。', class:'form-control' %>
     <small class="text-muted">パスワード変更の場合のみ入力　6文字以上</small>
   </div>
@@ -33,7 +31,7 @@
   <div class="form-group">
     <%= f.label "新しいパスワードの確認用" %>
     <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => 'パスワードの変更が無い場合は入力不要です。パスワード変更の場合のみ入力ください。', class:'form-control' %>
-  </div>
+  </div> -->
 
   <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
 

@@ -138,7 +138,9 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+
+  # エラー対応でfalseに変更
+  config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -279,4 +281,7 @@ Devise.setup do |config|
 
   # アセッツプリコンパイルエラー対応の追記
   config.secret_key = 'd3e96b3a61da825536e8f2fda3fc800d083a733bd4cc3c15130a40deab5dccae19bc6445758f5cf8e49a284fd0e8be541dbaa11c7fdc95b439b84bbe16d0a762'
+
+  # Twitterログイン用
+  config.omniauth :twitter, ENV['TWITTER_API_KEY'], ENV['TWITTER_API_SECRET']
 end

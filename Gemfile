@@ -36,13 +36,12 @@ group :development do
   # for letter opener
   gem 'letter_opener_web'
   gem "letter_opener"
+
+  # for env
+  gem 'dotenv-rails'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# 画像投稿用に追加
-gem 'carrierwave'
-gem 'mini_magick'
 
 # パスワードハッシュ化に必要
 gem 'bcrypt', '3.1.11'
