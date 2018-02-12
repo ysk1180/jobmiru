@@ -51,8 +51,8 @@ class UserImageUploader < CarrierWave::Uploader::Base
   #画像サイズ縮小
   include CarrierWave::MiniMagick
   #  storage :file
-  # ↓サイズ制限
-  process :resize_to_limit => [200,200]
+  # ↓サイズ制限（Twitter連携で持ってこれる48サイズに合わせる
+  process :resize_to_limit => [48,48]
   #  def store_dir
   #    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   #  end
@@ -60,6 +60,11 @@ class UserImageUploader < CarrierWave::Uploader::Base
   #ファイル形式 jpg,jpeg,gif,pngしか受け付けない
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  # デフォルト画像設定
+  def default_url
+    "default.png"
   end
 
   #正方形にトリミング

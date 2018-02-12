@@ -48,6 +48,7 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>投稿者</th>
                     <th>会社名</th>
                     <th>業種</th>
@@ -57,6 +58,11 @@
                 </thead>
                 <tbody>
                   <tr>
+                    <% if post.user.user_image.present? %>
+                      <td><%= image_tag post.user.user_image_url %></td>
+                    <% else %>
+                      <td><%= image_tag 'default.png' %></td>
+                    <% end %>
                     <td><%= link_to "#{post.user.name}さん", user_path(post.user.id) %></td>
                     <td><%= post.company_name %></td>
                     <td><%= post.industry %></td>
