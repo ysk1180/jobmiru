@@ -19,8 +19,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    # いいね機能のために@like_to_postに値を入れる
+    # いいね機能
+    # 今のユーザーが「いいね」をしているかどうか
     @like_to_post = current_user.like_to_posts.find_by(post_id: @post.id) if user_signed_in?
+
     # いいね数表示
     @post = Post.find_by(id: params[:id])
     @like_to_posts_count = LikeToPost.where(post_id: @post.id).count
@@ -30,13 +32,16 @@ class PostsController < ApplicationController
     # 働きたい数表示
     @want_to_works_count = WantToWork.where(post_id: @post.id).count
 
+
     # 投稿へのコメント機能
-    @comment_to_posts = @post.comment_to_posts.includes(:user).all
-    @comment_to_post = @post.comment_to_posts.build(user_id: current_user.id) if current_user
+    @comment_to_post = CommentToPost.new
+    @comment_to_posts = @post.comment_to_posts
 
     # 投稿コメントへの返信機能
     @reply_to_comments = @post.reply_to_comments.includes(:user).all
     @reply_to_comment = @post.reply_to_comments.build(user_id: current_user.id) if current_user
+
+
   end
 
   def new

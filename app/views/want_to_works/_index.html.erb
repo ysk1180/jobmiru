@@ -1,0 +1,11 @@
+
+<% if user_signed_in? %>
+  <% unless @post.user_id == current_user.id %>
+    <% if @want_to_work.present? %>
+      <%= link_to '働いてみたい！を解除する', post_want_to_work_path(post_id: @post.id, id: @want_to_work.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %>
+    <% else %>
+      <%= link_to '働いてみたい！', post_want_to_works_path(post_id: @post.id), method: :post, class: 'btn btn-primary btn-sm', remote: true %>
+    <% end %>
+  <% end %>
+<% end %>
+<p>働いてみたい！：<%= @want_to_works_count %>件</p>

@@ -1,8 +1,7 @@
-<%= form_with(model: @comment_to_post, local: true) do |form| %>
-  <% if @comment_to_post.errors.any? %>
+<%= form_with(model: [post, comment_to_post] ) do |form| %>
+  <% if comment_to_post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment_to_post.errors.count, "error") %> prohibited this comment_to_post from being saved:</h2>
-
       <ul>
       <% comment_to_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,17 +11,8 @@
   <% end %>
 
   <div class="form-group">
-    <!-- ラベルは全角スペースにしている -->
-    <%= form.label :　 %>
-    <%= form.text_area :comment_to_post_content, id: :comment_to_post_comment_to_post_content, :placeholder => 'コメントをしてみましょう！', class:'form-control' %>
+    <%= form.text_area :comment_to_post_content, :placeholder => 'コメントをしてみましょう！', class:'form-control' %>
   </div>
-
-  <%= form.hidden_field :user_id %>
-  <%= form.hidden_field :post_id %>
-  <!--  form.hidden_field :parent_id  -->
-<!-- , value:parent.id -->
-
-
   <div class="actions">
     <%= form.submit "コメントをする", class:"btn btn-primary" %>
   </div>

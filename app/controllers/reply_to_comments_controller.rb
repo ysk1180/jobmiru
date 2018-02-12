@@ -1,37 +1,31 @@
 class ReplyToCommentsController < ApplicationController
-  before_action :set_reply_to_comment, only: [:show, :destroy]
-
-  def index
-    @reply_to_comments = ReplyToComment.all
-  end
-
-  def show
-  end
 
   def new
     @reply_to_comment = ReplyToComment.new
   end
 
   def create
-    @reply_to_comment = ReplyToComment.new(reply_to_comment_params)
+    @post = Post.find(params[:post_id])
+    @reply_to_comment = @post.reply_to_comments.build(reply_to_comment_params)
+    @reply_to_comment.user_id = current_user.id
+    @reply_to_comment.comment_to_post_id = params[:comment_to_post_id]
+    @comment_to_post = CommentToPost.find(params[:comment_to_post_id])
+    @reply_to_comments = @post.reply_to_comments.includes(:user).all
     if @reply_to_comment.save
-      # comment controllerと同様にリダイレクト設定
-      post = Post.find(params.require(:reply_to_comment).permit(:post_id)[:post_id])
-      redirect_to post_path(post)
+      render :index
     end
   end
 
   def destroy
+    @reply_to_comment = ReplyToComment.find(params[:id])
     @reply_to_comment.destroy
-    # destroyもcreateと同様にcommentと同様の形
-    redirect_to("/posts/#{@reply_to_comment.post_id}")
+    @comment_to_post = CommentToPost.find(params[:comment_to_post_id])
+    @post = Post.find(params[:post_id])
+    @reply_to_comments = @post.reply_to_comments.includes(:user).all
+    render :index
   end
 
   private
-    def set_reply_to_comment
-      @reply_to_comment = ReplyToComment.find(params[:id])
-    end
-
     def reply_to_comment_params
       params.require(:reply_to_comment).permit(:reply_to_comment_content, :post_id, :user_id, :comment_to_post_id)
     end

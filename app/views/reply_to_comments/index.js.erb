@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'comment_to_posts/index', {comment_to_posts: @comment_to_post.post.comment_to_posts}) %>")
+$("textarea").val('')

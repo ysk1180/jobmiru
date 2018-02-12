@@ -83,31 +83,14 @@
 
   <div>
     <!-- いいね追加・削除 -->
-    <% unless current_user == nil %>
-      <% unless @post.user_id == current_user.id %>
-        <% if @like_to_post.present? %>
-          <%= link_to 'いいね！を解除する', like_to_post_path(post_id: @post.id), method: :delete, class: 'btn btn-light' %>
-        <% else %>
-          <%= link_to 'いいね！', like_to_posts_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-        <% end %>
-      <% end %>
-    <% end %>
+    <div id="like_area">
+      <%= render partial: 'like_to_posts/index' %>
+    </div>
 
     <!-- 働きたい追加・削除 -->
-    <% unless current_user == nil %>
-      <% unless @post.user_id == current_user.id %>
-        <% if @want_to_work.present? %>
-          <%= link_to '働いてみたい！を解除する', want_to_work_path(post_id: @post.id), method: :delete, class: 'btn btn-light' %>
-        <% else %>
-          <%= link_to '働いてみたい！', want_to_works_path(post_id: @post.id), method: :post, class: 'btn btn-primary' %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-
-  <!-- いいね・働いてみたい数表示 -->
-  <div>
-    <p>いいね！：<%= @like_to_posts_count %>件　働いてみたい！：<%= @want_to_works_count %>件</p>
+    <div id="want_area">
+      <%= render partial: 'want_to_works/index' %>
+    </div>
   </div>
 
   <!-- ツイートボタンの設置 -->
@@ -117,40 +100,15 @@
   <div>
     <h4>コメント</h4>
     <div class="card">
-      <% @comment_to_posts.each do |comment| %>
-      <div class="card-body">
-        <div class="card">
-          <div class="card-body">
-            <p><%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %></p>
-            <p>コメント：<%= comment.comment_to_post_content %></p>
-            <% if user_signed_in? && comment.user == current_user %>
-              <p><%= link_to 'コメントを削除する', comment_to_post_path(comment), method: :delete, class: 'btn btn-light btn-sm' %></p>
-            <% end %>
 
-            <!-- コメントへの返信 -->
-            <!-- indentクラスをインデント（scss） -->
-            <div class="indent">
-              <% @reply_to_comments.each do |reply| %>
-                <% if reply.comment_to_post_id == comment.id %>
-                  <p><%= link_to "#{reply.user.name}さん", user_path(reply.user.id) %></p>
-                  <p>返信内容：<%= reply.reply_to_comment_content %></p>
-                  <% if user_signed_in? && reply.user == current_user %>
-                    <p><%= link_to '返信を削除する', reply_to_comment_path(reply), method: :delete, class: 'btn btn-light btn-sm' %></p>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <% if user_signed_in? %>
-                <!-- commentとして引数「comment」を渡している -->
-                <%= render 'reply_to_comments/form', comment:comment %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+      <div id="comments_area">
+        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+        <%= render partial: 'comment_to_posts/index', locals: { comment_to_posts: @comment_to_posts } %>
       </div>
-      <% end %>
     </div>
     <% if user_signed_in? %>
-      <%= render 'comment_to_posts/form' %>
+      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+      <%= render partial: 'comment_to_posts/form', locals: { comment_to_post: @comment_to_post, post: @post } %>
     <% end %>
   </div>
 

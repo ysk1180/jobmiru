@@ -1,11 +1,17 @@
 class WantToWorksController < ApplicationController
   def create
-    want_to_work = current_user.want_to_works.create(post_id: params[:post_id])
-    redirect_to("/posts/#{params[:post_id]}")
+    @post = Post.find(params[:post_id])
+    @want_to_work = current_user.want_to_works.create(post_id: params[:post_id])
+    @want_to_works_count = WantToWork.where(post_id: @post.id).count
+    render :index
   end
 
   def destroy
-    want_to_work = current_user.want_to_works.find_by(post_id: params[:post_id]).destroy
-    redirect_to("/posts/#{params[:post_id]}")
+    @post = Post.find(params[:post_id])
+    @want_to_work = current_user.want_to_works.find_by(post_id: params[:post_id])
+    @want_to_work.destroy
+    @want_to_work = current_user.want_to_works.find_by(post_id: params[:post_id])
+    @want_to_works_count = WantToWork.where(post_id: @post.id).count
+    render :index
   end
 end
