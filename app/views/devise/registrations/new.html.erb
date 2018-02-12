@@ -1,5 +1,15 @@
 <h2>新規登録</h2>
 
+<a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
+  <span class="fa fa-twitter"></span> Twitterで新規登録
+</a>
+
+<br>
+
+<h6>------- or メールアドレスで登録 -------</h6>
+
+<br>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 

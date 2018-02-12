@@ -1,5 +1,15 @@
 <h2>ログイン</h2>
 
+<a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
+  <span class="fa fa-twitter"></span> Twitterでログイン
+</a>
+
+<br>
+
+<h6>------- or メールアドレスでログイン -------</h6>
+
+<br>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.label :email %>
