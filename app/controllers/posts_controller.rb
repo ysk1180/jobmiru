@@ -6,15 +6,15 @@ class PostsController < ApplicationController
     @q = Post.ransack(params[:q])
     @posts = @q.result.order('created_at desc').page(params[:page]).per(5)
     @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-    @want_ranking = Post.find(WantToWork.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
+    @want_ranking = Post.find(Want.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
   def show
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?
     @post = Post.find_by(id: params[:id])
     @likes_count = Like.where(post_id: @post.id).count
-    @want_to_work = current_user.want_to_works.find_by(post_id: @post.id) if user_signed_in?
-    @want_to_works_count = WantToWork.where(post_id: @post.id).count
+    @want = current_user.wants.find_by(post_id: @post.id) if user_signed_in?
+    @wants_count = Want.where(post_id: @post.id).count
     @comment_to_post = CommentToPost.new
     @comment_to_posts = @post.comment_to_posts
     @reply_to_comments = @post.reply_to_comments.includes(:user).all

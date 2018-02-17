@@ -1,4 +1,4 @@
-class WantToWork < ApplicationRecord
+class Want < ApplicationRecord
   belongs_to :user
   belongs_to :post
 end

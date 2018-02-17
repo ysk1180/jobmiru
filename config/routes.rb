@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       resources :reply_to_comments
     end
     resources :likes, only: [:create, :destroy]
-    resources :want_to_works, only: [:create, :destroy]
+    resources :wants, only: [:create, :destroy]
   end
 
   # deviseではshowのルーティングがなかったので追加

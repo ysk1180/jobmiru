@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
 
-  has_many :want_to_works, dependent: :destroy
-  has_many :want_to_work_users, through: :want_to_works, source: :user
+  has_many :wants, dependent: :destroy
+  has_many :want_users, through: :wants, source: :user
 
   belongs_to :user
   has_many :comment_to_posts, dependent: :destroy
