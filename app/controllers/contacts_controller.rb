@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def new
     @contact = Contact.new
   end
@@ -7,11 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-
-      # DIVERテキスト通り追記
       ContactMailer.contact_mail(@contact).deliver
-
-      # リダイレクト先を@content(お問い合わせ一覧)から、root(トップページ)へ変更
       redirect_to root_path, notice: 'お問い合わせを承りました。ありがとうございます。'
     else
       render :new

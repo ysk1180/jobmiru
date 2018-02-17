@@ -1,59 +1,37 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  # ログインしていないユーザはログイン画面に強制リダイレクトする
+  # ログインしていないユーザはログイン画面にリダイレクト
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
     # ransack gemを用いた検索機能追加
     @q = Post.ransack(params[:q])
-
     # ページング機能追加：末尾の数字が1ページの表示数
     @posts = @q.result.order('created_at desc').page(params[:page]).per(5)
-
     # いいねのランキング機能
     @like_ranking = Post.find(LikeToPost.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-
     # 働いてみたいのランキング機能
     @want_ranking = Post.find(WantToWork.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
   def show
-    # いいね機能
-    # 今のユーザーが「いいね」をしているかどうか
     @like_to_post = current_user.like_to_posts.find_by(post_id: @post.id) if user_signed_in?
-
-    # いいね数表示
     @post = Post.find_by(id: params[:id])
     @like_to_posts_count = LikeToPost.where(post_id: @post.id).count
-
-    # 働きたい機能のために@like_to_postに値を入れる
     @want_to_work = current_user.want_to_works.find_by(post_id: @post.id) if user_signed_in?
-    # 働きたい数表示
     @want_to_works_count = WantToWork.where(post_id: @post.id).count
-
-
-    # 投稿へのコメント機能
     @comment_to_post = CommentToPost.new
     @comment_to_posts = @post.comment_to_posts
-
-    # 投稿コメントへの返信機能
     @reply_to_comments = @post.reply_to_comments.includes(:user).all
     @reply_to_comment = @post.reply_to_comments.build(user_id: current_user.id) if current_user
-
-
   end
 
   def new
     @post = Post.new
   end
 
-  def edit
-  end
-
   def create
     @post = Post.new(post_params)
-    # ログインしているuserのIDを、postのuser_idカラムへ入れる
     @post.user_id = current_user.id
     if @post.save
       redirect_to @post, notice: '投稿しました。投稿ありがとうございます。'
@@ -64,7 +42,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: '投稿を更新しました.'
+      redirect_to @post, notice: '投稿を更新しました。'
     else
       render :edit
     end
