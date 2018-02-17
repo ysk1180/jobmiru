@@ -13,19 +13,19 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :contact_name %>
-    <%= form.text_field :contact_name, id: :contact_contact_name, :placeholder => '必須', class:'form-control' %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :contact_name, :placeholder => '必須', class:'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :contact_email %>
-    <%= form.text_field :contact_email, id: :contact_contact_email, :placeholder => '必須', class:'form-control' %>
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :contact_email, :placeholder => '必須', class:'form-control' %>
     <small class="text-muted">こちらのメールアドレスにお返事させていただきます。</small>
   </div>
 
   <div class="form-group">
-    <%= form.label :contact_content %>
-    <%= form.text_area :contact_content, id: :contact_contact_content, :placeholder => '必須', class:'form-control', rows:"3" %>
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :contact_content, :placeholder => '必須', class:'form-control', rows:"3" %>
   </div>
 
   <div class="actions">

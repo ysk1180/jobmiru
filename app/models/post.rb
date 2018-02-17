@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   has_many :want_users, through: :wants, source: :user
 
   belongs_to :user
-  has_many :comment_to_posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
-  has_many :reply_to_comments, dependent: :destroy
+  has_many :post_comment_replies, dependent: :destroy
 end

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
 
   resources :posts do
-    resources :comment_to_posts do
-      resources :reply_to_comments
+    resources :post_comments do
+      resources :post_comment_replies
     end
     resources :likes, only: [:create, :destroy]
     resources :wants, only: [:create, :destroy]

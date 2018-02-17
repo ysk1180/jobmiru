@@ -1,4 +1,3 @@
-<!-- <p id="notice"><%= notice %></p> -->
 <h1>投稿詳細</h1>
 <div class="container-fluid">
   <table class="table table-striped table-bordered">
@@ -110,12 +109,12 @@
 
       <div id="comments_area">
         <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-        <%= render partial: 'comment_to_posts/index', locals: { comment_to_posts: @comment_to_posts } %>
+        <%= render partial: 'post_comments/index', locals: { post_comments: @post_comments } %>
       </div>
     </div>
     <% if user_signed_in? %>
       <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-      <%= render partial: 'comment_to_posts/form', locals: { comment_to_post: @comment_to_post, post: @post } %>
+      <%= render partial: 'post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
     <% end %>
   </div>
 

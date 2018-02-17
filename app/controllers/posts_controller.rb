@@ -15,10 +15,10 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
     @want = current_user.wants.find_by(post_id: @post.id) if user_signed_in?
     @wants_count = Want.where(post_id: @post.id).count
-    @comment_to_post = CommentToPost.new
-    @comment_to_posts = @post.comment_to_posts
-    @reply_to_comments = @post.reply_to_comments.includes(:user).all
-    @reply_to_comment = @post.reply_to_comments.build(user_id: current_user.id) if current_user
+    @post_comment = PostComment.new
+    @post_comments = @post.post_comments
+    @post_comment_replies = @post.post_comment_replies.includes(:user).all
+    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
   end
 
   def new

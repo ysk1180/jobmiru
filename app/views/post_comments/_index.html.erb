@@ -1,5 +1,5 @@
 
-<% comment_to_posts.each do |comment| %>
+<% post_comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="card-body">
       <div class="card">
@@ -12,13 +12,13 @@
             <% end %>
             <%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %>
           </p>
-          <p>コメント：<%= comment.comment_to_post_content %></p>
+          <p>コメント：<%= comment.content %></p>
           <% if comment.user == current_user %>
-            <p><%= link_to 'コメントを削除する', post_comment_to_post_path(comment.post_id, comment.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %></p>
+            <p><%= link_to 'コメントを削除する', post_post_comment_path(comment.post_id, comment.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %></p>
           <% end %>
 
           <!-- コメントへの返信 -->
-          <%= render partial: 'reply_to_comments/index', locals: { comment: comment} %>
+          <%= render partial: 'post_comment_replies/index', locals: { comment: comment} %>
 
         </div>
       </div>

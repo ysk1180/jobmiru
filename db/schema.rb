@@ -10,23 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217084438) do
+ActiveRecord::Schema.define(version: 20180217113743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comment_to_posts", force: :cascade do |t|
-    t.text "comment_to_post_content"
-    t.integer "post_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "contacts", force: :cascade do |t|
-    t.string "contact_name"
-    t.string "contact_email"
-    t.text "contact_content"
+    t.string "name"
+    t.string "email"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,6 +26,23 @@ ActiveRecord::Schema.define(version: 20180217084438) do
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comment_replies", force: :cascade do |t|
+    t.text "content"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.integer "post_comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "post_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,15 +62,6 @@ ActiveRecord::Schema.define(version: 20180217084438) do
     t.text "join_reason"
     t.text "leave_reason"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reply_to_comments", force: :cascade do |t|
-    t.text "reply_to_comment_content"
-    t.integer "post_id"
-    t.integer "user_id"
-    t.integer "comment_to_post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -9,9 +9,9 @@ class User < ApplicationRecord
   has_many :wants, dependent: :destroy
 
   has_many :posts, dependent: :destroy
-  has_many :comment_to_posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
 
-  has_many :reply_to_comments, dependent: :destroy
+  has_many :post_comment_replies, dependent: :destroy
 
   mount_uploader :user_image, UserImageUploader
 
