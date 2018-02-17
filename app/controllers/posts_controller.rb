@@ -1,16 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  # ログインしていないユーザはログイン画面にリダイレクト
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
-    # ransack gemを用いた検索機能追加
     @q = Post.ransack(params[:q])
-    # ページング機能追加：末尾の数字が1ページの表示数
     @posts = @q.result.order('created_at desc').page(params[:page]).per(5)
-    # いいねのランキング機能
     @like_ranking = Post.find(LikeToPost.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-    # 働いてみたいのランキング機能
     @want_ranking = Post.find(WantToWork.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 

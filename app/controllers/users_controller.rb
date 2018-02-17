@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :sign_in_required, only: [:show]
   def show
-    # ログイン後、マイページに遷移させるために条件分岐追加
     if params[:format].present?
       @user = User.find(params[:format])
     else
