@@ -1,22 +1,19 @@
 Rails.application.routes.draw do
+  root to: "top#index"
 
-  resources :contacts
-
-  get 'users/show'
+  # deviseではshowのルーティングがないので追加
+  resources :users, only: [:show]
 
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
 
   resources :posts do
-    resources :post_comments do
-      resources :post_comment_replies
+    resources :post_comments, only: [:new, :create, :destroy] do
+      resources :post_comment_replies, only: [:new, :create, :destroy]
     end
     resources :likes, only: [:create, :destroy]
     resources :wants, only: [:create, :destroy]
   end
 
-  # deviseではshowのルーティングがなかったので追加
-  resources :users, only: [:show]
+  resources :contacts, only: [:new, :create]
 
-  # トップページへのルーティング
-  root to: "top#index"
 end
