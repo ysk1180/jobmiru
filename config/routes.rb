@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comment_to_posts do
       resources :reply_to_comments
     end
-    resources :like_to_posts, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     resources :want_to_works, only: [:create, :destroy]
   end
 

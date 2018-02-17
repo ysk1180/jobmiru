@@ -1,0 +1,11 @@
+
+<% if user_signed_in? %>
+  <% unless @post.user_id == current_user.id %>
+    <% if @like.present? %>
+      <%= link_to 'いいね！を解除する', post_like_path(post_id: @post.id, id: @like.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %>
+    <% else %>
+      <%= link_to 'いいね！', post_likes_path(post_id: @post.id), method: :post, class: 'btn btn-primary btn-sm', remote: true %>
+    <% end %>
+  <% end %>
+<% end %>
+<p>いいね！：<%= @likes_count %>件</p>
