@@ -16,7 +16,10 @@ Jobmiru
 転職を考えている人、就活生。特に、就業を通じてスキルを身に付けたいと考えている人。
 
 ## バージョン
-Ruby：2.3.0  Rails：5.1.4  PostgreSQL：10.1
+Ruby：2.3.0  
+Rails：5.1.4  
+PostgreSQL：10.1
 
 ## 作者
-@ysk1180  連絡先：ysk1180@gmail.com
+@ysk1180  
+連絡先：ysk1180@gmail.com
