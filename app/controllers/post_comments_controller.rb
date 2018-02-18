@@ -34,7 +34,7 @@ private
     end
 
     def set_replies
-      @post_comment_replies = @post.post_comment_replies.includes(:user).all
+      @post_comment_replies = @post.post_comment_replies.includes(:user).limit(100)
     end
 
     def set_reply
