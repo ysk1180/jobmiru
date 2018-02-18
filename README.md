@@ -21,5 +21,4 @@ Rails：5.1.4
 PostgreSQL：10.1
 
 ## 作者
-@ysk1180  
-連絡先：ysk1180@gmail.com
+@ysk1180
