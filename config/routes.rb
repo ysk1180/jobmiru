@@ -1,8 +1,6 @@
-Rails.application.routes.draw do
-  root to: "top#index"
 
-  # deviseではshowのルーティングがないので追加
-  resources :users, only: [:show]
+Rails.application.routes.draw do
+  resources :contacts, only: [:new, :create]
 
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
 
@@ -14,6 +12,8 @@ Rails.application.routes.draw do
     resources :wants, only: [:create, :destroy]
   end
 
-  resources :contacts, only: [:new, :create]
+  # deviseではshowのルーティングがなかったので追加
+  resources :users, only: [:show]
 
+  root to: "top#index"
 end

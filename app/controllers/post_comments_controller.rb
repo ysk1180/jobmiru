@@ -9,7 +9,7 @@ class PostCommentsController < ApplicationController
     @post_comment = @post.post_comments.build(post_comment_params)
     @post_comment.user_id = current_user.id
     set_replies
-    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id)
+    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
     if @post_comment.save
       render :index
     end
@@ -18,7 +18,7 @@ class PostCommentsController < ApplicationController
   def destroy
     @post_comment = PostComment.find(params[:id])
     set_replies
-    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id)
+    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
     if @post_comment.destroy
       render :index
     end
