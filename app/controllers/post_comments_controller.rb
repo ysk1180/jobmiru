@@ -25,19 +25,19 @@ class PostCommentsController < ApplicationController
   end
 
 private
-    def set_post
-      @post = Post.find(params[:post_id])
-    end
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
-    def post_comment_params
-      params.require(:post_comment).permit(:content, :post_id, :user_id)
-    end
+  def post_comment_params
+    params.require(:post_comment).permit(:content, :post_id, :user_id)
+  end
 
-    def set_replies
-      @post_comment_replies = @post.post_comment_replies.includes(:user).recent
-    end
+  def set_replies
+    @post_comment_replies = @post.post_comment_replies.includes(:user).recent
+  end
 
-    def set_reply
-      @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
-    end
+  def set_reply
+    @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
+  end
 end

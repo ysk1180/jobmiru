@@ -48,11 +48,11 @@ class PostsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def post_params
-      params.require(:post).permit(:id, :industry, :company_name, :division_name, :experience_year, :job_title, :job_category, :income, :job_content, :obtained_skill, :reward, :challenge, :join_reason, :leave_reason, :user_id)
-    end
+  def post_params
+    params.require(:post).permit(:id, :industry, :company_name, :division_name, :experience_year, :job_title, :job_category, :income, :job_content, :obtained_skill, :reward, :challenge, :join_reason, :leave_reason, :user_id)
+  end
 end

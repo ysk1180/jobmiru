@@ -24,19 +24,19 @@ class PostCommentRepliesController < ApplicationController
   end
 
   private
-    def post_comment_reply_params
-      params.require(:post_comment_reply).permit(:content, :post_id, :user_id, :post_comment_id)
-    end
+  def post_comment_reply_params
+    params.require(:post_comment_reply).permit(:content, :post_id, :user_id, :post_comment_id)
+  end
 
-    def set_post
-      @post = Post.find(params[:post_id])
-    end
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
-    def set_comment
-      @post_comment = PostComment.find(params[:post_comment_id])
-    end
+  def set_comment
+    @post_comment = PostComment.find(params[:post_comment_id])
+  end
 
-    def set_replies
-      @post_comment_replies = @post.post_comment_replies.includes(:user).recent
-    end
+  def set_replies
+    @post_comment_replies = @post.post_comment_replies.includes(:user).recent
+  end
 end

@@ -16,15 +16,15 @@ class WantsController < ApplicationController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:post_id])
-    end
+  def set_post
+    @post = Post.find(params[:post_id])
+  end
 
-    def set_want
-      @want = current_user.wants.find_by(post_id: params[:post_id])
-    end
+  def set_want
+    @want = current_user.wants.find_by(post_id: params[:post_id])
+  end
 
-    def wants_count
-      @wants_count = Want.where(post_id: @post.id).count
-    end
+  def wants_count
+    @wants_count = Want.where(post_id: @post.id).count
+  end
 end
