@@ -10,7 +10,7 @@ class LikesController < ApplicationController
   def destroy
     set_like
     @like.destroy
-    set_like
+    @like = nil
     likes_count
     render :index
   end

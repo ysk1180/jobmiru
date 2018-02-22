@@ -10,7 +10,7 @@ class WantsController < ApplicationController
   def destroy
     set_want
     @want.destroy
-    set_want
+    @want = nil
     wants_count
     render :index
   end
