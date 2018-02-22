@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result.order('created_at desc').page(params[:page]).per(10).limit(100)
+    @posts = @q.result.page(params[:page]).per(10).recent
     @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     @want_ranking = Post.find(Want.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
@@ -15,8 +15,8 @@ class PostsController < ApplicationController
     @want = current_user.wants.find_by(post_id: @post.id) if user_signed_in?
     @wants_count = Want.where(post_id: @post.id).count
     @post_comment = PostComment.new
-    @post_comments = @post.post_comments.limit(100)
-    @post_comment_replies = @post.post_comment_replies.includes(:user).limit(100)
+    @post_comments = @post.post_comments.recent
+    @post_comment_replies = @post.post_comment_replies.includes(:user).recent
     @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
   end
 

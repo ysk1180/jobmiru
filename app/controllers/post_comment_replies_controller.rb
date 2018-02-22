@@ -37,6 +37,6 @@ class PostCommentRepliesController < ApplicationController
     end
 
     def set_replies
-      @post_comment_replies = @post.post_comment_replies.includes(:user).limit(100)
+      @post_comment_replies = @post.post_comment_replies.includes(:user).recent
     end
 end
