@@ -4,6 +4,9 @@
     <title>Jobmiru</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- 円グラフ -->
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- レスポンシブ対応 -->
@@ -24,7 +27,6 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
   </head>
 
   <body>

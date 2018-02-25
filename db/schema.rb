@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217113743) do
+ActiveRecord::Schema.define(version: 20180225072628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,19 +51,25 @@ ActiveRecord::Schema.define(version: 20180217113743) do
     t.string "industry"
     t.string "company_name"
     t.string "division_name"
-    t.integer "experience_year"
-    t.string "job_title"
-    t.string "job_category"
-    t.integer "income"
-    t.text "job_content"
+    t.text "job_content1"
     t.text "obtained_skill"
     t.text "reward"
     t.text "challenge"
-    t.text "join_reason"
-    t.text "leave_reason"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "job_content2"
+    t.string "job_content3"
+    t.string "job_content4"
+    t.string "job_content5"
+    t.string "job_content6"
+    t.integer "job_ratio1"
+    t.integer "job_ratio2"
+    t.integer "job_ratio3"
+    t.integer "job_ratio4"
+    t.integer "job_ratio5"
+    t.integer "job_ratio6"
+    t.string "job_category"
   end
 
   create_table "users", force: :cascade do |t|

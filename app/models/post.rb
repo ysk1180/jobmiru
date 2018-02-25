@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :job_content, presence: true
+  validates :job_content1, presence: true
   validates :obtained_skill, presence: true
 
   has_many :likes, dependent: :destroy

@@ -53,6 +53,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:id, :industry, :company_name, :division_name, :experience_year, :job_title, :job_category, :income, :job_content, :obtained_skill, :reward, :challenge, :join_reason, :leave_reason, :user_id)
+    params.require(:post).permit(:id, :industry, :company_name, :division_name, :job_category, :job_content1, :job_ratio1, :job_content2, :job_ratio2, :job_content3, :job_ratio3, :job_content4, :job_ratio4, :job_content5, :job_ratio5, :job_content6, :job_ratio6, :obtained_skill, :reward, :challenge, :user_id)
   end
 end

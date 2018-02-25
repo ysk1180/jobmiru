@@ -1,83 +1,57 @@
 <h1>投稿詳細</h1>
 <div class="container-fluid">
   <table class="table table-striped table-bordered">
-  <tr>
-    <td>投稿者</td>
-    <td>
-      <% if @post.user.user_image.present? %>
-        <%= image_tag @post.user.user_image_url %>
-      <% else %>
-        <%= image_tag 'default.png' %>
-      <% end %>
-      <%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %>
-    </td>
-  </tr>
+    <tr>
+      <td>投稿者</td>
+      <td>
+        <% if @post.user.user_image.present? %>
+          <%= image_tag @post.user.user_image_url %>
+        <% else %>
+          <%= image_tag 'default.png' %>
+        <% end %>
+        <%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %>
+      </td>
+    </tr>
 
-  <tr>
-    <td>会社名</td>
-    <td><%= @post.company_name %></td>
-  </tr>
+    <tr>
+      <td>会社名</td>
+      <td><%= @post.company_name %></td>
+    </tr>
 
-  <tr>
-    <td>業種</td>
-    <td><%= @post.industry %></td>
-  </tr>
+    <tr>
+      <td>業種</td>
+      <td><%= @post.industry %></td>
+    </tr>
 
-  <tr>
-    <td>職種</td>
-    <td><%= @post.job_category %></td>
-  </tr>
+    <tr>
+      <td>職種</td>
+      <td><%= @post.job_category %></td>
+    </tr>
 
-  <tr>
-    <td>部署名</td>
-    <td><%= @post.division_name %></td>
-  </tr>
+    <tr>
+      <td>部署名</td>
+      <td><%= @post.division_name %></td>
+    </tr>
 
-  <tr>
-    <td>在籍年数</td>
-    <td><%= @post.experience_year %></td>
-  </tr>
+    <tr>
+      <td>具体的な仕事内容</td>
+      <td><%= pie_chart ({ "#{@post.job_content1}": @post.job_ratio1, "#{@post.job_content2}": @post.job_ratio2, "#{@post.job_content3}": @post.job_ratio3, "#{@post.job_content4}": @post.job_ratio4, "#{@post.job_content5}": @post.job_ratio5, "#{@post.job_content6}": @post.job_ratio6 }) %></td>
+    </tr>
 
-  <tr>
-    <td>役職</td>
-    <td><%= @post.job_title %></td>
-  </tr>
+    <tr>
+      <td>身についたスキル</td>
+      <td><%= @post.obtained_skill %></td>
+    </tr>
 
-  <tr>
-    <td>年収（万円）</td>
-    <td><%= @post.income %></td>
-  </tr>
+    <tr>
+      <td>やりがい</td>
+      <td><%= @post.reward %></td>
+    </tr>
 
-  <tr>
-    <td>身についたスキル</td>
-    <td><%= @post.obtained_skill %></td>
-  </tr>
-
-  <tr>
-    <td>具体的な仕事内容</td>
-    <td><%= @post.job_content %></td>
-  </tr>
-
-  <tr>
-    <td>やりがい</td>
-    <td><%= @post.reward %></td>
-  </tr>
-
-  <tr>
-    <td>チャレンジングなこと</td>
-    <td><%= @post.challenge %></td>
-  </tr>
-
-  <tr>
-    <td>入社理由</td>
-    <td><%= @post.join_reason %></td>
-  </tr>
-
-  <tr>
-    <td>退社理由</td>
-    <td><%= @post.leave_reason %></td>
-  </tr>
-
+    <tr>
+      <td>チャレンジングなこと</td>
+      <td><%= @post.challenge %></td>
+    </tr>
   </table>
 
   <% unless current_user == nil %>
