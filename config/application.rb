@@ -31,3 +31,5 @@ module Jobmiru
     config.active_record.default_timezone = :local
   end
 end
+
+config.serve_static_assets = true
