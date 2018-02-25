@@ -29,7 +29,7 @@ module Jobmiru
     # タイムゾーン設定：日本
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+
+    config.serve_static_assets = true
   end
 end
-
-config.serve_static_assets = true
