@@ -4,9 +4,9 @@ ja:
     models:
       user: "ユーザー"
       post: "投稿"
-      comment_to_post: "コメント"
-      like_to_post: "いいね"
-      want_to_work: "働いてみたい"
+      post_comment: "コメント"
+      like: "いいね"
+      want: "働いてみたい"
       contact: "お問い合わせ"
     attributes:
       user:
@@ -36,11 +36,11 @@ ja:
         join_reason: "入社理由"
         leave_reason: "退社理由"
       comment_to_post:
-        comment_to_post_content: "コメント内容"
+        post_comment_content: "コメント内容"
       contact:
-        contact_name: "名前"
-        contact_email: "メールアドレス"
-        contact_content: "お問い合わせ内容"
+        name: "名前"
+        email: "メールアドレス"
+        content: "お問い合わせ内容"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
