@@ -35,7 +35,7 @@
 
     <tr>
       <td>具体的な仕事内容</td>
-      <td><%= bar_chart @data, stacked: true %></td>
+      <td><%= bar_chart @data, stacked: true, min: @post.job_start, suffix: "時" %></td>
       <!-- <td><%= bar_chart [["#{@post.job_content1}", @post.job_end1], ["#{@post.job_content2}", @post.job_end2]], stacked: true %></td> -->
     </tr>
 
