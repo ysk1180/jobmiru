@@ -35,7 +35,8 @@
 
     <tr>
       <td>具体的な仕事内容</td>
-      <td><%= pie_chart ({ "#{@post.job_content1}": @post.job_ratio1, "#{@post.job_content2}": @post.job_ratio2, "#{@post.job_content3}": @post.job_ratio3, "#{@post.job_content4}": @post.job_ratio4, "#{@post.job_content5}": @post.job_ratio5, "#{@post.job_content6}": @post.job_ratio6 }) %></td>
+      <td><%= bar_chart @data, stacked: true %></td>
+      <!-- <td><%= bar_chart [["#{@post.job_content1}", @post.job_end1], ["#{@post.job_content2}", @post.job_end2]], stacked: true %></td> -->
     </tr>
 
     <tr>

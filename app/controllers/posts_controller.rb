@@ -18,6 +18,7 @@ class PostsController < ApplicationController
     @post_comments = @post.post_comments.recent
     @post_comment_replies = @post.post_comment_replies.includes(:user).recent
     @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
+    @data = [ { name: "#{@post.job_content1}", data: [["1日", @post.job_end1 - @post.job_start]] }, { name: "#{@post.job_content2}", data: [["1日", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["1日", @post.job_end3 - @post.job_end2]] } ] 
   end
 
   def new
@@ -53,6 +54,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:id, :industry, :company_name, :division_name, :job_category, :job_content1, :job_ratio1, :job_content2, :job_ratio2, :job_content3, :job_ratio3, :job_content4, :job_ratio4, :job_content5, :job_ratio5, :job_content6, :job_ratio6, :obtained_skill, :reward, :challenge, :user_id)
+    params.require(:post).permit(:id, :industry, :company_name, :division_name, :job_category, :job_start, :job_content1, :job_end1, :job_content2, :job_end2, :job_content3, :job_end3, :job_content4, :job_end4, :job_content5, :job_end5, :job_content6, :job_end6, :obtained_skill, :reward, :challenge, :user_id)
   end
 end
