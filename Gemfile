@@ -68,7 +68,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 
 # グラフ
-gem "chartkick"
+gem "chartkick", '~> 2.2.0'
 
 # アイコン
 gem 'font-awesome-rails'
