@@ -11,7 +11,9 @@
       </p>
       <p>返信内容：<%= reply.content %></p>
       <% if reply.user == current_user %>
-        <p><%= link_to '返信を削除する', post_post_comment_post_comment_reply_path(reply.post_id, reply.post_comment_id, reply.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %></p>
+        <p><%= link_to post_post_comment_post_comment_reply_path(reply.post_id, reply.post_comment_id, reply.id), method: :delete, remote: true do %>
+          <i class="fa fa-trash fa-fw"></i> 削除
+        <% end %></p>
       <% end %>
     <% end %>
   <% end %>
@@ -32,11 +34,11 @@
       <% end %>
 
       <div class="form-group">
-        <%= form.text_area :content, :placeholder => '返信をしてみましょう！', class:'form-control' %>
+        <%= form.text_area :content, :placeholder => '返信をしてみましょう！', class:'form-control', rows:"1" %>
       </div>
 
       <div class="actions">
-        <%= form.submit "返信をする", class:"btn btn-primary btn-sm" %>
+        <%= form.submit "返信", class:"btn btn-light btn-sm" %>
       </div>
     <% end %>
 

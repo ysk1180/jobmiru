@@ -118,6 +118,7 @@
         <%= render partial: 'post_comments/index', locals: { post_comments: @post_comments } %>
       </div>
     </div>
+    <br>
     <% if user_signed_in? %>
       <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
       <%= render partial: 'post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
