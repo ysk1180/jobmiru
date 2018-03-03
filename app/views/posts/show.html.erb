@@ -1,8 +1,11 @@
-<h1>投稿詳細</h1>
+<h2>投稿詳細</h2>
 <div class="container-fluid">
   <table class="table table-striped table-bordered">
     <tr>
       <td>投稿者</td>
+    </tr>
+
+    <tr>
       <td>
         <% if @post.user.user_image.present? %>
           <%= image_tag @post.user.user_image_url %>
@@ -15,50 +18,78 @@
 
     <tr>
       <td>会社名</td>
+    </tr>
+
+    <tr>
       <td><%= @post.company_name %></td>
     </tr>
 
     <tr>
       <td>業種</td>
+    </tr>
+
+    <tr>
       <td><%= @post.industry %></td>
     </tr>
 
     <tr>
       <td>職種</td>
+    </tr>
+
+    <tr>
       <td><%= @post.job_category %></td>
     </tr>
 
     <tr>
       <td>部署名</td>
+    </tr>
+
+    <tr>
       <td><%= @post.division_name %></td>
     </tr>
 
     <tr>
       <td>具体的な仕事内容</td>
+    </tr>
+
+    <tr>
       <td><%= bar_chart @data, stacked: true, min: @post.job_start, suffix: "時" %></td>
       <!-- <td><%= bar_chart [["#{@post.job_content1}", @post.job_end1], ["#{@post.job_content2}", @post.job_end2]], stacked: true %></td> -->
     </tr>
 
     <tr>
-      <td>身についたスキル</td>
+      <td>身についたスキルと具体的なストーリー</td>
+    </tr>
+
+    <tr>
       <td><%= @post.obtained_skill %></td>
     </tr>
 
     <tr>
-      <td>やりがい</td>
+      <td>やりがいと具体的なストーリー</td>
+    </tr>
+
+    <tr>
       <td><%= @post.reward %></td>
     </tr>
 
     <tr>
-      <td>チャレンジングなこと</td>
+      <td>チャレンジングなことと具体的なストーリー</td>
+    </tr>
+
+    <tr>
       <td><%= @post.challenge %></td>
     </tr>
   </table>
 
   <% unless current_user == nil %>
     <% if @post.user_id == current_user.id %>
-      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
-      <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+      <%= link_to edit_post_path(@post) do %>
+        <i class="fa fa-edit fa-fw"></i> 編集
+      <% end %>
+      <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="fa fa-trash fa-fw"></i> 削除
+      <% end %>
     <% end %>
   <% end %>
 
@@ -106,6 +137,8 @@
 
   <br>
 
-  <%= link_to '投稿一覧へ', posts_path, class: 'btn btn-default' %>
+  <%= link_to posts_path do %>
+    <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
+  <% end %>
 
 </div>

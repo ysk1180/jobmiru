@@ -1,5 +1,7 @@
-<h1>新規投稿</h1>
+<h2>新規投稿</h2>
 
 <%= render 'form', post: @post %>
 
-<%= link_to '投稿一覧へ', posts_path, class:"btn btn-default" %>
+<%= link_to posts_path do %>
+  <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
+<% end %>

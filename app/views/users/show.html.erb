@@ -1,52 +1,72 @@
-<h1><%= @user.name %>さんのページ</h1>
+<h2><%= @user.name %>さんのページ</h2>
 <div class="container-fluid">
   <div>
     <table class="table table-striped table-bordered">
 
     <tr>
       <td>名前</td>
-      <td><%= @user.name %></td>
+    </tr>
+
+    <tr>
+      <td>
+        <% if @user.user_image.present? %>
+          <%= image_tag @user.user_image_url %>
+        <% else %>
+          <%= image_tag 'default.png' %>
+        <% end %>
+        <%= @user.name %>
+      </td>
     </tr>
 
     <tr>
       <td>年齢</td>
+    </tr>
+
+    <tr>
       <td><%= @user.age %></td>
     </tr>
 
     <tr>
       <td>性別</td>
+    </tr>
+
+    <tr>
       <td><%= @user.sex %></td>
     </tr>
 
     <tr>
       <td>現在までのキャリア</td>
+    </tr>
+
+    <tr>
       <td><%= @user.past_career %></td>
     </tr>
 
     <tr>
       <td>今後のキャリアプラン</td>
+    </tr>
+
+    <tr>
       <td><%= @user.career_plan %></td>
     </tr>
 
     <tr>
       <td>ユーザー画像</td>
-      <% if @user.user_image.present? %>
-        <td><%= image_tag @user.user_image_url %></td>
-      <% else %>
-        <td><%= image_tag 'default.png' %></td>
-      <% end %>
     </tr>
 
     </table>
 
     <% unless current_user == nil %>
       <% if @user.id == current_user.id %>
-       <%= link_to 'Edit', edit_user_registration_path(@user), class: 'btn btn-default' %>
+       <%= link_to edit_user_registration_path(@user) do %>
+         <i class="fa fa-edit fa-fw"></i> 編集
+       <% end %>
      <% end %>
     <% end %>
   </div>
 
-
+  <br>
+  <br>
 
   <!-- 投稿一覧 -->
   <div>

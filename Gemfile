@@ -67,5 +67,8 @@ gem 'kaminari'
 # ページング機能のブートストラップ
 gem 'kaminari-bootstrap'
 
-# 円グラフ
+# グラフ
 gem "chartkick"
+
+# アイコン
+gem 'font-awesome-rails'
