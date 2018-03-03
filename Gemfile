@@ -72,3 +72,7 @@ gem "chartkick"
 
 # アイコン
 gem 'font-awesome-rails'
+
+# herokuのrubyバージョン指定
+source 'https://rubygems.org'
+ruby '2.3.0'
