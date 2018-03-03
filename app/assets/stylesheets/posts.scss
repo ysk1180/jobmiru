@@ -5,3 +5,82 @@
 .indent{
   text-indent: 2em;
 }
+
+.switch{
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #1F2125;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.switch:hover{
+  background: #FFF;
+  border: solid 3px #1F2125;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+
+.search-box {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+  border: solid 2px #1F2125;
+  border-radius: 8px;
+  background: #F7F8F9;
+}
+.search-box .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #1F2125;
+  font-weight: bold;
+}
+
+.search-button{
+  margin: auto;
+}
+
+.rank{
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  color: #232323;
+  background: white;
+  border-left: solid 10px #FECA30;
+}
+
+.rank:hover{
+  background: #FFF;
+  border: solid 3px #FECA30;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+
+.rank-box {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+
+  border-radius: 8px;
+  background: #F7F8F9;
+}
+.rank-box .rank-box-title {
+  position: absolute;
+  display: inline-block;
+  top: -7px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 15px;
+  color: #1F2125;
+  text-decoration: underline;
+}
+
+
+.index-body{
+  background: #F7F8F9
+}

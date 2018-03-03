@@ -2,9 +2,10 @@
 
 <!-- 検索機能 -->
 <div class="container-fluid">
-  <div class="card bg-light">
-    <div class="card-header"><i class="fa fa-search fa-fw"></i>検索</div>
+  <div class="card search-box">
+
       <div class="card-body">
+        <span class="box-title"><i class="fa fa-search fa-fw"></i>検索</span>
         <%= search_form_for(@q, method: :get) do |f| %>
         <div class="row">
           <div class="col-sm-12 col-md-4">
@@ -25,8 +26,9 @@
               <%= f.select :job_category_eq, [["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], :include_blank => true %>
             </div>
           </div>
-          <%= f.submit '検索', class: "btn btn-primary btn-sm" %>
-          <%= link_to '検索条件クリア', url_for, class: "btn btn-light btn-sm" %>
+          <div class="search-button">
+          <%= f.submit 'この条件で検索する', class: "btn btn-primary btn-sm" %>　<%= link_to '検索条件クリア', url_for, class: "btn btn-light btn-sm" %>
+        </div>
         </div>
         <% end %>
       </div>
@@ -34,46 +36,37 @@
 </div>
 <!-- 検索機能ここまで -->
 
-<div class="container-fluid">
+<div class="container-fluid index-body">
   <div class="row">
     <!-- 一覧表示 -->
     <div id="main" class="col-sm-12 col-md-8">
       <div class="main-body">
-
-          <% @posts.each do |post| %>
-          <%= link_to post do %>
-          <div class ="card border-light">
-            <div class ="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>投稿者</th>
-                    <th>会社名</th>
-                    <th>業種</th>
-                    <th>職種</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
+        <% @posts.each do |post| %>
+        <%= link_to post do %>
+        <div class ="card switch">
+          <div class ="card-body">
+            <table class="table table-responsive table-sm">
+              <tbody>
+                <tr>
+                  <td class="border-top-0" rowspan="2">
                     <% if post.user.user_image.present? %>
-                      <td><%= image_tag post.user.user_image_url %></td>
+                      <%= image_tag post.user.user_image_url %>
                     <% else %>
-                      <td><%= image_tag 'default.png' %></td>
+                      <%= image_tag 'default.png' %>
                     <% end %>
-                    <td><%= post.user.name %>さん</td>
-                    <td><%= post.company_name %></td>
-                    <td><%= post.industry %></td>
-                    <td><%= post.job_category %></td>
-
-                  </tr>
-                </tbody>
-              </table>
-              <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
-            </div>
+                  </td>
+                  <td class="border-top-0"><%= post.user.name %>さん</td>
+                </tr>
+                <tr>
+                  <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
+                </tr>
+              </tbody>
+            </table>
+            <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
           </div>
-          <% end %>
-          <% end %>
+        </div>
+        <% end %>
+        <% end %>
       </div>
       <!-- 一覧表示ここまで -->
 
@@ -86,43 +79,54 @@
   <!-- サイドバー -->
   <div id="side" class="col-sm-12 col-md-4">
     <!-- いいねが多い投稿一覧機能 -->
-      <div class="card">
-        <div class="card-header">いいね！が多い投稿</div>
-          <div class="card-body">
-            <% @like_ranking.each.with_index(1) do |post, i| %>
-              <div class ="card border-light">
-                <div class ="card-body">
-                  <p>第<%= i %>位</p>
-                  <p><%= link_to "#{post.user.name}さん", user_path(post.user.id) %>の投稿</p>
-                  <p>会社名：<%= post.company_name %></p>
-                  <p>業種：<%= post.industry %></p>
-                  <p>職種：<%= post.job_category %></p>
-                  <p><%= link_to 'Show', post, class: "btn btn-primary" %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-      </div>
+    <div class="rank-box">
+      <span class="rank-box-title"><i class="fa fa-search fa-fw"></i>いいね！ランキング</span>
+      <% @like_ranking.each.with_index(1) do |post, i| %>
+      <%= link_to user_path(post.user.id) do %>
+        <div class ="rank">
+          <table class="table table-sm">
+            <tbody>
+              <tr>
+                <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><%= post.company_name %></td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
     <!-- いいねが多い投稿一覧機能ここまで -->
 
     <!-- 働きたいが多い投稿一覧機能 -->
-    <div class="card">
-      <div class="card-header">働いてみたい！が多い投稿</div>
-        <div class="card-body">
-          <% @want_ranking.each.with_index(1) do |post, i| %>
-            <div class ="card border-light">
-              <div class ="card-body">
-                <p>第<%= i %>位</p>
-                <p><%= link_to "#{post.user.name}さん", user_path(post.user.id) %>の投稿</p>
-                <p>会社名：<%= post.company_name %></p>
-                <p>業種：<%= post.industry %></p>
-                <p>職種：<%= post.job_category %></p>
-                <p><%= link_to 'Show', post, class: "btn btn-primary" %></p>
-              </div>
-            </div>
-          <% end %>
+    <div class="rank-box">
+      <span class="rank-box-title"><i class="fa fa-search fa-fw"></i>働いてみたい！ランキング</span>
+      <% @want_ranking.each.with_index(1) do |post, i| %>
+      <%= link_to user_path(post.user.id) do %>
+        <div class ="rank">
+          <table class="table table-sm">
+            <tbody>
+              <tr>
+                <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><%= post.company_name %></td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <% end %>
+      <% end %>
     </div>
+
     <!-- 働きたい投稿一覧機能ここまで -->
   </div>
   <!-- サイドバーここまで -->
