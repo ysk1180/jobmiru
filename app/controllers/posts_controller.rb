@@ -18,7 +18,19 @@ class PostsController < ApplicationController
     @post_comments = @post.post_comments.recent
     @post_comment_replies = @post.post_comment_replies.includes(:user).recent
     @post_comment_reply = @post.post_comment_replies.build(user_id: current_user.id) if current_user
-    @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["", @post.job_end3 - @post.job_end2]] }, { name: "#{@post.job_content4}", data: [["", @post.job_end4 - @post.job_end3]] }, { name: "#{@post.job_content5}", data: [["", @post.job_end5 - @post.job_end4]] }, { name: "#{@post.job_content6}", data: [["", @post.job_end6 - @post.job_end5]] } ] 
+    if @post.job_content6.present?
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["", @post.job_end3 - @post.job_end2]] }, { name: "#{@post.job_content4}", data: [["", @post.job_end4 - @post.job_end3]] }, { name: "#{@post.job_content5}", data: [["", @post.job_end5 - @post.job_end4]] }, { name: "#{@post.job_content6}", data: [["", @post.job_end6 - @post.job_end5]] } ]
+    elsif @post.job_content5.present?
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["", @post.job_end3 - @post.job_end2]] }, { name: "#{@post.job_content4}", data: [["", @post.job_end4 - @post.job_end3]] }, { name: "#{@post.job_content5}", data: [["", @post.job_end5 - @post.job_end4]] } ]
+    elsif @post.job_content4.present?
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["", @post.job_end3 - @post.job_end2]] }, { name: "#{@post.job_content4}", data: [["", @post.job_end4 - @post.job_end3]] } ]
+    elsif @post.job_content3.present?
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] }, { name: "#{@post.job_content3}", data: [["", @post.job_end3 - @post.job_end2]] } ]
+    elsif @post.job_content2.present?
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] }, { name: "#{@post.job_content2}", data: [["", @post.job_end2 - @post.job_end1]] } ]
+    else
+      @data = [ { name: "#{@post.job_content1}", data: [["", @post.job_end1]] } ]
+    end
   end
 
   def new
