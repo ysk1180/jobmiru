@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   validates :job_content1, presence: true
   validates :obtained_skill, presence: true
   validates :company_name, presence: true
+  validates :job_start, presence: true
+  validates :job_end1, presence: true
 
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
