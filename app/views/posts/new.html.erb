@@ -1,7 +1,8 @@
-<h2>新規投稿</h2>
+<div class="container">
+  <h2>新規投稿</h2>
+  <%= render 'form', post: @post %>
 
-<%= render 'form', post: @post %>
-
-<%= link_to posts_path do %>
-  <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
+  <%= link_to posts_path do %>
+    <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
 <% end %>
+</div>

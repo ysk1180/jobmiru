@@ -1,71 +1,73 @@
-<h2>新規登録</h2>
+<div class="container">
+  <h2>新規登録</h2>
 
-<a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
-  <span class="fa fa-twitter"></span> Twitterで新規登録
-</a>
+  <a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
+    <span class="fa fa-twitter"></span> Twitterで新規登録
+  </a>
 
-<br>
+  <br>
 
-<h6>------- or メールアドレスで登録 -------</h6>
+  <h6>------- or メールアドレスで登録 -------</h6>
 
-<br>
+  <br>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, :placeholder => '必須', class:'form-control' %>
-    <small class="text-muted">実名・ニックネーム問いません</small>
-  </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :placeholder => '必須', class:'form-control' %>
+      <small class="text-muted">実名・ニックネーム問いません</small>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => '必須', class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => '必須', class:'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
-    <small class="text-muted">6文字以上</small>
-  </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
+      <small class="text-muted">6文字以上</small>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
+    </div>
 
-  <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
+    <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
 
-  <div class="form-group">
-    <%= f.label :age %>
-    <%= f.text_field :age, class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :age %>
+      <%= f.text_field :age, class:'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :sex %>
-    <%= f.select :sex,[["男性","男性"],["女性","女性"]], class:'form-control' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :sex %>
+      <%= f.select :sex,[["男性","男性"],["女性","女性"]], class:'form-control' %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :past_career %>
-    <%= f.text_area :past_career, class:'form-control', rows:"3" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :past_career %>
+      <%= f.text_area :past_career, class:'form-control', rows:"3" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :career_plan %>
-    <%= f.text_area :career_plan, class:'form-control', rows:"3" %>
-  </div>
+    <div class="form-group">
+      <%= f.label :career_plan %>
+      <%= f.text_area :career_plan, class:'form-control', rows:"3" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :user_image %>
-    <%= f.file_field :user_image, class:'form-control-file' %>
-  </div>
+    <div class="form-group">
+      <%= f.label :user_image %>
+      <%= f.file_field :user_image, class:'form-control-file' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "登録", class:"btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "登録", class:"btn btn-primary" %>
+    </div>
+  <% end %>
 
 
 <%= render "devise/shared/links" %>
+</div>
