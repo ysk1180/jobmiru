@@ -1,7 +1,7 @@
 <div class="reply-zone">
   <% @post_comment_replies.each do |reply| %>
     <% if reply.post_comment_id == comment.id %>
-      <p  class="comment-name">
+      <p class="comment-name">
         <% if reply.user.user_image.present? %>
           <%= image_tag reply.user.user_image_url %>
         <% else %>
@@ -9,25 +9,23 @@
         <% end %>
         <%= link_to "#{reply.user.name}さん", user_path(reply.user.id) %>
       </p>
-      <div class="comment-content"><%= reply.content %>
-      <% if reply.user == current_user %>
-        <p class="comment-delete"><%= link_to post_post_comment_post_comment_reply_path(reply.post_id, reply.post_comment_id, reply.id), method: :delete, remote: true do %>
-          <i class="fa fa-trash fa-fw"></i> 削除
-        <% end %></p>
+      <div class="comment-content">
+        <%= reply.content %>
+        <% if reply.user == current_user %>
+          <p class="comment-delete">
+            <%= link_to post_post_comment_post_comment_reply_path(reply.post_id, reply.post_comment_id, reply.id), method: :delete, remote: true do %>
+            <i class="fa fa-trash fa-fw"></i> 削除
+            <% end %>
+          </p>
+        <% end %>
       </div>
-
-
-      <% end %>
     <% end %>
   <% end %>
   <% if user_signed_in? %>
-
-
     <%= form_with(model: [@post, comment, PostCommentReply.new]) do |form| %>
       <% if @post_comment_reply.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@post_comment_reply.errors.count, "error") %> prohibited this post_comment_reply from being saved:</h2>
-
           <ul>
           <% @post_comment_reply.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -44,7 +42,5 @@
         <%= form.submit "返信", class:"btn btn-light btn-sm" %>
       </div>
     <% end %>
-
-
   <% end %>
 </div>
