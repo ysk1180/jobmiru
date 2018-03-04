@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.indent{
-  text-indent: 2em;
-}
 
 .switch{
   padding: 0.5em 1em;
@@ -80,7 +77,53 @@
   text-decoration: underline;
 }
 
-
 .index-body{
   background: #F7F8F9
+}
+
+.comment-content {
+  position: relative;
+	display: inline-block;
+ 	margin: 0.5em 0 0.5em 15px;
+	padding: 7px 10px;
+	min-width: 120px;
+ 	max-width: 100%;
+ 	color: #555;
+	font-size: 16px;
+	background: white;
+  border-radius: 5px;
+}
+
+.comment-content:before{
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid white;
+  -ms-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.comment-delete{
+  margin: 0;
+  text-align: right;
+}
+
+.comment-name{
+  margin: 0;
+}
+
+.comment-space{
+  background: #F7F8F9;
+}
+
+.one-comment{
+  margin: 0 0 1em 0;
+}
+
+.reply-zone{
+  margin: 0 0 0 2em;
 }

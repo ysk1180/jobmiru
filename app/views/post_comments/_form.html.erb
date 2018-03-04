@@ -10,10 +10,12 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+  <div class="row">
+  <div class="form-group col-md-10">
     <%= form.text_area :content, :placeholder => '質問等を気軽にコメントをしてみましょう！', class:'form-control' %>
   </div>
-  <div class="actions">
+  <div class="actions col-md-2">
     <%= form.submit "コメント送信", class:"btn btn-primary btn-sm" %>
   </div>
+</div>
 <% end %>

@@ -1,29 +1,39 @@
 
 <% post_comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <div class="card-body">
-      <div class="card">
-        <div class="card-body">
-          <p>
-            <% if comment.user.user_image.present? %>
-              <%= image_tag comment.user.user_image_url %>
-            <% else %>
-              <%= image_tag 'default.png' %>
-            <% end %>
-            <%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %>
-          </p>
-          <p>コメント：<%= comment.content %></p>
-          <% if comment.user == current_user %>
-            <p><%= link_to post_post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
-              <i class="fa fa-trash fa-fw"></i> 削除
-            <% end %></p>
-          <% end %>
+      <div class="card one-comment">
+        <div class="card-body comment-space">
+
+            <p class="comment-name">
+              <% if comment.user.user_image.present? %>
+                <%= image_tag comment.user.user_image_url %>
+              <% else %>
+                <%= image_tag 'default.png' %>
+              <% end %>
+              <%= link_to "#{comment.user.name}さん", user_path(comment.user.id) %>
+            </p>
+            <div class="comment-content">
+
+              <%= comment.content %>
+              <% if comment.user == current_user %>
+                <p class="comment-delete"><%= link_to post_post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do %>
+                  <i class="fa fa-trash fa-fw"></i> 削除
+                <% end %></p>
+              <% end %>
+            </div>
+
+
+
+
+
+
+
 
           <!-- コメントへの返信 -->
           <%= render partial: 'post_comment_replies/index', locals: { comment: comment} %>
 
         </div>
       </div>
-    </div>
+
   <% end %>
 <% end %>
