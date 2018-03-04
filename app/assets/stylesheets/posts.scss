@@ -134,3 +134,23 @@
     overflow-x: hidden !important; /* これがないと x軸方向に謎の余白が生じてしまう */
   }
 }
+
+.work-content {
+  position: relative;
+  margin: 2em 0;
+  padding: 0.5em 1em;
+
+  border-radius: 8px;
+  background: #F7F8F9;
+}
+.work-content .work-content-title {
+  position: absolute;
+  display: inline-block;
+  top: -7px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 15px;
+  color: #1F2125;
+  text-decoration: underline;
+}

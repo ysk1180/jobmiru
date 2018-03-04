@@ -80,7 +80,7 @@
   <div id="side" class="col-sm-12 col-md-4">
     <!-- いいねが多い投稿一覧機能 -->
     <div class="rank-box">
-      <span class="rank-box-title"><i class="fa fa-search fa-fw"></i>いいね！ランキング</span>
+      <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>いいね！ランキング</span>
       <% @like_ranking.each.with_index(1) do |post, i| %>
       <%= link_to user_path(post.user.id) do %>
         <div class ="rank">
@@ -105,7 +105,7 @@
 
     <!-- 働きたいが多い投稿一覧機能 -->
     <div class="rank-box">
-      <span class="rank-box-title"><i class="fa fa-search fa-fw"></i>働いてみたい！ランキング</span>
+      <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>働いてみたい！ランキング</span>
       <% @want_ranking.each.with_index(1) do |post, i| %>
       <%= link_to user_path(post.user.id) do %>
         <div class ="rank">

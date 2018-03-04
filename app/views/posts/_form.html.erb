@@ -15,8 +15,8 @@
 
   <div class="form-group">
     <%= form.label :company_name %>
-    <%= form.text_field :company_name, id: :post_company_name, class:'form-control' %>
-    <small class="text-muted">記載が難しい場合、正式名称でなくても構いません（例：メガバンク 等）</small>
+    <%= form.text_field :company_name, id: :post_company_name, :placeholder => '必須　会社名', class:'form-control' %>
+    <small class="text-muted">※正式名称でなくても問題ありません（例：中堅商社、地銀、Fintech系ベンチャー 等々）</small>
   </div>
 
   <div class="form-group">
@@ -32,71 +32,84 @@
   <div class="form-group">
     <%= form.label :division_name %>
     <%= form.text_field :division_name, id: :post_division_name, class:'form-control' %>
+    <small class="text-muted">※正式名称でなくても問題ありません</small>
   </div>
 
-  <div class="form-group">
-    <%= form.label :job_start %>
-    <%= form.select :job_start,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+  <div class="work-content">
+    <span class="work-content-title">具体的な仕事内容〜ある平均的な1日</span>
+    <br>
+    <div>
+      ＜説明＞<br>
+      出勤時刻、仕事内容、それぞれの終了時刻を入力いただくと、下記例のようにグラフで表示されます。<br>
+      最大6項目の仕様のため、主要業務の入力をお願いします。
+      <%= image_tag 'example.png' %>
+    </div>
+    <br>
 
-  <div class="form-group">
-    <%= form.label :job_content1 %>
-    <%= form.text_area :job_content1, id: :post_job_content1, :placeholder => '必須　仕事内容', class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_start %>
+      <%= form.select :job_start,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end1 %>
-    <%= form.select :job_end1,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_content1 %>
+      <%= form.text_area :job_content1, id: :post_job_content1, :placeholder => '必須　仕事内容①', class:'form-control', rows:"1" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_content2 %>
-    <%= form.text_area :job_content2, id: :post_job_content2, class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_end1 %>
+      <%= form.select :job_end1,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end2 %>
-    <%= form.select :job_end2,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_content2 %>
+      <%= form.text_area :job_content2, id: :post_job_content2, class:'form-control', rows:"1" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_content3 %>
-    <%= form.text_area :job_content3, id: :post_job_content3, class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_end2 %>
+      <%= form.select :job_end2,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end3 %>
-    <%= form.select :job_end3,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_content3 %>
+      <%= form.text_area :job_content3, id: :post_job_content3, class:'form-control', rows:"1" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_content4 %>
-    <%= form.text_area :job_content4, id: :post_job_content4, class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_end3 %>
+      <%= form.select :job_end3,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end4 %>
-    <%= form.select :job_end4,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_content4 %>
+      <%= form.text_area :job_content4, id: :post_job_content4, class:'form-control', rows:"1" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_content5 %>
-    <%= form.text_area :job_content5, id: :post_job_content5, class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_end4 %>
+      <%= form.select :job_end4,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end5 %>
-    <%= form.select :job_end5,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_content5 %>
+      <%= form.text_area :job_content5, id: :post_job_content5, class:'form-control', rows:"1" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_content6 %>
-    <%= form.text_area :job_content6, id: :post_job_content6, class:'form-control', rows:"1" %>
-  </div>
+    <div class="form-group">
+      <%= form.label :job_end5 %>
+      <%= form.select :job_end5,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :job_end6 %>
-    <%= form.select :job_end6,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    <div class="form-group">
+      <%= form.label :job_content6 %>
+      <%= form.text_area :job_content6, id: :post_job_content6, class:'form-control', rows:"1" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :job_end6 %>
+      <%= form.select :job_end6,[["",0],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]] %>
+    </div>
   </div>
 
   <div class="form-group">
