@@ -68,34 +68,66 @@
   <br>
   <br>
 
-  <!-- 投稿一覧 -->
+  <!-- 本人の投稿一覧 -->
   <div>
     <h5><%= @user.name %>さんの投稿一覧</h5>
     <% @posts.each do |post| %>
-      <% if post.user_id == @user.id %>
-        <div class ="card border-light">
-          <div class ="card-body">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>会社名</th>
-                  <th>業種</th>
-                  <th>職種</th>
-                  <th colspan="3"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><%= post.company_name %></td>
-                  <td><%= post.industry %></td>
-                  <td><%= post.job_category %></td>
-                  <td><%= link_to 'Show', post, class: "btn btn-primary" %></td>
-                </tr>
-              </tbody>
-            </table>
-            <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
-          </div>
+
+      <%= link_to post do %>
+      <div class ="card switch">
+        <div class ="card-body">
+          <table class="table table-responsive table-sm">
+            <tbody>
+              <tr>
+                <td class="border-top-0" rowspan="2">
+                  <% if post.user.user_image.present? %>
+                    <%= image_tag post.user.user_image_url %>
+                  <% else %>
+                    <%= image_tag 'default.png' %>
+                  <% end %>
+                </td>
+                <td class="border-top-0"><%= post.user.name %>さん</td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
         </div>
+      </div>
+      <% end %>
+
+    <% end %>
+  </div>
+
+  <!-- 本人が働きたい！を押した投稿一覧 -->
+  <div>
+    <h5><%= @user.name %>さんが働きたい！をした投稿一覧</h5>
+    <% @want_posts.each do |post| %>
+      <%= link_to post do %>
+      <div class ="card switch">
+        <div class ="card-body">
+          <table class="table table-responsive table-sm">
+            <tbody>
+              <tr>
+                <td class="border-top-0" rowspan="2">
+                  <% if post.user.user_image.present? %>
+                    <%= image_tag post.user.user_image_url %>
+                  <% else %>
+                    <%= image_tag 'default.png' %>
+                  <% end %>
+                </td>
+                <td class="border-top-0"><%= post.user.name %>さん</td>
+              </tr>
+              <tr>
+                <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
+        </div>
+      </div>
       <% end %>
     <% end %>
   </div>

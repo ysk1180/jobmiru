@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
     end
-    @posts = Post.all
+    @posts = @user.posts
+    @want_posts = Post.find(Want.find(@user.wants.ids).pluck(:post_id))
   end
 end
