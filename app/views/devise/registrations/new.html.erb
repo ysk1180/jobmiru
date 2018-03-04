@@ -4,8 +4,9 @@
   <a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
     <span class="fa fa-twitter"></span> Twitterで新規登録
   </a>
+  <small class="text-muted">Twitterに投稿されることはありません。</small>
 
-  <br>
+  <br><br>
 
   <h6>------- or メールアドレスで登録 -------</h6>
 
@@ -62,6 +63,8 @@
       <%= f.label :user_image %>
       <%= f.file_field :user_image, class:'form-control-file' %>
     </div>
+
+    <p>Jobmiruの<a href="/terms/index">利用規約</a>に同意の上、登録ボタンを押してください。
 
     <div class="actions">
       <%= f.submit "登録", class:"btn btn-primary" %>

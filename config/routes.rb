@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'terms/index'
+
   resources :contacts, only: [:new, :create]
 
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations'}
