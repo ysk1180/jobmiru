@@ -82,7 +82,7 @@
     <div class="rank-box">
       <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>いいね！ランキング</span>
       <% @like_ranking.each.with_index(1) do |post, i| %>
-      <%= link_to user_path(post.user.id) do %>
+      <%= link_to post do %>
         <div class ="rank">
           <table class="table table-sm">
             <tbody>
@@ -107,7 +107,7 @@
     <div class="rank-box">
       <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>働いてみたい！ランキング</span>
       <% @want_ranking.each.with_index(1) do |post, i| %>
-      <%= link_to user_path(post.user.id) do %>
+      <%= link_to post do %>
         <div class ="rank">
           <table class="table table-sm">
             <tbody>
