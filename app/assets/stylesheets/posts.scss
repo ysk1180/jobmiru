@@ -127,3 +127,10 @@
 .reply-zone{
   margin: 0 0 0 2em;
 }
+
+@media (max-width: 767px) {
+  .container-fluid  {
+    padding: 0 !important; /* 好みに応じて余白サイズを指定 */
+    overflow-x: hidden !important; /* これがないと x軸方向に謎の余白が生じてしまう */
+  }
+}
