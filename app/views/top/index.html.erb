@@ -26,26 +26,26 @@
       <div class="col-md-4">
         <span class="fa-stack fa-4x">
           <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          <i class="fa fa-history fa-stack-1x fa-inverse"></i>
         </span>
         <h4 class="service-heading">設立経緯</h4>
-        <p class="text-muted">私の就職活動時・転職活動時に、会社の事業内容については分かるが、「自分がそこで実際に何をやるのか」「何が出来るようになるのか」について分からなかった。100年LIFEと言われる現在、1社で定年まで働くスタイルは過去のものとなりつつあり、今後は一人一人が自らのスキルを高めるために働く時代が来ると感じたことから。</p>
+        <p class="text-muted">私自身の就職活動時・転職活動時に、会社の事業内容については分かるが、<u>「何が出来るようになるのか」「自分がそこで実際に何をやるのか」</u>について分からなかった原体験がある。100年LIFEと言われる現在、1社で定年まで働くスタイルは過去のものとなりつつあり、今後は1人1人が<u>自らのスキルを高めるために働く</u>時代が来ると感じており、その時にこのサービスが必要になると思い、自分で1から作り、立ち上げた。</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">ミッション</h4>
+        <p class="text-muted">「出来るようになること」「具体的に何をするのか」にフォーカスした就業・採用を根付かせる。その結果、就業のミスマッチが減り、自分がすべきことに集中できること、不本意な転職が減少することで生産性を向上させ、日本経済の底上げ、働き方改革の後押しをすること</p>
       </div>
       <div class="col-md-4">
         <span class="fa-stack fa-4x">
           <i class="fa fa-circle fa-stack-2x text-primary"></i>
           <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
         </span>
-        <h4 class="service-heading">ミッション</h4>
-        <p class="text-muted">「できるようになること」「具体的に何をするのか」にフォーカスした就業・採用を根付かせる。その結果、就業のミスマッチが減り、自分がすべきことに集中できること、不本意な転職が減少することで生産性を向上させ、日本経済の底上げ、働き方改革の後押しをすること</p>
-      </div>
-      <div class="col-md-4">
-        <span class="fa-stack fa-4x">
-          <i class="fa fa-circle fa-stack-2x text-primary"></i>
-          <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-        </span>
         <h4 class="service-heading">出来ること</h4>
-        <p class="text-muted">「できるようになること」「具体的に何をするのか」について、実際に働いたことのある方に投稿いただき、内容について共有・ディスカッション出来る場を提供します。</p>
+        <p class="text-muted">「出来るようになること」「具体的に何をするのか」について、実際に働いたことのある方に投稿いただき、内容について共有・コメントを通じてディスカッション出来る場を提供します。既存の口コミサービスにあるような、年収・福利厚生といった項目については対象外とし、シンプルなサービスにしております。</p>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿を見る</h2>
-        <h3 class="section-subheading text-muted">会員登録不要で投稿を見ることができます。いいね！・働いてみたい！・コメントを行うためには会員登録（無料・1分程度）が必要です。</h3>
+        <h3 class="section-subheading text-muted">会員登録不要で投稿を見ることができます。<br><br>いいね！・働いてみたい！・コメントを行うためには会員登録（無料・1分程度）が必要です。</h3>
         <a class="btn btn-primary btn-xl" href="/posts">投稿一覧へ</a>
       </div>
     </div>
@@ -70,12 +70,11 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿する</h2>
-        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。また、投稿することにより、自分のスキルを客観視してみましょう。</h3>
-        <h3 class="section-subheading text-muted">投稿するためには会員登録（無料・1分程度）が必要です。</h3>
+        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。また、投稿することにより、自分のスキルを客観視してみましょう。<br><br>投稿するためには会員登録（無料・1分程度）が必要です。</h3>
         <% unless user_signed_in? %>
-          <a class="btn btn-primary btn-xl" href="/users/sign_up">新規登録</a>
+          <a class="btn btn-primary btn-xl top-big" href="/users/sign_up">新規登録</a>
         <% end %>
-        <a class="btn btn-primary btn-xl" href="/posts/new">投稿する</a>
+        <a class="btn btn-primary btn-xl top-big" href="/posts/new">投稿する</a>
       </div>
     </div>
   </div>
