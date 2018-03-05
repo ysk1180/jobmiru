@@ -108,7 +108,7 @@
   <!-- 本人が働きたい！を押した投稿一覧 -->
   <div>
     <h5><%= @user.name %>さんが働きたい！をした投稿一覧</h5>
-    <% unless @posts.present? %>
+    <% unless @want_posts.present? %>
       <p><%= @user.name %>さん働きたい！をした投稿はまだありません。</p>
     <% end %>
     <% @want_posts.each do |post| %>
