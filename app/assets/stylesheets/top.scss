@@ -175,7 +175,7 @@ header.masthead {
   text-align: center;
   color: white;
   // background-image: image-url("../images/header_bg.jpg");
-  background-image: image-url("header_bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)),image-url("header_bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
