@@ -68,8 +68,15 @@
   <!-- 本人の投稿一覧 -->
   <div>
     <h5><%= @user.name %>さんの投稿一覧</h5>
+    <% unless @posts.present? %>
+      <p><%= @user.name %>さんの投稿はまだありません。</p>
+      <% if current_user.present? %>
+        <% if @user.id == current_user.id %>
+          <p>投稿してみましょう！5分で簡単に投稿できます！➡︎　<%= link_to "投稿する", new_post_path %></p>
+        <% end %>
+      <% end %>
+    <% end %>
     <% @posts.each do |post| %>
-
       <%= link_to post do %>
       <div class ="card switch">
         <div class ="card-body">
@@ -97,10 +104,13 @@
 
     <% end %>
   </div>
-
+  <br>
   <!-- 本人が働きたい！を押した投稿一覧 -->
   <div>
     <h5><%= @user.name %>さんが働きたい！をした投稿一覧</h5>
+    <% unless @posts.present? %>
+      <p><%= @user.name %>さん働きたい！をした投稿はまだありません。</p>
+    <% end %>
     <% @want_posts.each do |post| %>
       <%= link_to post do %>
       <div class ="card switch">
