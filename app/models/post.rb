@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   validates :job_start, presence: true
   validates :job_end1, presence: true
   validates :job_end1, numericality: { greater_than: :job_start }
-  validates :job_end2, numericality: { greater_than: :job_end1 }
 
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
