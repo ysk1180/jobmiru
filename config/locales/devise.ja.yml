@@ -49,7 +49,7 @@ ja:
       unlocked: 'アカウントのロックが解除されました。ログインしています。'
       send_paranoid_instructions: 'アカウントが存在する場合、ロックを解除する方法をメールでご連絡します'
     omniauth_callbacks:
-      success: '%{kind} から承認されました。'
+      success: 'ようこそ、Jobmiruへ！メニューバーから投稿の閲覧、投稿が可能です！'
       failure: '%{kind} から承認されませんでした。理由："%{reason}".'
     mailer:
       confirmation_instructions:
