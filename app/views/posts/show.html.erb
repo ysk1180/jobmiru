@@ -1,126 +1,128 @@
-<div class="container-fluid">
-  <br>
-  <h2>投稿詳細</h2>
-  <table class="table table-striped table-bordered">
-    <tr>
-      <td>投稿者</td>
-    </tr>
-
-    <tr>
-      <td>
-        <% if @post.user.user_image.present? %>
-          <%= image_tag @post.user.user_image_url %>
-        <% else %>
-          <%= image_tag 'default.png' %>
-        <% end %>
-        <%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %>
-      </td>
-    </tr>
-
-    <tr>
-      <td>会社名</td>
-    </tr>
-
-    <tr>
-      <td><%= @post.company_name %></td>
-    </tr>
-
-    <tr>
-      <td>業種</td>
-    </tr>
-
-    <tr>
-      <td><%= @post.industry %></td>
-    </tr>
-
-    <tr>
-      <td>職種</td>
-    </tr>
-
-    <tr>
-      <td><%= @post.job_category %></td>
-    </tr>
-
-    <tr>
-      <td>部署名</td>
-    </tr>
-
-    <tr>
-      <td><%= @post.division_name %></td>
-    </tr>
-
-    <tr>
-      <td><strong>具体的な仕事内容〜ある平均的な1日</strong></td>
-    </tr>
-
-    <tr>
-      <td><%= bar_chart @data, stacked: true, min: @post.job_start, xtitle: "（時）", height: "150px" %></td>
-    </tr>
-
-    <tr>
-      <td><strong>身についたスキルと具体的なストーリー</strong></td>
-    </tr>
-
-    <tr>
-      <td><%= @post.obtained_skill %></td>
-    </tr>
-  </table>
-
-  <% unless current_user == nil %>
-    <% if @post.user_id == current_user.id %>
-      <%= link_to edit_post_path(@post) do %>
-        <i class="fa fa-edit fa-fw"></i> 編集
-      <% end %>
-      <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="fa fa-trash fa-fw"></i> 削除
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <div>
-    <!-- いいね追加・削除 -->
-    <div id="like_area">
-      <%= render partial: 'likes/index' %>
-    </div>
-
-    <!-- 働きたい追加・削除 -->
-    <div id="want_area">
-      <%= render partial: 'wants/index' %>
-    </div>
-  </div>
-
-  <!-- ツイートボタンの設置 -->
-  <a href="https://twitter.com/share?text=Jobmiru〜「何が出来るようになるか」で会社を選べる世界に" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-　
-  <!-- コメントの表示 -->
-  <div>
-    <h4>コメント</h4>
-      <div id="comments_area">
-        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-        <%= render partial: 'post_comments/index', locals: { post_comments: @post_comments } %>
-      </div>
+<div class="body-full">
+  <div class="container-fluid">
     <br>
-    <% if user_signed_in? %>
-      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
-      <%= render partial: 'post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+    <h2>投稿詳細</h2>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <td>投稿者</td>
+      </tr>
+
+      <tr>
+        <td>
+          <% if @post.user.user_image.present? %>
+            <%= image_tag @post.user.user_image_url %>
+          <% else %>
+            <%= image_tag 'default.png' %>
+          <% end %>
+          <%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>会社名</td>
+      </tr>
+
+      <tr>
+        <td><%= @post.company_name %></td>
+      </tr>
+
+      <tr>
+        <td>業種</td>
+      </tr>
+
+      <tr>
+        <td><%= @post.industry %></td>
+      </tr>
+
+      <tr>
+        <td>職種</td>
+      </tr>
+
+      <tr>
+        <td><%= @post.job_category %></td>
+      </tr>
+
+      <tr>
+        <td>部署名</td>
+      </tr>
+
+      <tr>
+        <td><%= @post.division_name %></td>
+      </tr>
+
+      <tr>
+        <td><strong>具体的な仕事内容〜ある平均的な1日</strong></td>
+      </tr>
+
+      <tr>
+        <td><%= bar_chart @data, stacked: true, min: @post.job_start, xtitle: "（時）", height: "150px" %></td>
+      </tr>
+
+      <tr>
+        <td><strong>身についたスキルと具体的なストーリー</strong></td>
+      </tr>
+
+      <tr>
+        <td><%= @post.obtained_skill %></td>
+      </tr>
+    </table>
+
+    <% unless current_user == nil %>
+      <% if @post.user_id == current_user.id %>
+        <%= link_to edit_post_path(@post) do %>
+          <i class="fa fa-edit fa-fw"></i> 編集
+        <% end %>
+        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash fa-fw"></i> 削除
+        <% end %>
+      <% end %>
     <% end %>
-  </div>
 
-  <br>
-
-  <!-- 非会員用メッセージ -->
-  <% unless user_signed_in? %>
     <div>
-      <p>いいね！・働いてみたい！・コメントをするには、新規登録（無料・1分程度）またはログインが必要です。</p>
-      <a class="btn btn-primary btn-sm" href="/users/sign_up">新規登録</a>
-      <a class="btn btn-primary btn-sm" href="/users/sign_in">ログイン</a>
+      <!-- いいね追加・削除 -->
+      <div id="like_area">
+        <%= render partial: 'likes/index' %>
+      </div>
+
+      <!-- 働きたい追加・削除 -->
+      <div id="want_area">
+        <%= render partial: 'wants/index' %>
+      </div>
     </div>
-  <% end %>
 
-  <br>
+    <!-- ツイートボタンの設置 -->
+    <a href="https://twitter.com/share?text=Jobmiru〜「何が出来るようになるか」で会社を選べる世界に" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  　
+    <!-- コメントの表示 -->
+    <div>
+      <h4>コメント</h4>
+        <div id="comments_area">
+          <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+          <%= render partial: 'post_comments/index', locals: { post_comments: @post_comments } %>
+        </div>
+      <br>
+      <% if user_signed_in? %>
+        <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+        <%= render partial: 'post_comments/form', locals: { post_comment: @post_comment, post: @post } %>
+      <% end %>
+    </div>
 
-  <%= link_to posts_path do %>
-    <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
-  <% end %>
+    <br>
 
+    <!-- 非会員用メッセージ -->
+    <% unless user_signed_in? %>
+      <div>
+        <p>いいね！・働いてみたい！・コメントをするには、新規登録（無料・1分程度）またはログインが必要です。</p>
+        <a class="btn btn-primary btn-sm" href="/users/sign_up">新規登録</a>
+        <a class="btn btn-primary btn-sm" href="/users/sign_in">ログイン</a>
+      </div>
+    <% end %>
+
+    <br>
+
+    <%= link_to posts_path do %>
+      <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
+    <% end %>
+
+  </div>
 </div>
