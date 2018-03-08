@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   # deviseではshowのルーティングがなかったので追加
   resources :users, only: [:show]
-  get 'users/show'
 
   root to: "top#index"
 end
