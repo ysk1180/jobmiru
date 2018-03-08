@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'terms/index'
+  get 'terms', to: 'terms#index', as: :terms
 
   resources :contacts, only: [:new, :create]
 
