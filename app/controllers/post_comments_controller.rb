@@ -6,8 +6,8 @@ class PostCommentsController < ApplicationController
   end
 
   def create
-    @post_comment = @post.post_comments.build(post_comment_params)
-    @post_comment.user_id = current_user.id
+    @post_comment = current_user.post_comments.build(post_comment_params)
+    @post_comment.post_id = @post.id
     set_replies
     set_reply
     if @post_comment.save
