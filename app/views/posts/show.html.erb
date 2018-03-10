@@ -55,7 +55,7 @@
       </tr>
 
       <tr>
-        <td><%= bar_chart @data, stacked: true, min: @post.job_start, xtitle: "（時）", height: "150px" %></td>
+        <td><%= bar_chart @data, stacked: true, min: @post.job_start, height: "150px", library: {scales: {xAxes: [{ticks: {stepSize: "1"}, scaleLabel:{display: "true", labelString: "（時）", fontSize: "12"}}]}, animation: { easing: 'easeOutQuad' }} %></td>
       </tr>
 
       <tr>
