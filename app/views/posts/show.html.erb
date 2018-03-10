@@ -59,7 +59,48 @@
       </tr>
 
       <tr>
-        <td><strong>身についたスキルと具体的なストーリー</strong></td>
+        <td><strong>身についたスキル</strong></td>
+      </tr>
+
+      <tr>
+        <td>
+          <canvas id="myChart2"></canvas>
+          <script>
+          var ctx = document.getElementById("myChart2");
+          var myChart2 = new Chart(ctx, {
+            type: 'radar',
+            data: {
+              labels: ["<%= @post.skill1 %>", "<%= @post.skill2 %>", "<%= @post.skill3 %>", "<%= @post.skill4 %>", "<%= @post.skill5 %>"],
+              datasets: [{
+                label: '',
+                backgroundColor: "rgba(153,255,51,0.4)",
+                borderColor: "rgba(153,255,51,1)",
+                data: [<%= @post.skill_level1 %>, <%= @post.skill_level2 %>, <%= @post.skill_level3 %>, <%= @post.skill_level4 %>, <%= @post.skill_level5 %>]
+              }]
+            },
+            options: {
+              responsive: true,
+              legend: {
+                display: false
+              },
+              scale: {
+                pointLabels: {
+                  fontSize: 15 //フォントサイズ
+                },
+                ticks: { //http://www.chartjs.org/docs/#scales-radial-linear-scale
+                  stepSize: 1, // 目盛の間隔
+                  max: 5, //最大値
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+          </script>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>スキルが身についた具体的なストーリー</strong></td>
       </tr>
 
       <tr>

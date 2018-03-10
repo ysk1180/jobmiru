@@ -16,4 +16,5 @@
 //= require bootstrap/dist/js/bootstrap.min
 //= require Chart.bundle
 //= require chartkick
+//= require Chart.min
 //= require_tree .

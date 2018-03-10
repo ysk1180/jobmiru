@@ -62,6 +62,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chart-js-rails (0.1.4)
+      railties (> 3.1)
     chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
@@ -285,6 +287,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   carrierwave
+  chart-js-rails
   chartkick (~> 2.2.0)
   coffee-rails (~> 4.2)
   devise
