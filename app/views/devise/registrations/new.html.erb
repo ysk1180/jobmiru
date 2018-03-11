@@ -17,28 +17,26 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :placeholder => '必須', class:'form-control' %>
+      <%= f.label :name, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.text_field :name, class:'form-control' %>
       <small class="text-muted">ニックネームをご記入下さい</small>
     </div>
 
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => '必須', class:'form-control' %>
+      <%= f.label :email, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
+      <%= f.label :password, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
       <small class="text-muted">6文字以上</small>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => '必須', class:'form-control' %>
+      <%= f.label :password_confirmation, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
     </div>
-
-    <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
 
     <div class="form-group">
       <%= f.label :age %>
@@ -47,7 +45,7 @@
 
     <div class="form-group">
       <%= f.label :sex %>
-      <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], class:'form-control' %>
+      <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], {}, {class: 'form-control'} %>
     </div>
 
     <div class="form-group">
@@ -65,7 +63,7 @@
       <%= f.file_field :user_image, class:'form-control-file' %>
     </div>
 
-    <p>Jobmiruの<a href="/terms/index">利用規約</a>に同意の上、登録ボタンを押してください。
+    <p><i>Jobmiruの<u><a href="/terms/index">利用規約</a></u>に同意の上、登録ボタンを押してください。</i></p>
 
     <div class="actions">
       <%= f.submit "登録", class:"btn btn-primary" %>

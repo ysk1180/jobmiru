@@ -5,12 +5,10 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :name %>
+    <%= f.label :name, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
     <%= f.text_field :name, :placeholder => '必須', class:'form-control' %>
     <small class="text-muted">実名・ニックネーム問いません</small>
   </div>
-
-  <h6>以下項目は登録任意項目です。全ての項目はいつでも編集できます。</h6>
 
   <div class="form-group">
     <%= f.label :age %>
@@ -19,7 +17,7 @@
 
   <div class="form-group">
     <%= f.label :sex %>
-    <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], class:'form-control' %>
+    <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], {}, {class: 'form-control'} %>
   </div>
 
   <div class="form-group">
