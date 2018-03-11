@@ -19,13 +19,13 @@
             <div class="col-sm-6 col-md-3">
               <div class="form-group">
                 <%= f.label :industry_eq, '業種' %>
-                <%= f.select :industry_eq, [["メーカー・建設","メーカー・建設"],["商社","商社"],["流通・小売","流通・小売"],["金融","金融"],["インフラ・コンサル","インフラ・コンサル"],["IT","IT"],["広告・出版","広告・出版"],["官公庁","官公庁"]], :include_blank => true %>
+                <%= f.select :industry_eq, [["メーカー・建設","メーカー・建設"],["商社","商社"],["流通・小売","流通・小売"],["金融","金融"],["インフラ・コンサル","インフラ・コンサル"],["IT","IT"],["広告・出版","広告・出版"],["官公庁","官公庁"]], {include_blank: true}, {class: 'form-control'} %>
               </div>
             </div>
             <div class="col-sm-6 col-md-3">
               <div class="form-group">
                 <%= f.label :job_category_eq, '職種' %>
-                <%= f.select :job_category_eq, [["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], :include_blank => true %>
+                <%= f.select :job_category_eq, [["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], {include_blank: true}, {class: 'form-control'} %>
               </div>
             </div>
             <div class="col-sm-6 col-md-3">
