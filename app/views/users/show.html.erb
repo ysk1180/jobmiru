@@ -81,7 +81,7 @@
       <%= link_to post do %>
       <div class ="card switch">
         <div class ="card-body">
-          <table class="table table-responsive table-sm">
+          <table class="table table-responsive table-sm post-index">
             <tbody>
               <tr>
                 <td class="border-top-0" rowspan="2">
@@ -98,6 +98,13 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <span class="badge badge-pill badge-primary"><%= post.skill1 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill2 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill3 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill4 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill5 %></span>
+          </div>
           <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
         </div>
       </div>
@@ -116,7 +123,7 @@
       <%= link_to post do %>
       <div class ="card switch">
         <div class ="card-body">
-          <table class="table table-responsive table-sm">
+          <table class="table table-responsive table-sm post-index">
             <tbody>
               <tr>
                 <td class="border-top-0" rowspan="2">
@@ -133,6 +140,13 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <span class="badge badge-pill badge-primary"><%= post.skill1 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill2 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill3 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill4 %></span>
+            <span class="badge badge-pill badge-primary"><%= post.skill5 %></span>
+          </div>
           <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
         </div>
       </div>
