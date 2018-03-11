@@ -79,3 +79,6 @@ ruby '2.3.0'
 
 # forレーダーチャート
 gem 'chart-js-rails'
+
+# 日本語化
+gem 'rails-i18n'

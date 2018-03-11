@@ -1,7 +1,7 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2>入力した内容にエラーが <%= pluralize(post.errors.count, "件") %> あります</h2>
 
       <ul>
       <% post.errors.full_messages.each do |message| %>

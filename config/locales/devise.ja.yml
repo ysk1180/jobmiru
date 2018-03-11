@@ -10,7 +10,7 @@ ja:
       not_locked: "ロックされていません"
       not_saved:
         one: "エラーにより、この %{resource} を保存できません："
-        other: "%{count} 個のエラーにより、この %{resource} を保存できません："
+        other: "入力した内容に%{count} 件のエラーがあります"
 
   devise:
     failure:
