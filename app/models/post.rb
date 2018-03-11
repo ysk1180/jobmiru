@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   validates :job_content1, presence: true
   validates :obtained_skill, presence: true
   validates :company_name, presence: true
+  validates :industry, presence: true
+  validates :job_category, presence: true
   validates :job_start, presence: true
   validates :job_end1, presence: true
   validates :job_end1, numericality: { greater_than: :job_start }
