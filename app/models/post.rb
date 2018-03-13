@@ -42,5 +42,5 @@ class Post < ApplicationRecord
 
   has_many :post_comment_replies, dependent: :destroy
 
-  scope :recent, -> (count = 2){ order('created_at desc').limit(count) }
+  scope :recent, -> (count = 10){ order('created_at desc').limit(count) }
 end
