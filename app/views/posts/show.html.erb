@@ -55,7 +55,7 @@
       </tr>
 
       <tr>
-        <td><%= bar_chart @data, stacked: true, min: @post.job_start, height: "150px", library: {scales: {xAxes: [{ticks: {stepSize: "1"}, scaleLabel:{display: "true", labelString: "（時）", fontSize: "12"}}]}, animation: { easing: 'easeOutQuad' }} %></td>
+        <td><%= bar_chart @data, stacked: true, min: @post.job_start, height: "220px", library: {scales: {xAxes: [{ticks: {stepSize: "1"}, scaleLabel:{display: "true", labelString: "（時）", fontSize: "12"}}]}, animation: { easing: 'easeOutQuad' }} %></td>
       </tr>
 
       <tr>
@@ -84,9 +84,9 @@
                 display: false
               },
               scale: {
-                pointLabels: {
-                  fontSize: 15 //フォントサイズ
-                },
+                // pointLabels: {
+                //   fontSize: 15 //フォントサイズ
+                // },
                 ticks: { //http://www.chartjs.org/docs/#scales-radial-linear-scale
                   stepSize: 1, // 目盛の間隔
                   max: 5, //最大値

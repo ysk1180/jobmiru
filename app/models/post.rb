@@ -8,6 +8,12 @@ class Post < ApplicationRecord
   validates :job_end1, presence: true
   validates :job_end1, numericality: { greater_than: :job_start }
 
+  validates :job_content1, length: { maximum: 15 }
+  validates :job_content2, length: { maximum: 15 }
+  validates :job_content3, length: { maximum: 15 }
+  validates :job_content4, length: { maximum: 15 }
+  validates :job_content5, length: { maximum: 15 }
+
   validates :skill1, presence: true
   validates :skill2, presence: true
   validates :skill3, presence: true
