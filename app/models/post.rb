@@ -19,6 +19,12 @@ class Post < ApplicationRecord
   validates :skill_level4, presence: true
   validates :skill_level5, presence: true
 
+  validates :skill1, length: { maximum: 10 }
+  validates :skill2, length: { maximum: 10 }
+  validates :skill3, length: { maximum: 10 }
+  validates :skill4, length: { maximum: 10 }
+  validates :skill5, length: { maximum: 10 }
+
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
 
