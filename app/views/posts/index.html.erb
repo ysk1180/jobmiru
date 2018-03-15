@@ -30,8 +30,8 @@
             </div>
             <div class="col-6 col-md-3">
               <div class="form-group">
-                <%= f.label :skill1_or_skill2_or_skill3_or_skill4_or_skill5_eq, '身についたスキル' %>
-                <%= f.text_field :skill1_or_skill2_or_skill3_or_skill4_or_skill5_cont, class: "form-control", placeholder: "部分一致" %>
+                <%= f.label :skill1_or_skill2_or_skill3_eq, '身についたスキル' %>
+                <%= f.text_field :skill1_or_skill2_or_skill3_cont, class: "form-control", placeholder: "部分一致" %>
               </div>
             </div>
             <div class="search-button">
@@ -71,11 +71,9 @@
                 </tbody>
               </table>
               <div>
-                <span class="badge badge-pill badge-primary"><%= post.skill1 %></span>
-                <span class="badge badge-pill badge-primary"><%= post.skill2 %></span>
-                <span class="badge badge-pill badge-primary"><%= post.skill3 %></span>
-                <span class="badge badge-pill badge-primary"><%= post.skill4 %></span>
-                <span class="badge badge-pill badge-primary"><%= post.skill5 %></span>
+                <span class="badge badge-secondary"><%= post.skill1 %></span>
+                <span class="badge badge-secondary"><%= post.skill2 %></span>
+                <span class="badge badge-secondary"><%= post.skill3 %></span>
               </div>
               <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
             </div>
