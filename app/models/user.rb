@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true, length: { maximum: 50 }
+  validates :age, numericality: true
 
   has_many :likes, dependent: :destroy
 
