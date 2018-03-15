@@ -1,25 +1,25 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
-　　 <div class="alert alert-danger" role="alert"><strong>赤枠となっている項目をご確認ください。</strong></div>
+    <div class="alert alert-danger" role="alert"><strong>赤枠となっている項目をご確認ください。</strong></div>
     <br>
   <% end %>
 
   <p><i>全ての項目はいつでも編集できます。必須となっていない項目は任意です。</i></p>
 
   <div class="form-group">
-      <%= form.label :company_name, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= form.label :company_name, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
     <%= form.text_field :company_name, id: :post_company_name, class:'form-control' %>
     <small class="text-muted">※正式名称でなくても問題ありません（例：中堅商社、地銀、Fintech系ベンチャー 等々）</small>
   </div>
 
   <div class="form-row">
     <div class="form-group col-6">
-      <%= form.label :industry, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= form.label :industry, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= form.select :industry,[["",nil],["メーカー・建設","メーカー・建設"],["商社","商社"],["流通・小売","流通・小売"],["金融","金融"],["インフラ・コンサル","インフラ・コンサル"],["IT","IT"],["広告・出版","広告・出版"],["官公庁","官公庁"],["その他","その他"]], {}, {class: 'form-control'} %>
     </div>
 
     <div class="form-group col-6">
-      <%= form.label :job_category, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= form.label :job_category, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= form.select :job_category,[["",nil],["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], {}, {class: 'form-control'} %>
     </div>
   </div>
@@ -44,18 +44,18 @@
     <br>
 
     <div class="form-group">
-      <%= form.label :job_start, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= form.label :job_start, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= form.select :job_start,[["",nil],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]], {}, {class: 'form-control'} %>
     </div>
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :job_content1, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :job_content1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :job_content1, id: :post_job_content1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :job_end1, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :job_end1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :job_end1,[["",nil],["7時",7],["8時",8],["9時",9],["10時",10],["11時",11],["12時",12],["13時",13],["14時",14],["15時",15],["16時",16],["17時",17],["18時",18],["19時",19],["20時",20],["21時",21],["22時",22],["23時",23]], {}, {class: 'form-control'} %>
       </div>
     </div>
@@ -136,68 +136,68 @@
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :skill1, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill1, id: :skill1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :skill_level1, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill_level1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level1,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :skill2, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill2, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill2, id: :skill1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :skill_level2, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill_level2, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level2,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :skill3, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill3, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill3, id: :skill1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :skill_level3, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill_level3, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level3,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :skill4, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill4, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill4, id: :skill1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :skill_level4, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill_level4, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level4,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group col-8">
-        <%= form.label :skill5, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill5, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill5, id: :skill1, class:'form-control', rows:"1" %>
       </div>
 
       <div class="form-group col-4">
-        <%= form.label :skill_level5, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+        <%= form.label :skill_level5, class:  "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level5,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :obtained_skill, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
-    <%= form.text_area :obtained_skill, id: :post_obtained_skill, :placeholder => '必須　身についたスキルをシェアしましょう！', class:'form-control', rows:"5" %>
+    <%= form.label :obtained_skill, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+    <%= form.text_area :obtained_skill, id: :post_obtained_skill, class:'form-control', rows:"5" %>
     <small class="text-muted">※イメージしやすいように可能な範囲で具体的なエピソードを記載してみましょう。</small>
   </div>
 

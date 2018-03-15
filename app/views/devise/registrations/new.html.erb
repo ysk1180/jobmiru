@@ -17,24 +17,24 @@
     <!-- <%= devise_error_messages! %> -->
 
     <div class="form-group">
-      <%= f.label :name, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.label :name, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= f.text_field :name, class:'form-control' %>
       <small class="text-muted">ニックネームをご記入下さい。</small>
     </div>
 
     <div class="form-group">
-      <%= f.label :email, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.label :email, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.label :password, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.label :password, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
       <small class="text-muted">6文字以上</small>
     </div>
 
     <div class="form-group">
-      <%= f.label :password_confirmation, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+      <%= f.label :password_confirmation, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
     </div>
 
