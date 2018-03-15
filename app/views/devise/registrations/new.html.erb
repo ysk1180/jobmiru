@@ -5,7 +5,7 @@
   <a class="btn btn-block btn-social btn-twitter" href="/users/auth/twitter">
     <span class="fa fa-twitter"></span> Twitterで新規登録
   </a>
-  <small class="text-muted">Twitterに投稿されることはありません。</small>
+  <small class="text-muted">Twitterに勝手に投稿されることはありません。</small>
 
   <br><br>
 
@@ -19,7 +19,7 @@
     <div class="form-group">
       <%= f.label :name, :class => "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= f.text_field :name, class:'form-control' %>
-      <small class="text-muted">ニックネームをご記入下さい</small>
+      <small class="text-muted">ニックネームをご記入下さい。</small>
     </div>
 
     <div class="form-group">
@@ -41,6 +41,7 @@
     <div class="form-group">
       <%= f.label :age %>
       <%= f.text_field :age, class:'form-control' %>
+      <small class="text-muted">半角数字で入力してください。</small>
     </div>
 
     <div class="form-group">
