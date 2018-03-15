@@ -1,14 +1,7 @@
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2>入力した内容にエラーが <%= pluralize(post.errors.count, "件") %> あります</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+　　 <div class="alert alert-danger" role="alert"><strong>赤枠となっている項目をご確認ください。</strong></div>
+    <br>
   <% end %>
 
   <p><i>全ての項目はいつでも編集できます。必須となっていない項目は任意です。</i></p>
