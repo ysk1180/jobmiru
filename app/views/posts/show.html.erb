@@ -113,7 +113,7 @@
         <%= link_to edit_post_path(@post) do %>
           <i class="fa fa-edit fa-fw"></i> 編集
         <% end %>
-        <%= link_to @post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <%= link_to @post, method: :delete, data: { title: '確認', confirm: '本当に削除してもよろしいですか？', cancel: "キャンセル", commit:'削除する' } do %>
           <i class="fa fa-trash fa-fw"></i> 削除
         <% end %>
       <% end %>

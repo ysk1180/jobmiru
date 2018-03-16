@@ -82,3 +82,6 @@ gem 'chart-js-rails'
 
 # 日本語化
 gem 'rails-i18n'
+
+# 確認ダイアログ
+gem 'data-confirm-modal'

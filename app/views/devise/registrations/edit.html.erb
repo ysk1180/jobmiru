@@ -53,7 +53,7 @@
 
   <h5>アカウントの消去</h5>
   <div>
-    <%= link_to registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete do %>
+    <%= link_to registration_path(resource_name), data: { title: '確認', confirm: '本当に削除してもよろしいですか？', cancel: "キャンセル", commit:'削除する' }, method: :delete do %>
       <i class="fa fa-trash fa-fw"></i> アカウント消去
     <% end %>
   </div>

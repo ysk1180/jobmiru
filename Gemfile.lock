@@ -77,6 +77,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    data-confirm-modal (1.6.2)
+      railties (>= 3.0)
     debug_inspector (0.0.3)
     devise (4.4.0)
       bcrypt (~> 3.0)
@@ -293,6 +295,7 @@ DEPENDENCIES
   chart-js-rails
   chartkick (~> 2.2.0)
   coffee-rails (~> 4.2)
+  data-confirm-modal
   devise
   dotenv-rails
   font-awesome-rails
