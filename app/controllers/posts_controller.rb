@@ -73,6 +73,6 @@ class PostsController < ApplicationController
   def correct_user
     @user = User.find(Post.find(params[:id]).user_id)
     @current_user = current_user
-    redirect_to(root_path) unless ApplicationController.helpers.current_user?(@user, @current_user)
+    redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。' unless ApplicationController.helpers.current_user?(@user, @current_user)
   end
 end
