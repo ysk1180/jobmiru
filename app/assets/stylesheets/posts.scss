@@ -16,6 +16,10 @@
   opacity: .7;
 }
 
+a:-webkit-any-link{
+  text-decoration: none;
+}
+
 .search-box {
   position: relative;
   margin: 2em 0;
