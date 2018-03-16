@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   def index
     @q = Post.ransack(params[:q])
@@ -67,5 +68,11 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:id, :industry, :company_name, :division_name, :job_category, :job_start, :job_content1, :job_end1, :job_content2, :job_end2, :job_content3, :job_end3, :job_content4, :job_end4, :job_content5, :job_end5, :job_content6, :job_end6, :skill1, :skill2, :skill3, :skill_level1, :skill_level2, :skill_level3, :obtained_skill, :user_id)
+  end
+
+  def correct_user
+    @user = User.find(Post.find(params[:id]).user_id)
+    @current_user = current_user
+    redirect_to(root_path) unless ApplicationController.helpers.current_user?(@user, @current_user)
   end
 end
