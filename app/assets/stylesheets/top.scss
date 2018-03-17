@@ -12,8 +12,6 @@ a.top-button{
     margin:20px;
   }
 
-
-
     color:#fed136;
     brackground-color:transparent;
     border:1px solid #fed136;
@@ -31,6 +29,10 @@ a.top-button:hover{
     color:rgba(255, 255, 255, 1);
     background-color:#fed136;
     background-position: -100% 100%;
+}
+
+.text-muted-des{
+  text-align: left;
 }
 
 /* 以下テンプレートagencyのcss*/
