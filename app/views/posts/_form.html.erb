@@ -125,9 +125,9 @@
     <br>
     <div>
       <p>＜説明＞<br>
-      身についたスキルを5つと、それぞれの5段階評価(1:低〜5:高)を入力いただくと<br>
+      身についたスキルを5つと、それぞれの5段階での自己評価(1:低〜5:高)を入力いただくと<br>
       下記図のようにレーダーチャートで表示されます。<br>
-      恐縮ながら、3項目の選択・入力お願いします。（※各12文字以内）<br>
+      3項目を自由に入力お願いします。（※各12文字以内）<br>
       <%= image_tag 'example2.png', :width => '310'%>
     </div>
     <br>
@@ -136,11 +136,12 @@
       <div class="form-group col-8">
         <%= form.label :skill1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill1, id: :skill1, class:'form-control', rows:"1" %>
+        <small class="text-muted">例）コミュニケーションスキル、マネジメントスキル、営業力、プレゼンスキル、問題解決能力、企画力、語学力、プログラミングスキル、excelスキル、交渉力、論理的思考力、人材育成スキル、ビジネスマナー、資料作成スキル、接客スキル、マーケティングスキル</small>
       </div>
 
       <div class="form-group col-4">
         <%= form.label :skill_level1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
-        <%= form.select :skill_level1,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
+        <%= form.select :skill_level1,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
@@ -152,7 +153,7 @@
 
       <div class="form-group col-4">
         <%= form.label :skill_level2, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
-        <%= form.select :skill_level2,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
+        <%= form.select :skill_level2,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
 
@@ -164,7 +165,7 @@
 
       <div class="form-group col-4">
         <%= form.label :skill_level3, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
-        <%= form.select :skill_level3,[["",nil],["1",1],["2",2],["3",3],["4",4],["5",5]], {}, {class: 'form-control'} %>
+        <%= form.select :skill_level3,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
   </div>
