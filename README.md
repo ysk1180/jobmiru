@@ -2,6 +2,7 @@
 
 ## アプリ名
 Jobmiru
+https://jobmiru.herokuapp.com/
 
 ## 概要
 「何のスキルが身につくのか」に特化した、社員の声の口コミサイト
