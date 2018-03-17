@@ -196,7 +196,7 @@ a:-webkit-any-link{
     vertical-align: middle;
     background: #eaeef1;
     text-decoration: none;
-    margin: 1em;
+    margin: 0 0 1em 0;
 }
 
 .flat_ss .iconback{
@@ -231,3 +231,34 @@ a:-webkit-any-link{
     transform: rotateX(360deg);
 }
 // Twitterシェアボタンここまで
+
+.like-want{
+  overflow: hidden;
+}
+/* clearfix */
+.like-want:before,
+.like-want:after {
+    content: "";
+    display: table;
+}
+.like-want:after {
+    clear: both;
+}
+.floats {
+	float: left;
+}
+.like-now{
+  color:#fed136;
+}
+.like-now:hover{
+  background-color:white;
+}
+.like-not{
+  color:gray;
+}
+.like-not:hover{
+  background-color:white;
+}
+.like-count{
+  padding: 0.3rem;
+}

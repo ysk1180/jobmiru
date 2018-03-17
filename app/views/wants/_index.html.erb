@@ -1,11 +1,18 @@
-
 <% if user_signed_in? %>
   <% unless @post.user_id == current_user.id %>
     <% if @want.present? %>
-      <%= link_to '働いてみたい！を解除する', post_want_path(post_id: @post.id, id: @want.id), method: :delete, class: 'btn btn-light btn-sm', remote: true %>
+      <div class="like-now floats">
+        <%= link_to post_want_path(post_id: @post.id, id: @want.id), method: :delete, remote: true do %>
+          <i class="fa fa-star fa-2x like-now"></i>
+        <% end %>
+      </div>
     <% else %>
-      <%= link_to '働いてみたい！', post_wants_path(post_id: @post.id), method: :post, class: 'btn btn-primary btn-sm', remote: true %>
+      <div class="like-not floats">
+        <%= link_to post_wants_path(post_id: @post.id), method: :post, remote: true do %>
+          <i class="fa fa-star fa-2x like-not"></i>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 <% end %>
-<p>働いてみたい！：<%= @wants_count %>件</p>
+<div class="like-count floats">働いてみたい！：<%= @wants_count %>件　</div>
