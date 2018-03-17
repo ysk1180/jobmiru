@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315125952) do
+ActiveRecord::Schema.define(version: 20180317004354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,14 +61,14 @@ ActiveRecord::Schema.define(version: 20180315125952) do
     t.string "job_content4"
     t.string "job_content5"
     t.string "job_content6"
-    t.integer "job_end1"
-    t.integer "job_end2"
-    t.integer "job_end3"
-    t.integer "job_end4"
-    t.integer "job_end5"
-    t.integer "job_end6"
+    t.float "job_end1"
+    t.float "job_end2"
+    t.float "job_end3"
+    t.float "job_end4"
+    t.float "job_end5"
+    t.float "job_end6"
     t.string "job_category"
-    t.integer "job_start"
+    t.float "job_start"
     t.string "skill1"
     t.string "skill2"
     t.string "skill3"
