@@ -58,8 +58,8 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿を見る</h2>
-        <h3 class="section-subheading text-muted"><u>会員登録不要</u>で投稿を見ることができます。<br><br>いいね！・働いてみたい！・コメントを行うためには会員登録（無料・1分程度）が必要です。</h3>
-        <a class="btn btn-primary btn-xl" href="/posts">投稿一覧へ</a>
+        <h3 class="section-subheading text-muted">新規登録不要で投稿を見ることができます。<br>いいね！・働いてみたい！・コメントを行うためには会員登録（無料・1分程度）が必要です。</h3>
+        <a class="btn btn-xl top-button" href="/posts">投稿一覧へ</a>
       </div>
     </div>
   </div>
@@ -71,11 +71,11 @@
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿する</h2>
-        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。シンプルな投稿内容のため、<u>5分で投稿出来ます！</u><br><br>投稿するためには新規登録（無料・1分程度）が必要です。</h3>
+        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。<br>投稿するためには新規登録（無料・1分程度）が必要です。</h3>
         <% unless user_signed_in? %>
-          <a class="btn btn-primary btn-xl top-big" href="/users/sign_up">新規登録</a>
+          <a class="btn btn-xl top-button" href="/users/sign_up">新規登録</a>
         <% end %>
-        <a class="btn btn-primary btn-xl top-big" href="/posts/new">投稿する</a>
+        <a class="btn btn-xl top-button" href="/posts/new">投稿する</a>
       </div>
     </div>
   </div>
