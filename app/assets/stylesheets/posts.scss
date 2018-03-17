@@ -262,3 +262,34 @@ a:-webkit-any-link{
 .like-count{
   padding: 0.3rem;
 }
+
+.share_btn1{
+    display: inline-block;
+    text-decoration: none;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 23px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    transition: .3s;
+}
+.share_btn1 .fa{
+    line-height: 35px;
+}
+.share_btn1:hover{
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.28);
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+.shtw1{
+    color: #22b8ff;
+    background-image: -webkit-linear-gradient(#aeecff 0%, #57c8ff 100%);
+    background-image: linear-gradient(#aeecff 0%, #57c8ff 100%);
+}

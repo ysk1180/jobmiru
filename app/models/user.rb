@@ -3,15 +3,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :age, numericality: true
+  validates :age, numericality: true, allow_blank: true
 
   has_many :likes, dependent: :destroy
-
   has_many :wants, dependent: :destroy
-
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-
   has_many :post_comment_replies, dependent: :destroy
 
   mount_uploader :user_image, UserImageUploader
@@ -27,6 +24,7 @@ class User < ApplicationRecord
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
+      user.nickname = auth["info"]["nickname"]
       user.email = User.dummy_email(auth)
       user.remote_user_image_url  = auth["info"]["image"]
     end
