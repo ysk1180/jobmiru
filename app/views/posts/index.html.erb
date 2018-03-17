@@ -79,7 +79,7 @@
                 <span class="badge badge-secondary"><%= post.skill2 %></span>
                 <span class="badge badge-secondary"><%= post.skill3 %></span>
               </div>
-              <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
+              <small><i class="fa fa-heart fa-fw"></i>いいね！ <%= post.likes.count %>件　<i class="fa fa-star fa-fw"></i>働いてみたい！ <%= post.wants.count %>件　<i class="fa fa-comment fa-fw"></i>コメント <%= post.post_comments.count %>件</small>
             </div>
           </div>
           <% end %>
