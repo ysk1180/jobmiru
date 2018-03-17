@@ -1,7 +1,7 @@
 # README
 
 ## アプリ名
-Jobmiru
+Jobmiru  
 https://jobmiru.herokuapp.com/
 
 ## 概要
