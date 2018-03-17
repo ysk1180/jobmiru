@@ -17,5 +17,5 @@
 //= require Chart.bundle
 //= require chartkick
 //= require Chart.min
-// = require data-confirm-modal
+//= require data-confirm-modal
 //= require_tree .

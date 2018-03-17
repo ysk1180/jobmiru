@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a.top-button{
+  display:inline-block;
+
+  font:normal normal 300 0.9em 'Open Sans';
+  @media (min-width: 650px) {
+    font:normal normal 300 1.3em 'Open Sans';
+  }
+
+    text-decoration:none;
+
+    color:#fed136;
+    brackground-color:transparent;
+    border:1px solid #fed136;
+    border-radius:100px;
+
+    padding: 1em 4em;
+    margin:5px;
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+a.top-button:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:#fed136;
+    background-position: -100% 100%;
+}
+
 /* 以下テンプレートagencyのcss*/
 
 body {
@@ -14,11 +43,11 @@ p {
 }
 
 a {
-  color: #fed136;
+  // color: #fed136;
 }
 
 a:hover {
-  color: #fec503;
+  // color: #fec503;
 }
 
 .text-primary {
@@ -225,7 +254,6 @@ header.masthead .intro-text .intro-heading {
     line-height: 75px;
     margin-bottom: 50px;
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-family: Georgia, 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   }
 }
 
