@@ -31,6 +31,29 @@ a.top-button:hover{
     background-position: -100% 100%;
 }
 
+a.index-button{
+  display:inline-block;
+    font:normal normal 300 1.9em 'Open Sans';
+    margin:20px;
+
+    color:black;
+    brackground-color:transparent;
+    border:1px solid black;
+    border-radius:100px;
+
+    padding: .5em 2em;
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+a.index-button:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:#fed136;
+    background-position: -100% 100%;
+    border:1px solid #fed136;
+}
+
 .text-muted-des{
   text-align: left;
 }
