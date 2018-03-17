@@ -12,7 +12,7 @@ a.top-button{
     margin:20px;
   }
 
-    text-decoration:none;
+
 
     color:#fed136;
     brackground-color:transparent;
@@ -143,9 +143,10 @@ img::-moz-selection {
   right: 0;
   padding: 13px;
   text-transform: uppercase;
-  color: white;
-  border: 0;
-  background-color: #fed136;
+  color: #fed136;
+  // border: 0;
+  border:1px solid #fed136;
+  // background-color: #fed136;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
