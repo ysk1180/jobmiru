@@ -185,3 +185,49 @@ a:-webkit-any-link{
     background-position: -100% 100%;
     border:1px solid #fed136;
 }
+
+// Twitterシェアボタン
+.flat_ss {
+    color: #484848;
+    display: inline-block;
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    vertical-align: middle;
+    background: #eaeef1;
+    text-decoration: none;
+    margin: 1em;
+}
+
+.flat_ss .iconback{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    color: white;
+}
+.flat_ss .iconback .fa{
+    font-size: 1rem;
+    line-height: 2rem;
+}
+.flat_ss .iconback .fa{
+	transition: .3s;
+}
+
+.flat_ss .btnttl{
+    display: inline-block;
+    width: 6rem;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.flat_ss .tw {background:#1da1f3}
+.flat_ss .fb {background:#3b75d4}
+.flat_ss .fdly {background:#7ece46}
+.flat_ss .pkt {background:#fd7171}
+.flat_ss:hover .iconback .fa{
+    -webkit-transform: rotateX(360deg);
+    -ms-transform: rotateX(360deg);
+    transform: rotateX(360deg);
+}
+// Twitterシェアボタンここまで
