@@ -4,5 +4,7 @@
 
   <%= render 'form', post: @post %>
 
-  <%= link_to 'back', @post %>
+  <%= link_to @post do %>
+    <i class="fa fa-arrow-circle-left fa-fw"></i> 戻る
+  <% end %>
 </div>
