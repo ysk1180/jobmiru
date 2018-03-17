@@ -49,6 +49,9 @@
       <!-- 一覧表示 -->
       <div id="main" class="col-sm-12 col-md-8">
         <div class="main-body">
+          <% unless @posts.present? %>
+            <h>この検索条件での投稿はまだありません。</p>
+          <% end %>
           <% @posts.each do |post| %>
           <%= link_to post do %>
           <div class ="card switch">
