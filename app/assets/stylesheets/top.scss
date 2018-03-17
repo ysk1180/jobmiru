@@ -5,9 +5,11 @@
 a.top-button{
   display:inline-block;
 
-  font:normal normal 300 0.9em 'Open Sans';
+  font:normal normal 300 1.3em 'Open Sans';
+  margin:5px;
   @media (min-width: 650px) {
-    font:normal normal 300 1.3em 'Open Sans';
+    font:normal normal 300 1.9em 'Open Sans';
+    margin:20px;
   }
 
     text-decoration:none;
@@ -17,8 +19,8 @@ a.top-button{
     border:1px solid #fed136;
     border-radius:100px;
 
-    padding: 1em 4em;
-    margin:5px;
+    padding: .5em 2em;
+
 
     background-size: 200% 100%;
     background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
