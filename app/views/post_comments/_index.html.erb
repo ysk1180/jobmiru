@@ -1,3 +1,6 @@
+<% unless post_comments.present? %>
+  <h>コメントはまだありません。気軽にコメントしてみましょう！</p>
+<% end %>
 <% post_comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <div class="card one-comment">

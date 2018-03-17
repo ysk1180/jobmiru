@@ -163,3 +163,25 @@ a:-webkit-any-link{
 .post-index-body{
   padding: 0.8rem;
 }
+
+.standard-button{
+  display:inline-block;
+    font:normal normal 300 1em 'Open Sans';
+
+    color:#6c757d;
+    brackground-color:transparent;
+    border:1px solid #6c757d;
+    border-radius:100px;
+
+    padding: .5em 2em;
+
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, transparent 50%, #fed136 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+.standard-button:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:#fed136;
+    background-position: -100% 100%;
+    border:1px solid #fed136;
+}
