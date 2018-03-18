@@ -26,7 +26,7 @@ class User < ApplicationRecord
       user.name = auth["info"]["name"]
       user.nickname = auth["info"]["nickname"]
       user.email = User.dummy_email(auth)
-      user.remote_user_image_url  = auth["info"]["image"]
+      user.remote_user_image_url = auth["info"]["image"]
     end
   end
 
