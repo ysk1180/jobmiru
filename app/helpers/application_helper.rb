@@ -2,7 +2,7 @@ module ApplicationHelper
   def get_twitter_card_info(post)
     twitter_card = {}
     if post
-      twitter_card[:url] = "https://jobmiru.herokuapp.com/post/#{post.id}"
+      twitter_card[:url] = "https://jobmiru.herokuapp.com/posts/#{post.id}"
       twitter_card[:title] = 'Jobmiruへの投稿です。'
       twitter_card[:description] = "会社名：#{post.name}　身についたスキル：#{post.skill1}、#{post.skill2}、#{post.skill3}"
     else
