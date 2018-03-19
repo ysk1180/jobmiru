@@ -14,7 +14,7 @@
           <% else %>
             <%= image_tag 'default.png' %>
           <% end %>
-          <%= link_to "#{@post.user.name}さん", user_path(@post.user.id) %>
+          <%= link_to "#{@post.user.name}さん", user_path(@post.user.id), style: "text-decoration: underline" %>
         </td>
       </tr>
 
