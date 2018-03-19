@@ -12,6 +12,11 @@
     <small class="text-muted">基本的に実名でお願いします。記載が難しい場合は、中堅商社・地方銀行 等の略称で問題ございません。</small>
   </div>
 
+  <div class="form-group">
+    <%= form.label :division_name %>
+    <%= form.text_field :division_name, id: :post_division_name, class:'form-control' %>
+  </div>
+
   <div class="form-row">
     <div class="form-group col-6">
       <%= form.label :industry, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
@@ -22,11 +27,6 @@
       <%= form.label :job_category, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
       <%= form.select :job_category,[["",nil],["営業","営業"],["経理","経理"],["企画・管理","企画・管理"],["事務","事務"],["販売・サービス","販売・サービス"],["専門","専門"],["公務員・教員","公務員・教員"],["技術","技術"],["クリエイティブ","クリエイティブ"]], {}, {class: 'form-control'} %>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :division_name %>
-    <%= form.text_field :division_name, id: :post_division_name, class:'form-control' %>
   </div>
 
   <div class="work-content">

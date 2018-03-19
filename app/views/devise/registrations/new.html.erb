@@ -38,25 +38,27 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :age %>
-      <%= f.text_field :age, class:'form-control' %>
-      <small class="text-muted">半角数字で入力してください。</small>
-    </div>
+    <div class="form-row">
+      <div class="form-group col-6">
+        <%= f.label :age %>
+        <%= f.text_field :age, class:'form-control' %>
+        <small class="text-muted">半角数字で入力してください。</small>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :sex %>
-      <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], {}, {class: 'form-control'} %>
+      <div class="form-group col-6">
+        <%= f.label :sex %>
+        <%= f.select :sex,[["",""],["男性","男性"],["女性","女性"]], {}, {class: 'form-control'} %>
+      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :past_career %>
-      <%= f.text_area :past_career, class:'form-control', rows:"3" %>
+      <%= f.text_area :past_career, class:'form-control', rows:"2" %>
     </div>
 
     <div class="form-group">
       <%= f.label :career_plan %>
-      <%= f.text_area :career_plan, class:'form-control', rows:"3" %>
+      <%= f.text_area :career_plan, class:'form-control', rows:"2" %>
     </div>
 
     <div class="form-group">
