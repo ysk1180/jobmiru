@@ -78,7 +78,7 @@
       <p><%= @user.name %>さんの投稿はまだありません。</p>
       <% if current_user.present? %>
         <% if @user.id == current_user.id %>
-          <p>投稿してみましょう！➡︎ <%= link_to "投稿はこちらから", new_post_path %></p>
+          <p>投稿してみましょう！➡︎ <%= link_to "投稿はこちらから", new_post_path, class: "standard-button" %></p>
         <% end %>
       <% end %>
     <% end %>

@@ -52,31 +52,40 @@
   </div>
 </section>
 
-<!-- 投稿を見る：cssの恩恵を受けるために、portfolio idを当てている -->
 <section class="bg-light" id="portfolio">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿を見る</h2>
-        <h3 class="section-subheading text-muted">新規登録不要で投稿を見ることができます。<br>いいね！・働いてみたい！・コメントを行うためには新規登録（無料・1分程度）が必要です。</h3>
+        <h3 class="section-subheading text-muted">新規登録不要で投稿を見ることができます。<br>いいね！・コメントを行うためには新規登録（無料・1分程度）が必要です。</h3>
         <a class="btn btn-xl index-button" href="/posts">投稿一覧へ</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 投稿する：cssの恩恵を受けるために、about idを当てている -->
-<section id="about">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-heading text-uppercase">投稿する</h2>
-        <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。<br>投稿するためには新規登録（無料・1分程度）が必要です。</h3>
-        <% unless user_signed_in? %>
-          <a class="btn btn-xl index-button" href="/users/sign_up">新規登録</a>
-        <% end %>
-        <a class="btn btn-xl index-button" href="/posts/new">投稿する</a>
+<% if user_signed_in? %>
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">投稿する</h2>
+          <h3 class="section-subheading text-muted">悩んでいる方のために、あなたの経験をシェアしましょう。</h3>
+          <a class="btn btn-xl index-button" href="/posts/new">投稿する</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+<% else %>
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">無料会員登録</h2>
+          <h3 class="section-subheading text-muted">1分程度でできます。<br>登録すると投稿・いいね！・コメントができます。</h3>
+          <a class="btn btn-xl index-button" href="/users/sign_up">無料会員登録へ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
