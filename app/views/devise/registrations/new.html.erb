@@ -60,6 +60,12 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :nickname %>
+      <%= f.text_field :nickname, class:'form-control' %>
+      <small class="text-muted">@に続く部分をご記入下さい。マイページにTwitterアカウントへのリンクが表示されます。</small>
+    </div>
+
+    <div class="form-group">
       <%= f.label :user_image %>
       <%= f.file_field :user_image, class:'form-control-file' %>
     </div>
