@@ -1,0 +1,20 @@
+<div class="container">
+  <br>
+  <h2>いいね！ランキング</h2>
+
+  <%= render partial: "article", locals: {posts: @posts}  %>
+
+  <div>
+    <%= link_to '自分の経験を投稿する', new_post_path, class: "btn standard-button" %>　<i>自分の経験をシェアしてみましょう！</i>
+  </div>
+  <br>
+  <div>
+    <%= link_to '働いてみたい！ランキングはこちら', posts_want_ranking_path %>
+  </div>
+  <br>
+  <div>
+    <%= link_to posts_path do %>
+      <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ
+    <% end %>
+  </div>
+</div>

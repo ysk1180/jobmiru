@@ -76,37 +76,9 @@
         <% end %>
       <% end %>
     <% end %>
-    <% @posts.each do |post| %>
-      <%= link_to post do %>
-      <div class ="card switch">
-        <div class ="card-body">
-          <table class="table table-responsive table-sm post-index">
-            <tbody>
-              <tr>
-                <td class="border-top-0" rowspan="2">
-                  <% if post.user.user_image.present? %>
-                    <%= image_tag post.user.user_image_url %>
-                  <% else %>
-                    <%= image_tag 'default.png' %>
-                  <% end %>
-                </td>
-                <td class="border-top-0"><%= post.user.name %>さん</td>
-              </tr>
-              <tr>
-                <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <div>
-            <span class="badge badge-pill badge-success"><%= post.skill1 %></span>
-            <span class="badge badge-pill badge-warning"><%= post.skill2 %></span>
-            <span class="badge badge-pill badge-danger"><%= post.skill3 %></span>
-          </div>
-          <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
+
+    <%= render partial: "posts/article", locals: {posts: @posts}  %>
+
     <% if current_user.present? %>
       <% if @user.id == current_user.id && @posts.present? %>
         <p>投稿ありがとうございます！これまでに経験された他のキャリアについても投稿してみませんか？➡︎ <%= link_to "投稿はこちらから", new_post_path, class: "standard-button" %></p>
@@ -120,37 +92,9 @@
     <% unless @want_posts.present? %>
       <p><%= @user.name %>さんが働きたい！をした投稿はまだありません。</p>
     <% end %>
-    <% @want_posts.each do |post| %>
-      <%= link_to post do %>
-      <div class ="card switch">
-        <div class ="card-body">
-          <table class="table table-responsive table-sm post-index">
-            <tbody>
-              <tr>
-                <td class="border-top-0" rowspan="2">
-                  <% if post.user.user_image.present? %>
-                    <%= image_tag post.user.user_image_url %>
-                  <% else %>
-                    <%= image_tag 'default.png' %>
-                  <% end %>
-                </td>
-                <td class="border-top-0"><%= post.user.name %>さん</td>
-              </tr>
-              <tr>
-                <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <div>
-            <span class="badge badge-warning"><%= post.skill1 %></span>
-            <span class="badge badge-primary"><%= post.skill2 %></span>
-            <span class="badge badge-info"><%= post.skill3 %></span>
-          </div>
-          <small>いいね！：<%= post.likes.count %>件　働いてみたい！：<%= post.wants.count %>件　コメント：<%= post.post_comments.count %>件</small>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
+
+    <%= render partial: "posts/article", locals: {posts: @want_posts}  %>
+
   </div>
 
   <%= link_to posts_path do %>

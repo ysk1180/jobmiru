@@ -53,44 +53,16 @@
           <% unless @posts.present? %>
             <h>この検索条件での投稿はまだありません。</p>
           <% end %>
-          <% @posts.each do |post| %>
-          <%= link_to post do %>
-          <div class ="card switch">
-            <div class ="card-body post-index-body">
-              <table class="table table-responsive table-sm post-index">
-                <tbody>
-                  <tr>
-                    <td class="border-top-0" rowspan="2">
-                      <% if post.user.user_image.present? %>
-                        <%= image_tag post.user.user_image_url %>
-                      <% else %>
-                        <%= image_tag 'default.png' %>
-                      <% end %>
-                    </td>
-                    <td class="border-top-0"><%= post.user.name %>さん</td>
-                  </tr>
-                  <tr>
-                    <td class="border-top-0"><strong>　<%= post.company_name %>　/　<%= post.industry %>　/　<%= post.job_category %></strong></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div>
-                <span class="badge badge-primary"><%= post.skill1 %></span>
-                <span class="badge badge-danger"><%= post.skill2 %></span>
-                <span class="badge badge-warning"><%= post.skill3 %></span>
-              </div>
-              <small><i class="fa fa-heart fa-fw"></i>いいね！ <%= post.likes.count %>件　<i class="fa fa-star fa-fw"></i>働いてみたい！ <%= post.wants.count %>件　<i class="fa fa-comment fa-fw"></i>コメント <%= post.post_comments.count %>件</small>
-            </div>
-          </div>
-          <% end %>
-          <% end %>
+
+          <%= render partial: "article", locals: {posts: @posts} %>
+
         </div>
         <!-- 一覧表示ここまで -->
 
-      <!-- ページング機能 -->
-      <%= paginate @posts %>
-      <!-- ページング機能ここまで -->
-      <%= link_to '自分の経験を投稿する', new_post_path, class: "btn standard-button" %>　<i>自分の経験をシェアしてみましょう！</i>
+        <!-- ページング機能 -->
+        <%= paginate @posts %>
+
+        <%= link_to '自分の経験を投稿する', new_post_path, class: "btn standard-button" %>　<i>自分の経験をシェアしてみましょう！</i>
       </div>
 
     <!-- サイドバー -->
@@ -117,6 +89,7 @@
             </div>
             <% end %>
           <% end %>
+          <%= link_to 'もっと見る', posts_like_ranking_path, style: "text-decoration: underline" %>
         </div>
         <!-- いいねが多い投稿一覧機能ここまで -->
 
@@ -142,6 +115,7 @@
             </div>
             <% end %>
           <% end %>
+          <%= link_to 'もっと見る', posts_want_ranking_path, style: "text-decoration: underline" %>
         </div>
         <!-- 働きたい投稿一覧機能ここまで -->
       </div>

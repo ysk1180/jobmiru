@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'terms', to: 'terms#index', as: :terms
+  get 'posts/like_ranking'
+  get 'posts/want_ranking'
 
   resources :contacts, only: [:new, :create]
 
@@ -19,4 +21,5 @@ Rails.application.routes.draw do
   get 'users/show'
 
   root to: "top#index"
+
 end

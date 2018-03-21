@@ -10,6 +10,14 @@ class PostsController < ApplicationController
     @want_ranking = Post.find(Want.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
+  def like_ranking
+    @posts = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(50).pluck(:post_id))
+  end
+
+  def want_ranking
+    @posts = Post.find(Want.group(:post_id).order('count(post_id) desc').limit(50).pluck(:post_id))
+  end
+
   def show
     @like = current_user.likes.find_by(post_id: @post.id) if user_signed_in?
     @likes_count = Like.where(post_id: @post.id).count
