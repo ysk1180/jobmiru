@@ -232,6 +232,7 @@ a:-webkit-any-link{
 }
 // Twitterシェアボタンここまで
 
+// お気に入りボタン
 .like-want{
   overflow: hidden;
 }
@@ -254,15 +255,20 @@ a:-webkit-any-link{
   background-color:white;
 }
 .like-not{
+  background-color:white;
   color:gray;
+  transition: .8s;
 }
 .like-not:hover{
   background-color:white;
+  color:#fed136;
 }
 .like-count{
   padding: 0.3rem;
 }
+// お気に入りボタンここまで
 
+// マイページのTwitterボタン
 .share_btn1{
     display: inline-block;
     text-decoration: none;
@@ -293,3 +299,4 @@ a:-webkit-any-link{
     background-image: -webkit-linear-gradient(#aeecff 0%, #57c8ff 100%);
     background-image: linear-gradient(#aeecff 0%, #57c8ff 100%);
 }
+// マイページのTwitterボタンここまで
