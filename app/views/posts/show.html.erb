@@ -10,9 +10,13 @@
       <tr>
         <td colspan="2">
           <% if @post.user.user_image.present? %>
-            <%= image_tag @post.user.user_image_url %>
+            <%= link_to user_path(@post.user.id), style: "background: transparent" do %>
+              <%= image_tag @post.user.user_image_url %>
+            <% end %>
           <% else %>
-            <%= image_tag 'default.png' %>
+            <%= link_to user_path(@post.user.id), style: "background: transparent" do %>
+              <%= image_tag 'default.png' %>
+            <% end %>
           <% end %>
           <%= link_to "#{@post.user.name}さん", user_path(@post.user.id), style: "text-decoration: underline" %>
         </td>
