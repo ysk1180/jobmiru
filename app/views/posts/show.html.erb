@@ -1,7 +1,10 @@
 <div class="body-full">
   <div class="container-fluid">
     <br>
-    <h2>投稿詳細</h2>
+    <div class="show-title">
+      <div class="show-top"><h2>投稿詳細</h2></div>
+      <div><p class="text-muted show-day">投稿日 <%= l(@post.created_at, format: :default) %></p></div>
+    </div>
     <table class="table table-striped table-bordered">
       <tr>
         <td colspan="2">投稿者</td>

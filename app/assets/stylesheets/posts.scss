@@ -300,3 +300,25 @@ a:-webkit-any-link{
     background-image: linear-gradient(#aeecff 0%, #57c8ff 100%);
 }
 // マイページのTwitterボタンここまで
+
+.show-top{
+  float: left;
+}
+.show-title{
+  overflow: hidden;
+}
+/* clearfix */
+.show-title:before,
+.show-title:after {
+    content: "";
+    display: table;
+}
+
+.show-title:after {
+    clear: both;
+}
+.show-day{
+  text-align: right;
+  padding: 1em 0 0 0;
+  margin: 0;
+}
