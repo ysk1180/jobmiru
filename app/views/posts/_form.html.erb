@@ -38,7 +38,7 @@
       直近の終了時間が、次の開始時刻となります。<br>
       1項目以上、最大6項目まで入力可能な仕様のため、主要業務にフォーカスして入力をお願いします。
       （※各15文字以内）</p>
-      <%= image_tag 'example.png', :width => '310'%>
+      <%= image_tag 'example.png', :width => '315'%>
     </div>
     <br>
 
@@ -125,10 +125,9 @@
     <br>
     <div>
       <p>＜説明＞<br>
-      身についたスキルを5つと、それぞれの5段階での自己評価(1:低〜5:高)を入力いただくと<br>
-      下記図のようにレーダーチャートで表示されます。<br>
-      3項目を自由に入力お願いします。（※各12文字以内）<br>
-      <%= image_tag 'example2.png', :width => '310'%>
+      身についたスキルを3つと、それぞれの5段階での自己評価(1:低〜5:高)を入力いただくと<br>
+      下記図のようにレーダーチャートで表示されます。（※各12文字以内）<br>
+      <%= image_tag 'example2.png', :width => '315'%>
     </div>
     <br>
 
@@ -136,7 +135,8 @@
       <div class="form-group col-8">
         <%= form.label :skill1, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.text_area :skill1, id: :skill1, class:'form-control', rows:"1" %>
-        <small class="text-muted">例）コミュニケーションスキル、マネジメントスキル、営業力、プレゼンスキル、問題解決能力、企画力、語学力、プログラミングスキル、excelスキル、交渉力、論理的思考力、人材育成スキル、ビジネスマナー、資料作成スキル、接客スキル、マーケティングスキル</small>
+        <small class="text-muted">具体的なスキルのご記入お願いします！</small>
+        <small class="text-muted">（例）電話可能なレベルの英語力、顧客とすぐに打ち解ける力、Ruby on Rails 力、企画を早く生み出す力、稟議を早く通す根回し力、飛び込み営業力、マクロ等のExcel力、などなど、その仕事ならではのスキルを書いていただけるととても参考になります！</small>
       </div>
 
       <div class="form-group col-4">
@@ -171,7 +171,7 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :obtained_skill, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
+    <b><%= form.label :obtained_skill, class: "label-inline" %></b><span class="badge badge-pill badge-danger">必須</span>
     <%= form.text_area :obtained_skill, id: :post_obtained_skill, class:'form-control', rows:"5" %>
     <small class="text-muted">イメージしやすいように可能な範囲で具体的なエピソードを記載してみましょう。</small>
   </div>
