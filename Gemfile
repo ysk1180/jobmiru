@@ -85,3 +85,6 @@ gem 'rails-i18n'
 
 # 確認ダイアログ
 gem 'data-confirm-modal'
+
+# 独自ドメインへのリダイレクト
+gem 'rack-rewrite'
