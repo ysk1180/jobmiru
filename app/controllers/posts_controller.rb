@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to @post, notice: '投稿しました。投稿ありがとうございます。'
+      redirect_to @post, notice: '投稿しました。投稿ありがとうございます。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
       render :new
     end
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: '投稿を更新しました。'
+      redirect_to @post, notice: '投稿を更新しました。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
       render :edit
     end
