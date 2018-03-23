@@ -187,25 +187,25 @@ a:-webkit-any-link{
 .flat_ss {
     color: #484848;
     display: inline-block;
-    height: 2rem;
+    height: 1.7rem;
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 1.7rem;
     vertical-align: middle;
     background: #eaeef1;
     text-decoration: none;
-    margin: 0 0 1em 0;
+    margin: 0 0 1em .5em;
 }
 
 .flat_ss .iconback{
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
     text-align: center;
     color: white;
 }
 .flat_ss .iconback .fa{
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 1.7rem;
 }
 .flat_ss .iconback .fa{
 	transition: .3s;
@@ -213,7 +213,7 @@ a:-webkit-any-link{
 
 .flat_ss .btnttl{
     display: inline-block;
-    width: 6rem;
+    width: 4.5rem;
     text-align: center;
     vertical-align:middle;
 }
@@ -229,18 +229,18 @@ a:-webkit-any-link{
 }
 // Twitterシェアボタンここまで
 
-// お気に入りボタン
+// いいねボタン
 .like-want{
   overflow: hidden;
 }
 /* clearfix */
 .like-want:before,
 .like-want:after {
-    content: "";
-    display: table;
+  content: "";
+  display: table;
 }
 .like-want:after {
-    clear: both;
+  clear: both;
 }
 .floats {
 	float: left;
@@ -256,14 +256,14 @@ a:-webkit-any-link{
   color:gray;
   transition: .8s;
 }
-.like-not:hover{
-  background-color:white;
-  color:#fed136;
-}
+// .like-not:hover{
+//   background-color:white;
+//   color:#fed136;
+// }
 .like-count{
   padding: 0.3rem;
 }
-// お気に入りボタンここまで
+// いいねボタンここまで
 
 // マイページのTwitterボタン
 .share_btn1{
