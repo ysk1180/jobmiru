@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'terms', to: 'terms#index', as: :terms
+  get 'privacy', to: 'privacies#index', as: :privacy
   get 'posts/like_ranking'
   get 'posts/want_ranking'
 
