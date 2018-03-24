@@ -99,6 +99,7 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google-analytics-rails (1.1.1)
     hashie (3.5.7)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
@@ -300,6 +301,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-rails
+  google-analytics-rails
   jbuilder (~> 2.5)
   kaminari
   kaminari-bootstrap

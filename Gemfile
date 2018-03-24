@@ -88,3 +88,5 @@ gem 'data-confirm-modal'
 
 # 独自ドメインへのリダイレクト
 gem 'rack-rewrite'
+
+gem 'google-analytics-rails'

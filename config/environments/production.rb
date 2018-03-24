@@ -105,4 +105,7 @@ Rails.application.configure do
    enable_starttls_auto: true
   }
 
+  # for google analytics
+  GA.tracker = "UA-116306412-1"
+
 end
