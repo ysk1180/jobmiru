@@ -23,9 +23,9 @@
           <span class="badge badge-primary"><%= post.skill1 %></span>
           <span class="badge badge-danger"><%= post.skill2 %></span>
           <span class="badge badge-warning"><%= post.skill3 %></span>
-          <% if post.skill4 present? %>
+          <% if post.skill4.present? %>
             <span class="badge badge-success"><%= post.skill4 %></span>
-            <% if post.skill5 present? %>
+            <% if post.skill5.present? %>
               <span class="badge badge-info"><%= post.skill5 %></span>
             <% end %>
           <% end %>
