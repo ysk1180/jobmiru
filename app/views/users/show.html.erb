@@ -18,7 +18,7 @@
         <% end %>
         <%= @user.name %>
         <% if @user.nickname.present? %>
-          <%= link_to "https://twitter.com/#{@user.nickname}", class: "share_btn1 shtw1" do %>
+          <%= link_to "https://twitter.com/#{@user.nickname}", :target=>["_blank"], class: "share_btn1 shtw1" do %>
             <i class="fa fa-twitter"></i>
           <% end %>
         <% end %>
