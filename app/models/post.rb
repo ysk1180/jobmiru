@@ -64,6 +64,26 @@ class Post < ApplicationRecord
   validates :skill3, presence: true
   validates :skill3, length: { maximum: 12 }
   validates :skill_level3, presence: true
+  validates :skill4, length: { maximum: 12 }
+  validates :skill4, presence: true, if: :skill_level4_present?
+  validates :skill4, presence: true, if: :skill5_present?
+  validates :skill_level4, presence: true, if: :skill4_present?
+  validates :skill5, length: { maximum: 12 }
+  validates :skill5, presence: true, if: :skill_level5_present?
+  validates :skill_level5, presence: true, if: :skill5_present?
+
+  def skill4_present?
+    skill4.present?
+  end
+  def skill_level4_present?
+    skill_level4.present?
+  end
+  def skill5_present?
+    skill5.present?
+  end
+  def skill_level5_present?
+    skill_level5.present?
+  end
 
   validates :obtained_skill, presence: true
 

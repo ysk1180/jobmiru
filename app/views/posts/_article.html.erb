@@ -23,6 +23,12 @@
           <span class="badge badge-primary"><%= post.skill1 %></span>
           <span class="badge badge-danger"><%= post.skill2 %></span>
           <span class="badge badge-warning"><%= post.skill3 %></span>
+          <% if post.skill4 present? %>
+            <span class="badge badge-success"><%= post.skill4 %></span>
+            <% if post.skill5 present? %>
+              <span class="badge badge-info"><%= post.skill5 %></span>
+            <% end %>
+          <% end %>
         </div>
         <small><i class="fa fa-heart fa-fw"></i>いいね！ <%= post.likes.count %>件　<i class="fa fa-star fa-fw"></i>働いてみたい！ <%= post.wants.count %>件　<i class="fa fa-comment fa-fw"></i>コメント <%= post.post_comments.count %>件</small>
       </div>

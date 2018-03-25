@@ -125,7 +125,7 @@
     <br>
     <div>
       <p>＜説明＞<br>
-      身についたスキルを3つと、それぞれの5段階での自己評価(1:低〜5:高)を入力いただくと<br>
+      身についたスキル、それぞれの5段階での自己評価(1:低〜5:高)を3項目以上入力いただくと<br>
       下記図のようにレーダーチャートで表示されます。（※各12文字以内）<br>
       <%= image_tag 'example2.png', :width => '315'%>
     </div>
@@ -166,6 +166,30 @@
       <div class="form-group col-4">
         <%= form.label :skill_level3, class: "label-inline" %><span class="badge badge-pill badge-danger">必須</span>
         <%= form.select :skill_level3,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-8">
+        <%= form.label :skill4, class: "label-inline" %>
+        <%= form.text_area :skill4, id: :skill1, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <%= form.label :skill_level4, class: "label-inline" %>
+        <%= form.select :skill_level4,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-8">
+        <%= form.label :skill5, class: "label-inline" %>
+        <%= form.text_area :skill5, id: :skill1, class:'form-control', rows:"1" %>
+      </div>
+
+      <div class="form-group col-4">
+        <%= form.label :skill_level5, class: "label-inline" %>
+        <%= form.select :skill_level5,[["",nil],["1（低）",1],["2",2],["3",3],["4",4],["5（高）",5]], {}, {class: 'form-control'} %>
       </div>
     </div>
   </div>

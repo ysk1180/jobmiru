@@ -65,12 +65,12 @@
           var myChart2 = new Chart(ctx, {
             type: 'radar',
             data: {
-              labels: ["<%= @post.skill1 %>", "<%= @post.skill2 %>", "<%= @post.skill3 %>"],
+              labels: <%= raw @skills %>,
               datasets: [{
                 label: '',
                 backgroundColor: "rgba(153,255,51,0.4)",
                 borderColor: "rgba(153,255,51,1)",
-                data: [<%= @post.skill_level1 %>, <%= @post.skill_level2 %>, <%= @post.skill_level3 %>]
+                data: <%= @levels %>
               }]
             },
             options: {
