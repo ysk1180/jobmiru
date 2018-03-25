@@ -61,6 +61,12 @@
       <div class="col-lg-12 text-center">
         <h2 class="section-heading text-uppercase">投稿を見る</h2>
         <h3 class="section-subheading text-muted">新規登録不要で投稿を見ることができます。<br>いいね！・コメントを行うためには新規登録（無料・1分程度）が必要です。</h3>
+        <div>
+          <h4 >最新の投稿</h4>
+          <div class="top-post">
+            <%= render partial: "posts/article", locals: {posts: @posts} %>
+          </div>
+        </div>
         <a class="btn btn-xl index-button" href="/posts">投稿一覧へ</a>
       </div>
     </div>
