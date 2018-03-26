@@ -50,6 +50,9 @@
       <!-- 一覧表示 -->
       <div id="main" class="col-sm-12 col-md-8">
         <div class="main-body">
+          <div>
+            <p class="text-muted"><%= @count %>件の投稿があります</p>
+          </div>
           <% unless @posts.present? %>
             <h>この検索条件での投稿はまだありません。</p>
           <% end %>

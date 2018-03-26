@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result.page(params[:page]).per(10).recent
+    @count = @posts.total_count
     @like_ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     @want_ranking = Post.find(Want.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
