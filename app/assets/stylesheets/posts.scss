@@ -319,3 +319,10 @@ a:-webkit-any-link{
   padding: 1em 0 0 0;
   margin: 0;
 }
+
+@media screen and (min-width: 768px) {
+  .chart-container{
+    width: 750px;
+    margin: auto;
+  }
+}
