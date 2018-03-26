@@ -51,6 +51,7 @@ class PostsController < ApplicationController
       @skills = ["#{@post.skill1}", "#{@post.skill2}", "#{@post.skill3}"]
       @levels = [@post.skill_level1, @post.skill_level2, @post.skill_level3]
     end
+    @posts = Post.where(industry: @post.industry).order("RANDOM()").limit(3)
   end
 
   def new

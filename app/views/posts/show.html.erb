@@ -161,6 +161,10 @@
     <% end %>
 
     <br>
+    <div>
+      <h6>こちらの投稿と同じ業種（<%= @post.industry %>）の投稿</h6>
+      <%= render partial: "article", locals: {posts: @posts} %>
+    </div>
 
     <%= link_to posts_path do %>
       <i class="fa fa-arrow-circle-left fa-fw"></i> 投稿一覧へ戻る
