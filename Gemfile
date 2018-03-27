@@ -90,3 +90,6 @@ gem 'data-confirm-modal'
 gem 'rack-rewrite'
 
 gem 'google-analytics-rails'
+
+# for S3
+gem 'fog'
