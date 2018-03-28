@@ -163,6 +163,9 @@
     <br>
     <div>
       <h6>こちらの投稿と同じ業種（<%= @post.industry %>）の投稿</h6>
+      <% unless @posts.present? %>
+        <p>同じ業種の投稿はまだありません。</p>
+      <% end %>
       <%= render partial: "article", locals: {posts: @posts} %>
     </div>
 

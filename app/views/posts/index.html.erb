@@ -54,7 +54,7 @@
             <p class="text-muted"><%= @count %>件の投稿があります</p>
           </div>
           <% unless @posts.present? %>
-            <h>この検索条件での投稿はまだありません。</p>
+            <p>この検索条件での投稿はまだありません。</p>
           <% end %>
 
           <%= render partial: "article", locals: {posts: @posts} %>
