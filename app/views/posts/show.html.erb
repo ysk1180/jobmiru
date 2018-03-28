@@ -22,8 +22,22 @@
             <% end %>
           <% end %>
           <%= link_to "#{@post.user.name}さん", user_path(@post.user.id), style: "text-decoration: underline" %>
+          <% if @post.user.nickname.present? %>
+            <%= link_to "https://twitter.com/#{@post.user.nickname}", :target=>["_blank"], class: "share_btn1 shtw1" do %>
+              <i class="fa fa-twitter"></i>
+            <% end %>
+          <% end %>
         </td>
       </tr>
+
+      <% if @post.user.past_career.present? %>
+        <tr>
+          <td colspan="2">投稿者の現在までのキャリア</td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= @post.user.past_career %></td>
+        </tr>
+      <% end %>
 
       <tr>
         <td>会社名</td>
