@@ -3,9 +3,13 @@
     <% if reply.post_comment_id == comment.id %>
       <p class="comment-name">
         <% if reply.user.user_image.present? %>
-          <%= image_tag reply.user.user_image_url %>
+          <%= link_to user_path(reply.user.id), style: "background: transparent" do %>
+            <%= image_tag reply.user.user_image_url %>
+          <% end %>
         <% else %>
-          <%= image_tag 'default.png' %>
+          <%= link_to user_path(reply.user.id), style: "background: transparent" do %>
+            <%= image_tag 'default.png' %>
+          <% end %>
         <% end %>
         <%= link_to "#{reply.user.name}さん", user_path(reply.user.id) %>
       </p>
