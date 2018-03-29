@@ -74,39 +74,39 @@
       <tr>
         <td colspan="2">
           <div class="chart-container">
-          <canvas id="myChart2"></canvas>
-          <script>
-          var ctx = document.getElementById("myChart2");
-          var myChart2 = new Chart(ctx, {
-            type: 'radar',
-            data: {
-              labels: <%= raw @skills %>,
-              datasets: [{
-                label: '',
-                backgroundColor: "rgba(153,255,51,0.4)",
-                borderColor: "rgba(153,255,51,1)",
-                data: <%= @levels %>
-              }]
-            },
-            options: {
-              responsive: true,
-              legend: {
-                display: false
+            <canvas id="myChart2"></canvas>
+            <script>
+            var ctx = document.getElementById("myChart2");
+            var myChart2 = new Chart(ctx, {
+              type: 'radar',
+              data: {
+                labels: <%= raw @skills %>,
+                datasets: [{
+                  label: '',
+                  backgroundColor: "rgba(153,255,51,0.4)",
+                  borderColor: "rgba(153,255,51,1)",
+                  data: <%= @levels %>
+                }]
               },
-              scale: {
-                // pointLabels: {
-                //   fontSize: 15 //フォントサイズ
-                // },
-                ticks: { //http://www.chartjs.org/docs/#scales-radial-linear-scale
-                  stepSize: 1, // 目盛の間隔
-                  max: 5, //最大値
-                  beginAtZero: true
+              options: {
+                responsive: true,
+                legend: {
+                  display: false
+                },
+                scale: {
+                  // pointLabels: {
+                  //   fontSize: 15 //フォントサイズ
+                  // },
+                  ticks: { //http://www.chartjs.org/docs/#scales-radial-linear-scale
+                    stepSize: 1, // 目盛の間隔
+                    max: 5, //最大値
+                    beginAtZero: true
+                  }
                 }
               }
-            }
-          });
-          </script>
-        </div>
+            });
+            </script>
+          </div>
         </td>
       </tr>
 

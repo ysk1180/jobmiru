@@ -4,7 +4,13 @@ module ApplicationHelper
     if post
       twitter_card[:url] = "https://jobmiru.herokuapp.com/posts/#{post.id}"
       twitter_card[:title] = 'Jobmiruへの投稿'
-      twitter_card[:description] = "会社名：#{post.company_name}で身についたスキルは、#{post.skill1}、#{post.skill2}、#{post.skill3}です！"
+      if post.skill5.present?
+        twitter_card[:description] = "会社名：#{post.company_name}で身についたスキルは、#{post.skill1}、#{post.skill2}、#{post.skill3}、#{post.skill4}、#{post.skill5}です！"
+      elsif post.skill4.present?
+        twitter_card[:description] = "会社名：#{post.company_name}で身についたスキルは、#{post.skill1}、#{post.skill2}、#{post.skill3}、#{post.skill4}です！"
+      else
+        twitter_card[:description] = "会社名：#{post.company_name}で身についたスキルは、#{post.skill1}、#{post.skill2}、#{post.skill3}です！"
+      end
     else
       twitter_card[:url] = 'https://jobmiru.herokuapp.com/'
       twitter_card[:title] = 'Jobmiru〜「何が出来るようになるか」で会社を選べる世界に'
