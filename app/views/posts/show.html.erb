@@ -35,7 +35,7 @@
           <td colspan="2">投稿者の現在までのキャリア</td>
         </tr>
         <tr>
-          <td colspan="2"><%= @post.user.past_career %></td>
+          <td colspan="2"><%= simple_format(@post.user.past_career) %></td>
         </tr>
       <% end %>
 

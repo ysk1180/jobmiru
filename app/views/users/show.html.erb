@@ -40,7 +40,7 @@
     </tr>
 
     <tr>
-      <td colspan="2"><%= @user.past_career %></td>
+      <td colspan="2"><%= simple_format(@user.past_career) %></td>
     </tr>
 
     <tr>
@@ -48,7 +48,7 @@
     </tr>
 
     <tr>
-      <td colspan="2"><%= @user.career_plan %></td>
+      <td colspan="2"><%= simple_format(@user.career_plan) %></td>
     </tr>
 
     </table>
