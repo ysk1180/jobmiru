@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   validates :company_name, presence: true
   validates :industry, presence: true
   validates :job_category, presence: true
+  validates :division_name, presence: true
   validates :job_start, presence: true
   validates :job_content1, presence: true
   validates :job_content1, length: { maximum: 15 }
