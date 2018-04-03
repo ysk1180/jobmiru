@@ -4,17 +4,28 @@
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 100, "easeInOutExpo");
-        return false;
-      }
-    }
+  // $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+  //   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+  //     var target = $(this.hash);
+  //     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+  //     if (target.length) {
+  //       $('html, body').animate({
+  //         scrollTop: (target.offset().top - 54)
+  //       }, 100, "easeInOutExpo");
+  //       return false;
+  //     }
+  //   }
+  // });
+
+  $(function(){
+    $('a[href^="#"]').click(function(){
+      var speed = 500;
+      var href= $(this).attr("href");
+      var target = $(href == "#" || href == "" ? 'html' : href);
+      var position = target.offset().top;
+      $("html, body").animate({scrollTop:position}, speed, "swing");
+      return false;
+    });
   });
 
   // Closes responsive menu when a scroll trigger link is clicked
