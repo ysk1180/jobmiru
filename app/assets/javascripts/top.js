@@ -23,10 +23,6 @@
       var href= $(this).attr("href");
       var target = $(href == "#" || href == "" ? 'html' : href);
       var position = target.offset().top;
-      console.log(target);
-        console.log(position);
-          console.log({scrollTop:position}, speed, "swing");
-            console.log('aaa');
       $("html, body").animate({scrollTop:position}, speed, "swing");
       return false;
     });
