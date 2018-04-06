@@ -36,10 +36,10 @@ group :development do
   # for letter opener
   gem 'letter_opener_web'
   gem "letter_opener"
-
-  # for env
-  gem 'dotenv-rails'
 end
+
+# for env
+gem 'dotenv-rails'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
