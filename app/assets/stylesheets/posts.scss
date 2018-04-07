@@ -14,10 +14,11 @@
 
 .switch:hover{
   opacity: .7;
+  text-decoration: none;
 }
 
 a:-webkit-any-link{
-  text-decoration: none;
+  // text-decoration: none;
 }
 
 .search-box {
@@ -190,7 +191,7 @@ a:-webkit-any-link{
     height: 1.7rem;
     font-size: 1rem;
     line-height: 1.7rem;
-    vertical-align: middle;
+    // vertical-align: middle;
     background: #eaeef1;
     text-decoration: none;
     margin: 0 0 1em .3em;
@@ -215,7 +216,7 @@ a:-webkit-any-link{
     display: inline-block;
     width: 4.5rem;
     text-align: center;
-    vertical-align:middle;
+    // vertical-align:middle;
 }
 
 .flat_ss .tw {background:#1da1f3}
@@ -325,4 +326,8 @@ a:-webkit-any-link{
     width: 750px;
     margin: auto;
   }
+}
+
+.not-under a:hover {
+  text-decoration: none;
 }

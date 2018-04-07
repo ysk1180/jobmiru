@@ -73,25 +73,27 @@
         <!-- いいねが多い投稿一覧機能 -->
         <div class="rank-box">
           <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>いいね！ランキング</span>
-          <% @like_ranking.each.with_index(1) do |post, i| %>
-          <%= link_to post do %>
-            <div class ="rank">
-              <table class="table table-sm">
-                <tbody>
-                  <tr>
-                    <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
-                  </tr>
-                  <tr>
-                    <td class="border-top-0"><%= post.company_name %></td>
-                  </tr>
-                  <tr>
-                    <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="not-under">
+            <% @like_ranking.each.with_index(1) do |post, i| %>
+              <%= link_to post do %>
+                <div class ="rank">
+                  <table class="table table-sm">
+                    <tbody>
+                      <tr>
+                        <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
+                      </tr>
+                      <tr>
+                        <td class="border-top-0"><%= post.company_name %></td>
+                      </tr>
+                      <tr>
+                        <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
           <%= link_to 'もっと見る', posts_like_ranking_path, style: "text-decoration: underline" %>
         </div>
         <!-- いいねが多い投稿一覧機能ここまで -->
@@ -99,25 +101,27 @@
         <!-- 働きたいが多い投稿一覧機能 -->
         <div class="rank-box">
           <span class="rank-box-title"><i class="fa fa-check fa-fw"></i>働いてみたい！ランキング</span>
-          <% @want_ranking.each.with_index(1) do |post, i| %>
-          <%= link_to post do %>
-            <div class ="rank">
-              <table class="table table-sm">
-                <tbody>
-                  <tr>
-                    <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
-                  </tr>
-                  <tr>
-                    <td class="border-top-0"><%= post.company_name %></td>
-                  </tr>
-                  <tr>
-                    <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="not-under">
+            <% @want_ranking.each.with_index(1) do |post, i| %>
+              <%= link_to post do %>
+                <div class ="rank">
+                  <table class="table table-sm">
+                    <tbody>
+                      <tr>
+                        <td class="border-top-0"><%= i %>位　<%= post.user.name %>さん</td>
+                      </tr>
+                      <tr>
+                        <td class="border-top-0"><%= post.company_name %></td>
+                      </tr>
+                      <tr>
+                        <td class="border-top-0"><%= post.industry %>　/　<%= post.job_category %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
+           </div>
           <%= link_to 'もっと見る', posts_want_ranking_path, style: "text-decoration: underline" %>
         </div>
         <!-- 働きたい投稿一覧機能ここまで -->
