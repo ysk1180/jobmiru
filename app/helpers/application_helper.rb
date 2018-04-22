@@ -11,7 +11,7 @@ module ApplicationHelper
       else
         twitter_card[:description] = "会社名：#{post.company_name}で身についたスキルは、#{post.skill1}、#{post.skill2}、#{post.skill3}です！"
       end
-      twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/jobmiru-production/#{post.id}.png"
+      twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/jobmiru-production/images/#{post.id}.png"
     else
       twitter_card[:url] = 'https://jobmiru.herokuapp.com/'
       twitter_card[:title] = 'Jobmiru〜「何が出来るようになるか」で会社を選べる世界に'
