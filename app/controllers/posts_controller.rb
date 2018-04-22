@@ -61,6 +61,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.make_picture
     if @post.save
       redirect_to @post, notice: '投稿しました。投稿ありがとうございます。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
@@ -69,6 +70,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    make_picture
     if @post.update(post_params)
       redirect_to @post, notice: '投稿を更新しました。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
@@ -94,5 +96,42 @@ class PostsController < ApplicationController
     @user = User.find(Post.find(params[:id]).user_id)
     @current_user = current_user
     redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。' unless view_context.current_user?(@user, @current_user)
+  end
+
+  def make_picture
+    font = ".fonts/ipag.ttc"
+    image = MiniMagick::Image.open("base.png")
+    image.combine_options do |i|
+      i.font font
+      i.gravity 'center'
+      i.pointsize 25
+      if @post.skill5.present?
+        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n#{@post.skill5}\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+      elsif @post.skill4.present?
+        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+      else
+        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+      end
+    end
+    storage = Fog::Storage.new(
+      provider: 'AWS',
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      region: 'ap-northeast-1'
+    )
+    case Rails.env
+      when 'production'
+        bucket = strage.directories.get('jobmiru-production')
+        png_path = 'images/' + @post.id.to_s + '.png'
+        image_uri = image.path
+        file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
+        @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/jobmiru-production' + "/" + png_path
+      when 'development'
+        bucket = storage.directories.get('jobmiru-development')
+        png_path = 'images/' + @post.id.to_s + '.png'
+        image_uri = image.path
+        file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
+        @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/jobmiru-development' + "/" + png_path
+    end
   end
 end
