@@ -104,13 +104,13 @@ class PostsController < ApplicationController
     image.combine_options do |i|
       i.font font
       i.gravity 'center'
-      i.pointsize 22
+      i.pointsize 17
       if @post.skill5.present?
-        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n#{@post.skill5}\n\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+        i.draw "text 0,-5 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n#{@post.skill5}\n\nのスキルが身についたのは何の仕事でしょうか？\nこちらからご覧ください！'"
       elsif @post.skill4.present?
-        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+        i.draw "text 0,-5 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n#{@post.skill4}\n\nのスキルが身についたのは何の仕事でしょうか？\nこちらからご覧ください！'"
       else
-        i.draw "text 0,-20 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n\nのスキルが身についた仕事に関する\n口コミが投稿されました！'"
+        i.draw "text 0,-5 '#{@post.skill1}\n#{@post.skill2}\n#{@post.skill3}\n\nのスキルが身についたのは何の仕事でしょうか？\nこちらからご覧ください！'"
       end
     end
     storage = Fog::Storage.new(
