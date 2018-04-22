@@ -3,7 +3,7 @@ module ApplicationHelper
     twitter_card = {}
     if post
       twitter_card[:url] = "https://jobmiru.herokuapp.com/posts/#{post.id}"
-      twitter_card[:title] = 'Jobmiruへの投稿'
+      twitter_card[:title] = "#{post.user.name}さんのJobmiruへの投稿"
       twitter_card[:image] = "https://s3-ap-northeast-1.amazonaws.com/jobmiru-production/images/#{post.id}.png"
     else
       twitter_card[:url] = 'https://jobmiru.herokuapp.com/'
