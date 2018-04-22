@@ -121,7 +121,7 @@ class PostsController < ApplicationController
     )
     case Rails.env
       when 'production'
-        bucket = strage.directories.get('jobmiru-production')
+        bucket = storage.directories.get('jobmiru-production')
         png_path = 'images/' + @post.id.to_s + '.png'
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
