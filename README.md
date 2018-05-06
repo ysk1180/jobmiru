@@ -20,6 +20,9 @@ https://www.jobmiru.com/
 サービスを紹介したブログ記事  
 http://ysk-pro.hatenablog.com/entry/2018/03/25/100427
 
+## リリース日
+2018年3月24日
+
 ## バージョン
 Ruby：2.3.0  
 Rails：5.1.4  
