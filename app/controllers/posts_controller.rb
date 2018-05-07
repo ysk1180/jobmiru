@@ -61,7 +61,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    make_picture
+    next_id = Post.last.id + 1
+    make_picture(next_id)
     if @post.save
       redirect_to @post, notice: '投稿しました。投稿ありがとうございます。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
@@ -98,7 +99,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: '他のユーザーの投稿は編集できません。' unless view_context.current_user?(@user, @current_user)
   end
 
-  def make_picture
+  def make_picture(next_id)
     font = ".fonts/ipag.ttc"
     image = MiniMagick::Image.open("base.png")
     image.combine_options do |i|
@@ -122,13 +123,13 @@ class PostsController < ApplicationController
     case Rails.env
       when 'production'
         bucket = storage.directories.get('jobmiru-production')
-        png_path = 'images/' + @post.id.to_s + '.png'
+        png_path = 'images/' + next_id.to_s + '.png'
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/jobmiru-production' + "/" + png_path
       when 'development'
         bucket = storage.directories.get('jobmiru-development')
-        png_path = 'images/' + @post.id.to_s + '.png'
+        png_path = 'images/' + next_id.to_s + '.png'
         image_uri = image.path
         file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
         @post.picture = 'https://s3-ap-northeast-1.amazonaws.com/jobmiru-development' + "/" + png_path
