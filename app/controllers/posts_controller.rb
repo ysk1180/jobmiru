@@ -61,7 +61,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    make_picture
     if @post.save
       make_picture
       redirect_to @post, notice: '投稿しました。投稿ありがとうございます。「Tweet」ボタンから投稿をシェアしてみましょう！'
@@ -71,8 +70,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    make_picture
     if @post.update(post_params)
+      make_picture
       redirect_to @post, notice: '投稿を更新しました。「Tweet」ボタンから投稿をシェアしてみましょう！'
     else
       render :edit
