@@ -17,13 +17,22 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # default setting
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
+  # gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 
   # for debug
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # for RSpec
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
@@ -36,6 +45,9 @@ group :development do
   # for letter opener
   gem 'letter_opener_web'
   gem "letter_opener"
+
+  # for RSpec
+  gem 'spring-commands-rspec'
 end
 
 # for env

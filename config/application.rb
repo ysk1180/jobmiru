@@ -11,7 +11,11 @@ module Jobmiru
 
     # rails g実行時にhelper、test、js、scssを作らない設定（芝田さんアドバイスに基づき記載）
     config.generators do |g|
-      g.test_framework false
+      g.test_framework :rspec,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        request_specs: false
       g.helper false
       g.assets false
     end
