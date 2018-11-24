@@ -2,7 +2,7 @@
 
 ## サービス名
 Jobmiru  
-https://www.jobmiru.com/
+http://www.jobmiru.com/
 
 ## 概要
 「身につくスキル」に特化した転職口コミサイト
