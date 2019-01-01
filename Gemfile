@@ -87,7 +87,7 @@ gem 'font-awesome-rails'
 
 # herokuのrubyバージョン指定
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.5.1'
 
 # forレーダーチャート
 gem 'chart-js-rails'
